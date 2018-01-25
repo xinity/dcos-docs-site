@@ -21,7 +21,6 @@ If you install a service in disabled mode, it will use the default `dcos_anonymo
 
 - [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.9/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI (install with `dcos package install dcos-enterprise-cli` if you haven't already).
@@ -73,60 +72,39 @@ dcos security secrets list /
 ```
 
 # <a name="give-perms"></a>Create and Assign Permissions
-Use the following curl commands to rapidly provision the Spark service account with the required permissions. This can also be done through the UI.
+Use the following DC/OS CLI commands to rapidly provision the Spark service account with the required permissions. This can also be done through the UI.
 
 **Tips:**
 
-- Any `/` character in a resource must be replaced with `%252F` before it can be passed in a curl command.
-- When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
+- Permissions can also be created in the UI using the same permission string such as `dcos:mesos:master:framework:role:* create`
 
-1.  Create the permissions. Some of these permissions may exist already.
+
+1.  Create the permissions, please note: some of these permissions may exist already.
 
     **Important:** Spark runs by default under the [Mesos default role](http://mesos.apache.org/documentation/latest/roles/), which is represented by the `*` symbol. You can deploy multiple instances of Spark without modifying this default. If you want to override the default Spark role, you must modify these code samples accordingly.
 
-    ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody \
-    -d '{"description":"Allows Linux user nobody to execute tasks"}' \
-    -H 'Content-Type: application/json'
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:* \
-    -d '{"description":"Allows a framework to register with the Mesos master using the Mesos default role"}' \
-    -H 'Content-Type: application/json'
-    curl -X PUT -k \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252Fspark" \
-    -d '{"description":"Allow to read the task state"}' \
-    -H 'Content-Type: application/json'
+    **Important:** RHEL/CentOS users cannot currently run Spark in strict mode as user `nobody`, but must run as user `root`. This is due to how accounts are mapped to uid's. CoreOS users are unaffected, and can run as user `nobody`.
 
-    ```
-    
-    **Troubleshooting** If these commands return a `307 Temporary Redirect` error it can be because your cluster url (`dcos config show core.dcos_url`) is not set as Hyper Text Transfer Protocol Secure (`https://`).  
-
-
-1.  Grant the permissions and the allowed actions to the service account using the following commands.
-
-    Run these commands with your service account name (`<service-account-id>`) specified.
+    Run these commands with your service account name (`<service-account-id>`) specified, and ('<user>') defined as `nobody` or `root`.
 
     ```bash
-    curl -X PUT -k \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:*/users/<service-account-id>/create"
-    curl -X PUT -k \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:app_id:%252Fspark/users/<service-account-id>/create"
-    curl -X PUT -k \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/<service-account-id>/create
+    dcos security org users grant spark dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+    dcos security org users grant spark dcos:mesos:master:framework:role:* create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+    dcos security org users grant spark dcos:mesos:master:task:app_id:/<service-account-id> create --description "Allows reading of the task state"
     ```
 
 
 # <a name="create-json"></a>Create a Configuration File
 Create a custom configuration file that will be used to install Spark and save as `config.json`.
 
-Specify the service account (`<service-account-id>`) and secret (`spark/<secret-name>`).
+Specify the service account (`<service-account-id>`), secret (`spark/<secret-name>`) and ('<user>'), defined as `nobody` for CoreOS and `root` for RHEL/CentOS.
+
 
 ```json
 {
     "service": {
             "service_account": "<service-account-id>",
-            "user": "nobody",
+            "user": "<user>",
             "service_account_secret": "spark/<secret_name>"
     }
 }
@@ -143,8 +121,7 @@ dcos package install --options=config.json spark
 **Note** You can install the Spark Mesos Dispatcher to run as `root` by substituting `root` for `nobody` above. If you are running a strict mode cluster, you must give Marathon the necessary permissions to launch the Dispatcher task. Use the following command to give Marathon the appropriate permissions:
 
 ```bash
-curl -X PUT -k \
--H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:root/users/dcos_marathon/create
+dcos security org users grant spark dcos:mesos:master:task:user:root/users/dcos_marathon create
 ``` 
 
 ## <a name="Run a Job"></a>Run a Job
@@ -152,7 +129,7 @@ curl -X PUT -k \
 To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
 ```bash
 dcos spark run --verbose --submit-args=" \
---conf spark.mesos.principal=spark-principal \
+--conf spark.mesos.principal=spark \
 --conf spark.mesos.containerizer=mesos \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
@@ -161,7 +138,7 @@ If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/d
 
 ```bash
 dcos spark run --verbose --submit-args="\
---conf spark.mesos.principal=spark-principal \
+--conf spark.mesos.principal=spark \
 --conf spark.mesos.driverEnv.SPARK_USER=nobody \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
