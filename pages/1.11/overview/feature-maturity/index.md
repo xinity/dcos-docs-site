@@ -67,7 +67,7 @@ A decommissioned feature is no longer available in current releases of DC/OS. Th
 
 ## <a name="prior-lifecycle-stages">Prior Lifecycle Stages
 
-Prior to 1.10, GA features were called Stable features, and Beta features were called Experimental or Preview features.
+Prior to 1.11, GA features were called Stable features, and Beta features were called Experimental or Preview features.
 
 ## <a name="not_a_warranty">Not a Warranty
 
