@@ -226,7 +226,7 @@ Here is an example JSON application definition that contains all fields.
 
 ```json
 {
-    "id": "/product/service/myApp",
+    "id": "/product/service/my-app",
     "cmd": "env && sleep 300",
     "cpus": 1.5,
     "mem": 256.0,
