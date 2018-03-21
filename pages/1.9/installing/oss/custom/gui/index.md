@@ -52,6 +52,12 @@ The DC/OS installation creates these folders:
 
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
+Add the group called `nogroup` prior to installing DC/OS
+
+    ```
+    sudo groupadd nogroup
+    ```
+
 # Install DC/OS
 
 1.  Download the [DC/OS installer][1] to your bootstrap node.

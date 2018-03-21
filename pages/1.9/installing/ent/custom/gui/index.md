@@ -36,6 +36,12 @@ The DC/OS installation creates these folders:
     
 Your cluster must meet the software and hardware [requirements][1]. 
 
+Add the group called `nogroup` prior to installing DC/OS
+
+    ```
+    sudo groupadd nogroup
+    ```
+
 # Install DC/OS
 
 1.  From your terminal, start the DC/OS GUI installer with this command.
