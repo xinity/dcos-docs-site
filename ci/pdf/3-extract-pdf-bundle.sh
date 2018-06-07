@@ -3,7 +3,7 @@
 # Run the site image with the local Docker.
 # Validate that the site comes up healthy with curl.
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 # requires inputs
 DOCKER_IMAGE="${DOCKER_IMAGE}"

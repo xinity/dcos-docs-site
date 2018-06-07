@@ -4,7 +4,7 @@
 # Authenticate the CLI using a service account.
 # Update an existing Marathon app to use the new docker image.
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 # required inputs
 PDF_BUNDLE_URL="${PDF_BUNDLE_URL}"

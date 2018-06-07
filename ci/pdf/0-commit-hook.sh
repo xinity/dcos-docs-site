@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE}")/../.." && pwd -P)"
 cd "${project_dir}"
@@ -59,5 +59,3 @@ PDF_BUNDLE_URL="$(cat ".pdf-bundle-url")"
 export PDF_BUNDLE_URL # export separately so errexit works :(
 
 ci/pdf/5-deploy-site-update.sh
-
-

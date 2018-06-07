@@ -6,7 +6,7 @@
 #              and generates a pdf for each file
 #
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 OUTPUT_FOLDER=${1}
 

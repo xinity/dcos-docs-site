@@ -4,7 +4,7 @@
 # Tag the image with the branch, date, and commit short sha.
 
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 # requires inputs
 GIT_BRANCH="${GIT_BRANCH}"

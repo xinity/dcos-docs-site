@@ -5,7 +5,7 @@
 # Image: https://hub.docker.com/r/mesosphere/jenkins-dind/
 # TODO: replace this setup script with a custom docker image that has these built-in
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 echo "Installing curl..."
 apk update

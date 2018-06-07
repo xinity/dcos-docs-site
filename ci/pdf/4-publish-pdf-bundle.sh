@@ -2,7 +2,7 @@
 
 # Log into DockerHub, publish a docker image, and log out.
 
-set -o errexit -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail -x
 
 # required inputs
 PDF_BUNDLE_PATH="${PDF_BUNDLE_PATH}"
