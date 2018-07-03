@@ -166,7 +166,7 @@ In this step, you create a YAML configuration file that is customized for your e
             rexray_config_filename: path/to/rexray.yaml
             
         
-        **Tip:** The `rexray_config_filename` path must be relative to your `genconf` directory.
+    **Tip:** The `rexray_config_filename` path must be relative to your `genconf` directory.
     
     *   Create a `genconf/rexray.yaml` file with your REX-Ray configuration specified. For example, here is a `rexray.yaml` file is configured for Amazon's EBS. Consult the [REX-Ray documentation][6] for more information.
         
@@ -177,9 +177,9 @@ In this step, you create a YAML configuration file that is customized for your e
                 volume:
                   unmount:
                     ignoreusedcount: true
-            
+               
     
-    For more information, see the external volumes [documentation][7].
+For more information, see the external volumes [documentation][7].
 
 4.  Copy your private SSH key to `genconf/ssh_key`. For more information, see the [ssh_key_path][3] parameter.
     
