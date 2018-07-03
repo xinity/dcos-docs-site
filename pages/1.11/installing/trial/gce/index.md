@@ -4,6 +4,8 @@ excerpt: Running DC/OS on Google Compute Engine
 title: Running DC/OS on Google Compute Engine
 navigationTitle: GCE
 menuWeight: 20
+
+OSS: true
 ---
 
 # Terraform

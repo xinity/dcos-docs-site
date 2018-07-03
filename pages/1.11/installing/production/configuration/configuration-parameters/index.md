@@ -5,12 +5,10 @@ title: Configuration Reference
 menuWeight: 5
 
 excerpt: Configuration parameters available for DC/OS Enterprise
-
-enterprise: true
 ---
 
 
-This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](/1.11/installing/oss/custom/configuration/configuration-parameters/).
+This topic provides configuration parameters available for [DC/OS Enterprise](https://mesosphere.com/product/). For configuration parameters available for [DC/OS](https://dcos.io/) please refer to [Configuration Reference for DC/OS](/1.11/installing/production/configuration/configuration-parameters/).
 
 # Cluster Setup
 
@@ -58,11 +56,11 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
 
-# Storage
+# Storage [enterprise type="inline" size="small" /]
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | [enterprise type="inline" size="small" /] A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | Enables advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage)|
 
 # Performance and Tuning
 
@@ -78,6 +76,8 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 
 # Security and Authentication
 
+For Enterprise users:
+
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise)    | [enterprise type="inline" size="small" /] Controls whether the Admin Router authorization cache is enabled. |
@@ -87,7 +87,7 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | [enterprise type="inline" size="small" /] Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | [enterprise type="inline" size="small" /] Sets the auth token time-to-live (TTL) for Identity and Access Management. |
-| [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] (Required) The DC/OS Enterprise customer key. |
+| [customer_key](#customer-key-enterprise)                       | [enterprise type="inline" size="small" /] The DC/OS Enterprise customer key. |
 | ca_certificate_path                   | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_key_path           | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
 | ca_certificate_chain_path       | [enterprise type="inline" size="small" /] Use this to set up a custom CA certificate. See [this page](/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) for a detailed configuration parameter reference. |
@@ -95,12 +95,23 @@ This topic provides configuration parameters available for [DC/OS Enterprise](ht
 | [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
-| [superuser_password_hash](#superuser-password-hash-enterprise) | [enterprise type="inline" size="small" /] (Required) The hashed superuser password. |
-| [superuser_username](#superuser-username-enterprise)           | [enterprise type="inline" size="small" /] (Required) The user name of the superuser.|
+| [superuser_password_hash](#superuser-password-hash-enterprise) | [enterprise type="inline" size="small" /] The hashed superuser password. |
+| [superuser_username](#superuser-username-enterprise)           | [enterprise type="inline" size="small" /] The user name of the superuser.|
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
 | [zk_super_credentials](#zk-superuser)            | [enterprise type="inline" size="small" /] The ZooKeeper superuser credentials.  |
 | [zk_master_credentials](#zk-master)          | [enterprise type="inline" size="small" /] The ZooKeeper master credentials.  |
 | [zk_agent_credentials](#zk-agent)           | [enterprise type="inline" size="small" /] The ZooKeeper agent credentials.  |
+
+
+For Open Source users:
+
+| Parameter                          | Description                                                                                                                                                |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [oauth_enabled](#oauth-enabled-open-source)                                | [oss type="inline" size="small" /] Indicates whether to enable authentication for your cluster.  |
+| [ssh_key_path](#ssh-key-path)                            | The path to the installer uses to log into the target nodes. |
+| [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
+| [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
+| [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
 
 [enterprise]
 ### adminrouter_auth_cache_enabled
@@ -113,7 +124,7 @@ Controls whether the Admin Router authorization cache is enabled.
 *   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
 *   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
-### adminrouter_tls_1_0_enabled
+### adminrouter_tls_1_0_enabled [enterprise type="inline" size="small" /]
 
 Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
@@ -124,7 +135,7 @@ You are advised not to enable TLS 1.0 as the protocol is considered insecure.
 
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
 
-### adminrouter_tls_1_1_enabled
+### adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
 
 Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
 
@@ -133,7 +144,7 @@ Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has n
 
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
 
-### adminrouter_tls_1_2_enabled
+### adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
 
 Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
 
@@ -144,7 +155,7 @@ It is advised to keep this protocol version enabled as its most secure widely su
 
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade][3] with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
 
-### adminrouter_tls_cipher_suite
+### adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 
 Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router's [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) configuration directive. There is no validation of this string. Setting it incorrectly will cause DC/OS installation to fail. This configuration settings affects only Admin Routers running on DC/OS master nodes.
 
@@ -185,7 +196,7 @@ bouncer_expiration_auth_token_days: '0.5'
 
 For more information, see the [security documentation](/1.11/security/ent/).
 
-### cluster_docker_credentials
+### cluster_docker_credentials 
 The dictionary of Docker credentials to pass.
 
 - If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
@@ -206,7 +217,7 @@ You can use the following options to further configure the Docker credentials:
 
 For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#docker-credentials).
 
-### cluster_docker_credentials_enabled
+### cluster_docker_credentials_enabled 
 Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos.
 
 *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
@@ -451,8 +462,12 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 *  `master_dns_bindall: 'true'` The master DNS port is open. This is the default value.
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
 
-### master_external_loadbalancer
+### master_external_loadbalancer [enterprise type="inline" size="small" /]
 The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.11/security/ent/tls-ssl/) of the Admin Router on the master nodes.
+
+### mesos_agent_work_dir [oss type="inline" size="small" /]
+
+The location of the Mesos work directory on agent and public agent nodes. This defines the `work_dir` parameter for Mesos agents in the cluster. The default is `/var/lib/mesos/slave`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/agent/).
 
 ### mesos_container_log_sink
 
@@ -473,8 +488,22 @@ Indicates whether Mesos-DNS sets the truncate bit if the response is too large t
 
 For more information regarding truncated DNS responses and retrying over TCP see [RFC7766 - DNS Transport over TCP - Implementation Requirements](https://tools.ietf.org/html/rfc7766).
 
+### mesos_master_work_dir [oss type="inline" size="small" /]
+The location of the Mesos work directory on master nodes. This defines the `work_dir` parameter for Mesos masters in the cluster. The default is `/var/lib/dcos/mesos/master`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/master/).
+
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
+
+[oss]
+### oauth_enabled
+[/oss]
+
+Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
+
+- `oauth_enabled: true` Enable authentication for your cluster. This is the default value.
+- `oauth_enabled: false` Disable authentication for your cluster.
+
+If you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
 
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).

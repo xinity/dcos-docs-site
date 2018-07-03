@@ -16,38 +16,38 @@ excerpt: Troubleshooting DC/OS installation issues
 
 ## IP detect script
 
-You must have a valid [ip-detect](/1.11/installing/production/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.11/installing/oss/custom/advanced/) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
-  - extra lines
-  - white space
-  - special or hidden characters
+    - extra lines
+    - white space
+    - special or hidden characters
 
-It is recommended that you use the `ip-detect` [examples](/1.11/installing/production/advanced/).
+    It is recommended that you use the `ip-detect` [examples](/1.11/installing/oss/custom/advanced/).
 
-## DNS resolvers
+    ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/production/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+    You must have working DNS resolvers, specified in your [config.yaml](/1.11/installing/oss/custom/configuration/configuration-parameters/#resolvers) file. It is recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
-  - `hostname -f` returns the FQDN
-  - `hostname -s` returns the short hostname
+    - `hostname -f` returns the FQDN
+    - `hostname -s` returns the short hostname
 
-You should sanity check the output of `hostnamectl` on all of your nodes as well.
+    You should sanity check the output of `hostnamectl` on all of your nodes as well.
 
-When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
+    When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
- 1. Exhibitor
- 1. Mesos master
- 1. Mesos DNS
- 1. DNS Forwarder
- 1. DC/OS Marathon
- 1. Jobs
- 1. Admin Router
+    1. Exhibitor
+    1. Mesos master
+    1. Mesos DNS
+    1. DNS Forwarder
+    1. DC/OS Marathon
+    1. Jobs
+    1. Admin Router
 
- Be sure to check that all services are up and healthy on the masters before checking the agents.
+    Be sure to check that all services are up and healthy on the masters before checking the agents.
 
-## NTP
+    ### NTP
 
- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
+    Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
 
     ```bash
     ntptime
@@ -57,35 +57,33 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
 1. Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
+   Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
 
-Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
+   ```bash
+   sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
+   ```
 
+1.  Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
 
-    ```bash
-    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
-    ```
-
-1. Verify that Exhibitor is up and running at `http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
-
-    - [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
+    -  [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
         ```bash
         journalctl -flu dcos-exhibitor
         ```
 
-    - Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. To repair `/tmp` mounted with `noexec`:
+    -  Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. To repair `/tmp` mounted with `noexec`:
 
-  1.  Enter this command:
+        1.  Enter this command:
 
             ```bash
             mount -o remount,exec /tmp
             ```
 
-  1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
+        1.  Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
 
-  For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
+            For example, [SSH](/1.11/administering-clusters/sshcluster/) to your master node and enter this command:
 
-         ```bash
+            ```bash
             curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
             [
                 {
@@ -109,8 +107,7 @@ Ensure that services that bind to port `53`, which is required by DNS Forwarder 
             ]
             ```
 
-**Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
-
+            **Note:** Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it doesn't complete after 10-15 minutes, you should carefully review the `journalctl -flu dcos-exhibitor` logs.
 1.  Verify whether you can ping the DNS Forwarder (`ready.spartan`) [enterprise type="inline" size="small" /] or (`ready.dcos-net`) [open source type="inline" size="small" /]. If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 
     ```bash

@@ -4,8 +4,6 @@ navigationTitle:  Advanced Installer
 title: Advanced Installer
 menuWeight: 10
 excerpt: Using the Advanced Installer to create DC/OS clusters
-
-enterprise: true
 ---
 
 With this installation method, you package the DC/OS distribution yourself and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you don’t have SSH access to your cluster.
@@ -50,7 +48,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 **Important:**
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/ent/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.11/installing/production/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
 1.  Create an IP detection script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) line. You can use the examples below.
@@ -192,7 +190,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 **Important:**
 
 - Due to a cluster configuration issue with overlay networks, we currently recommend setting `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. You can see troubleshooting [here](/1.11/installing/ent/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. You can see troubleshooting [here](/1.11/installing/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
 
 **Prerequisites**
@@ -325,8 +323,8 @@ You are done! The UI dashboard will now be displayed.
 Now you can [assign user roles][8].
 
 
- [1]: /1.11/installing/ent/custom/system-requirements/
- [2]: /1.11/installing/ent/custom/uninstall/
+ [1]: /1.11/installing/production/system-requirements/
+ [2]: /1.11/installing/production/uninstall/
  [3]: /1.11/overview/concepts/#public
  [4]: /1.11/overview/concepts/#private
  [5]: /1.11/img/chef-zk-status.png

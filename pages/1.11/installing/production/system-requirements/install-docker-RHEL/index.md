@@ -4,8 +4,6 @@ navigationTitle:  RHEL 7.4 prerequisites
 title: Prepare RHEL 7.4 for DC/OS installation
 menuWeight: 10
 excerpt: Requirements and recommendations for installing Docker on RHEL
-
-enterprise: false
 ---
 
 
@@ -152,10 +150,10 @@ The following instructions demonstrate how to prepare a RHEL 7.4 system for DC/O
 	docker info | grep Storage
 	```
 
-To continue setting up DC/OS, [please jump to the Advanced Installer][2]
+To continue setting up DC/OS, see [Advanced Installer][2] dcoumentation.
 
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /1.11/installing/ent/custom/system-requirements/#docker
-[2]: /1.11/installing/ent/custom/advanced/
+[1]: /1.11/installing/production/system-requirements/#docker
+[2]: /1.11/installing/production//advanced/

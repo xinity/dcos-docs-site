@@ -4,12 +4,10 @@ navigationTitle:  Examples
 title: Examples
 menuWeight: 10
 excerpt: Common example configurations for DC/OS Enterprise
-
-enterprise: false
 ---
 
 
-This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
+This topic provides common example configurations. Except where explicitly indicated, the configuration parameters apply to both [DC/OS Open Source](https://dcos.io/) and [DC/OS Enterprise](https://mesosphere.com/product/). These comments are used in this sample config.yaml to indicate DC/OS product type.
 
 - `# DC/OS Only` - Applies to DC/OS only.
 - `# DC/OS Enterprise Only` - Applies to DC/OS Enterprise only.
@@ -179,7 +177,7 @@ ssh_port: '<port-number>'
 ssh_user: <username>
 ```
 
-##<a name="aws"></a>
+
 DC/OS cluster with three masters, an Exhibitor/ZooKeeper backed by an AWS S3 bucket, five private agents, and one public agent node
 
 ```yaml

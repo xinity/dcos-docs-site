@@ -3,15 +3,13 @@ layout: layout.pug
 title: Running DC/OS on AWS EC2 Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster for AWS using DC/OS templates
-
-enterprise: true
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/trial/aws/advanced/).
 
 **Important:** Upgrades are not supported with this installation method.
 
@@ -84,7 +82,7 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 # Install the DC/OS CLI
 
-You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your DCOS cluster.
+You must install the DC/OS Command-Line Interface to administer your DCOS cluster.
 
 1.  Click the dropdown menu on the upper-left of the DC/OS GUI and select **Install CLI**.
 
@@ -92,8 +90,7 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 
 # Next steps
 
-- [Add users to your cluster][10]
+- [Add users to your cluster][2]
 
  [1]: /1.11/administering-clusters/managing-aws/
- [2]: /1.11/cli/install/
- [10]: /1.11/security/
+ [2]: /1.11/security/

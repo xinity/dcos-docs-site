@@ -4,6 +4,7 @@ excerpt:
 title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 10
+OSS: true
 ---
 
 This page explains how to install DC/OS 1.11 using the Azure Resource Manager templates.
@@ -240,9 +241,7 @@ If you've created a new resource group in the deployment step, it is as easy as 
 ## Next steps
 
 - [Add users to your cluster][1]
-- [Install the DC/OS Command-Line Interface (CLI)][2]
-- [Scaling considerations][4]
+- [Scaling considerations][2]
 
 [1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
-[4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
+[2]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

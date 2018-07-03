@@ -4,8 +4,6 @@ navigationTitle:  Install Docker on CentOS
 title: Install Docker on CentOS
 menuWeight: 5
 excerpt: Requirements and recommendations for installing Docker on CentOS
-
-enterprise: false
 ---
 
 # Requirements and Recommendations
@@ -114,4 +112,4 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /1.11/installing/ent/custom/system-requirements/#docker
+[1]: /1.11/installing/production/system-requirements/#docker
