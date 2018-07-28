@@ -19,12 +19,11 @@ excerpt: Making sure ports are available for installation
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---|
-| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
+| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
-| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master | 
 | 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 | 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
-| 62080 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
+| 62080 | DC/OS Net | `dcos-net.service` | localhost | localhost |
 | 62501 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 
 
@@ -32,8 +31,8 @@ excerpt: Making sure ports are available for installation
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---|
-| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
-| 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
+| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
+| 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 
 **Note:** UDP port 123 is open for communication with NTP.
 
@@ -52,7 +51,7 @@ excerpt: Making sure ports are available for installation
 | 7070  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |
 | 8080  | Marathon | `dcos-marathon.service` | agent/master | master |
 | 8101  | DC/OS Identity and Access Manager | `dcos-bouncer.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
-| 8123  | Mesos DNS | `dcos-mesos-dns.service` | localhost | localhost |
+| 8123  | Mesos DNS | `dcos-mesos-dns.service` | localhost | localhost(master) |
 | 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |
@@ -63,15 +62,15 @@ excerpt: Making sure ports are available for installation
 | 15055 | DC/OS History | `dcos-history-service.service` | localhost| localhost(master) |
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
-| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master | 
+| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
 | 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [enterprise type="inline" size="small" /]|
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 
 ### UDP
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
-|---|---|---|---|---| 
-| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master  | 
+|---|---|---|---|---|
+| 61053 | Mesos DNS | `dcos-mesos-dns.service` | agent/master | master |
 
 ## Agent
 
