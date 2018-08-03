@@ -13,6 +13,7 @@ const webpack          = require('metalsmith-webpack2');
 const anchor           = require('markdown-it-anchor');
 const attrs            = require('markdown-it-attrs');
 const timer            = require('metalsmith-timer');
+const copy             = require('metalsmith-copy');
 
 // Local Plugins
 const reduce                  = require('./plugins/metalsmith-revision').reduce;
@@ -42,7 +43,7 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 // Errors
 //
 
-if (!process.env.GIT_BRANCH && process.env.NODE_ENV !== 'development') {
+if (!process.env.GIT_BRANCH && process.env.NODE_ENV != 'development') {
   throw new Error('Env var GIT_BRANCH has not been set.');
 }
 
