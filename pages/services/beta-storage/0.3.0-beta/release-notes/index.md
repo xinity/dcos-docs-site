@@ -7,6 +7,14 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: true
 ---
 
+# Version 0.3.1
+
+* This version of the DC/OS Storage Service requires DC/OS version 1.12 or later.
+
+## Updates
+
+* Fixed the `minDcosReleaseVersion` on the package so the package does not install on 1.11 (or older) DC/OS.
+
 # Version 0.3.0
 
 * This version of the DC/OS Storage Service requires DC/OS version 1.12 or later.
