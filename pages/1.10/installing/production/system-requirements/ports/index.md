@@ -12,6 +12,7 @@ This section describes each pre-configured port in your DC/OS deployment.
 - For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
 - The ports must be open between the indicated source and destination nodes, including over cluster zones.
 - You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.12/administering-clusters/securing-your-cluster/#network-security).
+- As per our system prerequisites, all ports should be open for communication from the master nodes to the agent nodes and vice versa.
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 
