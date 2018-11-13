@@ -176,15 +176,27 @@ Mesos 将定期通知已预订的 Scheduler，告知群集中的资源情况。S
 
 不能在服务之间再细分 MOUNT 卷意味着：如果多个服务使用 MOUNT 卷进行部署，则除非每个代理上都创建了许多 MOUNT 卷，否则 MOUNT 卷可能很快就无法在集群中密集地共置。让我们来看看以下在三个 DC/OS 代理机的部署情景，每个代理机都带有标记为 A 和 B 的两个 MOUNT 卷：
 
-<```><linebreak>Agent 1: A B<linebreak>Agent 2: A B<linebreak>Agent 3: A B<linebreak></```>
+```
+Agent 1: A B
+Agent 2: A B
+Agent 3: A B
+```
 
 现在，我们将安装有两个节点的服务 X，每个节点都使用一个挂载卷。该服务消耗代理 1 和 3 上的卷 A：
 
-<```><linebreak>Agent 1: X B<linebreak>Agent 2: A B<linebreak>Agent 3: X B<linebreak></```>
+```
+Agent 1: X B
+Agent 2: A B
+Agent 3: X B
+```
 
 现在，安装了带有两个节点的服务 Y，每个节点都使用两个挂载卷。该服务消耗在代理 2 上的卷 A 和 B，但随后卡住，因为无法部署其他任何内容：
 
-<```><linebreak>Agent 1: X B<linebreak>Agent 2: Y Y<linebreak>Agent 3: X B<linebreak></```>
+```
+Agent 1: X B
+Agent 2: Y Y
+Agent 3: X B
+```
 
 配置 `ROOT` 与 `MOUNT` 卷可能取决于服务。有些服务可以在存在关联时自定义此设置，而其他服务可能会假定其中一个或另一个。
 
@@ -228,21 +240,29 @@ Enterprise DC/OS 提供了一个密钥存储库，以支持访问敏感数据，
 
 要使用 `kerb5.keytab` 二进制内容创建名为 `mysecret`的密钥，运行：
 
-<```>bash<linebreak>$ dcos security secrets create --file kerb5.keytab mysecret<linebreak></```>
+```bash
+$ dcos security secrets create --file kerb5.keytab mysecret
+```
 
 #### DC/OS 1.10 或更早版本
 
 要创建带有`kerb5.keytab` 二进制内容的名为 `mysecret` 的密钥，首先使用 `base64` 命令行实用程序将其编码。以下示例使用 BSD `base64` （Mac OS 中默认）。
 
-<```>bash<linebreak>$ base64 --input krb5.keytab > kerb5.keytab.base64-encoded<linebreak></```>
+```bash
+$ base64 --input krb5.keytab > kerb5.keytab.base64-encoded
+```
 
 或者，GNU `base64`（Linux 中默认）默认在编码数据中插入行馈送。使用 `-w 0` 自变量禁用自动换行。
 
-<```>bash<linebreak>$ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded<linebreak></```>
+```bash
+$ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
+```
 
 现在文件已编码，可以将其作为密钥存储。
 
-<```>bash<linebreak>$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret<linebreak></```>
+```bash
+$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
+```
 
 **注意：** 密钥名称 **必须**具有前缀 `__dcos_base64__`。
 
@@ -258,9 +278,100 @@ Enterprise DC/OS 提供了一个密钥存储库，以支持访问敏感数据，
 
 ####### JSON
 
-<```>json<linebreak>{<linebreak>	"version": "3.1.3",<linebreak>	"gauges": {},<linebreak>	"counters": {<linebreak>		"declines.long": {<linebreak>			"count": 15<linebreak>		},<linebreak>		"offers.processed": {<linebreak>			"count": 18<linebreak>		},<linebreak>		"offers.received": {<linebreak>			"count": 18<linebreak>		},<linebreak>		"operation.create": {<linebreak>			"count": 5<linebreak>		},<linebreak>		"operation.launch_group": {<linebreak>			"count": 3<linebreak>		},<linebreak>		"operation.reserve": {<linebreak>			"count": 20<linebreak>		},<linebreak>		"revives": {<linebreak>			"count": 3<linebreak>		},<linebreak>		"task_status.task_running": {<linebreak>			"count": 6<linebreak>		}<linebreak>	},<linebreak>	"histograms": {},<linebreak>	"meters": {},<linebreak>	"timers": {<linebreak>		"offers.process": {<linebreak>			"count": 10,<linebreak>			"max": 0.684745927,<linebreak>			"mean": 0.15145255818999337,<linebreak>			"min": 5.367950000000001E-4,<linebreak>			"p50": 0.0035879090000000002,<linebreak>			"p75": 0.40317217800000005,<linebreak>			"p95": 0.684745927,<linebreak>			"p98": 0.684745927,<linebreak>			"p99": 0.684745927,<linebreak>			"p999": 0.684745927,<linebreak>			"stddev": 0.24017017290826104,<linebreak>			"m15_rate": 0.5944843686231079,<linebreak>			"m1_rate": 0.5250565015924039,<linebreak>			"m5_rate": 0.583689104996544,<linebreak>			"mean_rate": 0.3809369986002824,<linebreak>			"duration_units": "seconds",<linebreak>			"rate_units": "calls/second"<linebreak>		}<linebreak>	}<linebreak>}<linebreak></```>
+```json
+{
+	"version": "3.1.3",
+	"gauges": {},
+	"counters": {
+		"declines.long": {
+			"count": 15
+		},
+		"offers.processed": {
+			"count": 18
+		},
+		"offers.received": {
+			"count": 18
+		},
+		"operation.create": {
+			"count": 5
+		},
+		"operation.launch_group": {
+			"count": 3
+		},
+		"operation.reserve": {
+			"count": 20
+		},
+		"revives": {
+			"count": 3
+		},
+		"task_status.task_running": {
+			"count": 6
+		}
+	},
+	"histograms": {},
+	"meters": {},
+	"timers": {
+		"offers.process": {
+			"count": 10,
+			"max": 0.684745927,
+			"mean": 0.15145255818999337,
+			"min": 5.367950000000001E-4,
+			"p50": 0.0035879090000000002,
+			"p75": 0.40317217800000005,
+			"p95": 0.684745927,
+			"p98": 0.684745927,
+			"p99": 0.684745927,
+			"p999": 0.684745927,
+			"stddev": 0.24017017290826104,
+			"m15_rate": 0.5944843686231079,
+			"m1_rate": 0.5250565015924039,
+			"m5_rate": 0.583689104996544,
+			"mean_rate": 0.3809369986002824,
+			"duration_units": "seconds",
+			"rate_units": "calls/second"
+		}
+	}
+}
+```
 
 在服务调度程序的 `/v1/metrics/prometheus` 端点提供度量标准的 Prometheus 表示。
 
 ####### Prometheus
-<```><linebreak># HELP declines_long Generated from Dropwizard metric import (metric=declines.long, type=com.codahale.metrics.Counter)<linebreak># TYPE declines_long gauge<linebreak>declines_long 20.0<linebreak># HELP offers_processed Generated from Dropwizard metric import (metric=offers.processed, type=com.codahale.metrics.Counter)<linebreak># TYPE offers_processed gauge<linebreak>offers_processed 24.0<linebreak># HELP offers_received Generated from Dropwizard metric import (metric=offers.received, type=com.codahale.metrics.Counter)<linebreak># TYPE offers_received gauge<linebreak>offers_received 24.0<linebreak># HELP operation_create Generated from Dropwizard metric import (metric=operation.create, type=com.codahale.metrics.Counter)<linebreak># TYPE operation_create gauge<linebreak>operation_create 5.0<linebreak># HELP operation_launch_group Generated from Dropwizard metric import (metric=operation.launch_group, type=com.codahale.metrics.Counter)<linebreak># TYPE operation_launch_group gauge<linebreak>operation_launch_group 4.0<linebreak># HELP operation_reserve Generated from Dropwizard metric import (metric=operation.reserve, type=com.codahale.metrics.Counter)<linebreak># TYPE operation_reserve gauge<linebreak>operation_reserve 20.0<linebreak># HELP revives Generated from Dropwizard metric import (metric=revives, type=com.codahale.metrics.Counter)<linebreak># TYPE revives gauge<linebreak>revives 4.0<linebreak># HELP task_status_task_finished Generated from Dropwizard metric import (metric=task_status.task_finished, type=com.codahale.metrics.Counter)<linebreak># TYPE task_status_task_finished gauge<linebreak>task_status_task_finished 1.0<linebreak># HELP task_status_task_running Generated from Dropwizard metric import (metric=task_status.task_running, type=com.codahale.metrics.Counter)<linebreak># TYPE task_status_task_running gauge<linebreak>task_status_task_running 8.0<linebreak># HELP offers_process Generated from Dropwizard metric import (metric=offers.process, type=com.codahale.metrics.Timer)<linebreak># TYPE offers_process summary<linebreak>offers_process{quantile="0.5",} 2.0609500000000002E-4<linebreak>offers_process{quantile="0.75",} 2.2853200000000001E-4<linebreak>offers_process{quantile="0.95",} 0.005792643<linebreak>offers_process{quantile="0.98",} 0.005792643<linebreak>offers_process{quantile="0.99",} 0.111950848<linebreak>offers_process{quantile="0.999",} 0.396119612<linebreak>offers_process_count 244.0<linebreak></```>
+```
+# HELP declines_long Generated from Dropwizard metric import (metric=declines.long, type=com.codahale.metrics.Counter)
+# TYPE declines_long gauge
+declines_long 20.0
+# HELP offers_processed Generated from Dropwizard metric import (metric=offers.processed, type=com.codahale.metrics.Counter)
+# TYPE offers_processed gauge
+offers_processed 24.0
+# HELP offers_received Generated from Dropwizard metric import (metric=offers.received, type=com.codahale.metrics.Counter)
+# TYPE offers_received gauge
+offers_received 24.0
+# HELP operation_create Generated from Dropwizard metric import (metric=operation.create, type=com.codahale.metrics.Counter)
+# TYPE operation_create gauge
+operation_create 5.0
+# HELP operation_launch_group Generated from Dropwizard metric import (metric=operation.launch_group, type=com.codahale.metrics.Counter)
+# TYPE operation_launch_group gauge
+operation_launch_group 4.0
+# HELP operation_reserve Generated from Dropwizard metric import (metric=operation.reserve, type=com.codahale.metrics.Counter)
+# TYPE operation_reserve gauge
+operation_reserve 20.0
+# HELP revives Generated from Dropwizard metric import (metric=revives, type=com.codahale.metrics.Counter)
+# TYPE revives gauge
+revives 4.0
+# HELP task_status_task_finished Generated from Dropwizard metric import (metric=task_status.task_finished, type=com.codahale.metrics.Counter)
+# TYPE task_status_task_finished gauge
+task_status_task_finished 1.0
+# HELP task_status_task_running Generated from Dropwizard metric import (metric=task_status.task_running, type=com.codahale.metrics.Counter)
+# TYPE task_status_task_running gauge
+task_status_task_running 8.0
+# HELP offers_process Generated from Dropwizard metric import (metric=offers.process, type=com.codahale.metrics.Timer)
+# TYPE offers_process summary
+offers_process{quantile="0.5",} 2.0609500000000002E-4
+offers_process{quantile="0.75",} 2.2853200000000001E-4
+offers_process{quantile="0.95",} 0.005792643
+offers_process{quantile="0.98",} 0.005792643
+offers_process{quantile="0.99",} 0.111950848
+offers_process{quantile="0.999",} 0.396119612
+offers_process_count 244.0
+```
