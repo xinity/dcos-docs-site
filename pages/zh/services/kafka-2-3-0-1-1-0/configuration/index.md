@@ -8,9 +8,9 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/configuration-install-with-options.tmpl
-#include /cn/services/include/configuration-service-settings.tmpl
-#include /cn/services/include/configuration-regions.tmpl
+#include /zh/services/include/configuration-install-with-options.tmpl
+#include /zh/services/include/configuration-service-settings.tmpl
+#include /zh/services/include/configuration-regions.tmpl
 
 ## 配置 ZooKeeper 连接
 

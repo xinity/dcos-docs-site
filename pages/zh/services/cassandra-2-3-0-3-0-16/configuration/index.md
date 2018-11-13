@@ -9,10 +9,10 @@ render: mustache
 ---
 
 
-#include /cn/services/include/configuration-install-with-options.tmpl
-#include /cn/services/include/configuration-create-json-file.tmpl
-#include /cn/services/include/configuration-service-settings.tmpl
-#include /cn/services/include/configuration-regions.tmpl
+#include /zh/services/include/configuration-install-with-options.tmpl
+#include /zh/services/include/configuration-create-json-file.tmpl
+#include /zh/services/include/configuration-service-settings.tmpl
+#include /zh/services/include/configuration-regions.tmpl
 
 
 ## Cassandra 节点设置

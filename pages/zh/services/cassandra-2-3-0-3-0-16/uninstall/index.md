@@ -8,4 +8,4 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/uninstall.tmpl
+#include /zh/services/include/uninstall.tmpl

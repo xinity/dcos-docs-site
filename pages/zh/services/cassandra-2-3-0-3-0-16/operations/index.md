@@ -8,7 +8,7 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/operations.tmpl
+#include /zh/services/include/operations.tmpl
 
 ## 执行 Cassandra 清理和修复操作
 

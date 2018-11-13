@@ -8,4 +8,4 @@ model: /services/hdfs/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/support-policy.tmpl
+#include /zh/services/include/support-policy.tmpl

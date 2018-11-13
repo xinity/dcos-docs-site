@@ -8,4 +8,4 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/update.tmpl
+#include /zh/services/include/update.tmpl

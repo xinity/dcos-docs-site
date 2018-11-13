@@ -8,4 +8,4 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/advanced.tmpl
+#include /zh/services/include/advanced.tmpl

@@ -8,4 +8,4 @@ model: /services/prometheus/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/operations.tmpl
+#include /zh/services/include/operations.tmpl

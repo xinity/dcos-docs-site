@@ -16,19 +16,19 @@ render: mustache
 
 **注意：** 这些安全功能仅在 DC/OS Enterprise 1.10 及更高版本中可用。
 
-#include /cn/services/include/service-account.tmpl
+#include /zh/services/include/service-account.tmpl
 
-#include /cn/services/include/security-create-permissions.tmpl
+#include /zh/services/include/security-create-permissions.tmpl
 
 ## 传输加密
 
-#include /cn/services/include/security-transport-encryption-lead-in.tmpl
+#include /zh/services/include/security-transport-encryption-lead-in.tmpl
 
 *注意*：使用 [Kerberos 身份认证](#kerberos-authentication)并不_要求_启用传输加密，但传输加密 _可以_ 与 Kerberos 身份认证结合。
 
-#include /cn/services/include/security-configure-transport-encryption.tmpl
+#include /zh/services/include/security-configure-transport-encryption.tmpl
 
-#include /cn/services/include/security-transport-encryption-clients.tmpl
+#include /zh/services/include/security-transport-encryption-clients.tmpl
 
 <!--
 待确认
@@ -131,9 +131,9 @@ example/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 HTTP/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
 
-#include /cn/services/include/security-kerberos-ad.tmpl
+#include /zh/services/include/security-kerberos-ad.tmpl
 
-#include /cn/services/include/security-service-keytab.tmpl
+#include /zh/services/include/security-service-keytab.tmpl
 
 #### 安装服务
 

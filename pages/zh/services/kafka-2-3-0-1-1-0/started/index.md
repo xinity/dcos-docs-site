@@ -8,4 +8,4 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/getting-started.tmpl
+#include /zh/services/include/getting-started.tmpl
