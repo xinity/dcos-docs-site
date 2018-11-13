@@ -16,7 +16,7 @@ Mesosphere DC/OS 特性将通过多阶段生命周期发展。此生命周期可
 
 特性可以包括应用程序、服务、框架、属于 Mesosphere DC/OS 或其目录一部分的组件或软件包。Mesosphere DC/OS 特性的五个成熟度状态在下文阐述，从左到右进行，从 Beta 开始并以“已停用”结束。
 
-![五个成熟度状态](/1.11/img/five_maturity_states.png)
+![五个成熟度状态](/zh/1.11/img/five_maturity_states.png)
 
 图 1. 特性成熟度生命周期
 

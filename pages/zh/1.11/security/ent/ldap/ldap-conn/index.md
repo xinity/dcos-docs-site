@@ -14,7 +14,7 @@ enterprise: true
 
 1. 单击 **Add Directory**。
 
- ![添加目录对话框](/1.11/img/ldap-add-dir-conn.png)
+ ![添加目录对话框](/zh/1.11/img/ldap-add-dir-conn.png)
 
  图 1. 添加目录对话框
 

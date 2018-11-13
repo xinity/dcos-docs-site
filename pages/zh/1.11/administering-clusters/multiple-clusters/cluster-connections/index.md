@@ -38,7 +38,7 @@ dcos cluster attach <connected-cluster-name>
 
 - 可用：群集在本地设置，且可访问
 - 不可用：群集在本地设置，且无法访问
-- 未配置：群集不在本地设置（即，群集被 [链接](/1.11/administering-clusters/multiple-clusters/cluster-links)至当前附加的群集上）。
+- 未配置：群集不在本地设置（即，群集被 [链接](/zh/1.11/administering-clusters/multiple-clusters/cluster-links)至当前附加的群集上）。
 
 在本示例中，附加名为 `dcosdev` 的群集：
 

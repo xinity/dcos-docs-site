@@ -17,8 +17,8 @@ menuWeight: 7
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/1.11/tutorials/dcos-101/cli/)。
-* [app2](/1.11/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/zh/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/zh/1.11/tutorials/dcos-101/cli/)。
+* [app2](/zh/1.11/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
 
 # 目的
 
