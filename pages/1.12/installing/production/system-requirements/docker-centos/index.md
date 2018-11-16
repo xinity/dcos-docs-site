@@ -29,53 +29,30 @@ mkfs -t xfs -n ftype=1 /dev/sdc1
 
 # Installation
 
-Follow the Docker [CentOS-specific installation instructions](https://docs.docker.com/install/linux/docker-ce/centos/).
-
 ### RHEL-only requirements
 
 You must register with the subcription-manager to enable additional repos.
 
-Follow the Docker [CentOS-specific installation instructions][3]
+Follow the Docker [RHEL-specific installation instructions][3], keeping in mind the above customer advisory.
 
-### RHEL Only: subcription-manager
+## Example: Installing Docker on CentOS
 
-1.  Subscribe the RHEL system in subscription-manager and add the repos
+The following instructions demonstrate how to install Docker CentOS 7.
 
-    ```bash
-    sudo subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
-
-    sudo subscription-manager repos --enable=rhel-7-server-rpms
-    sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
-    sudo subscription-manager repos --enable=rhel-7-server-optional-rpms
-    ```
-
-# Example: Installing Docker with OverlayFS on CentOS/RedHat
-
-The following instructions demonstrate how to use Docker with OverlayFS on CentOS 7.
-
-1.  Configure OS for overlay storage
+1.  Uninstall the newer version of Docker (if present):
 
     ```bash
-    sudo echo 'overlay' >> /etc/modules-load.d/overlay.conf
-    sudo modprobe overlay
+    sudo yum remove docker-ce
     ```
 
-1.  Run yum update
+1. Install additional yum utilities if this is the first time installing Docker:
 
     ```bash
-    sudo yum update --exclude=docker-engine,docker-engine-selinux,centos-release* --assumeyes --tolerant
+    sudo yum install -y yum-utils \
+        device-mapper-persistent-data \
+        lvm2
     ```
-
-1.  Un-install old versions of Docker (if present):
-
-    ```bash
-    sudo yum remove docker \
-                  docker-common \
-                  docker-selinux \
-                  docker-engine
-    ```
-
-1.  Set up Docker CE repository:
+1. Set up the stable repository for yum 
 
     ```bash
     sudo yum-config-manager \
@@ -83,25 +60,22 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
         https://download.docker.com/linux/centos/docker-ce.repo
     ```
 
-1.  Show versions of Docker CE. 
+1.  Install Docker:
 
     ```bash
-    sudo yum list docker-ce --showduplicates | sort -r
-    ```
-
-The remainder of these instructions assume that you have installed the latest version.
-
-6.  Install Docker CE:
-
-    ```bash
-    sudo yum install docker-ce
+    sudo yum install docker
     ```
 
 1.  Start Docker:
 
     ```bash
     sudo systemctl start docker
-    sudo systemctl enable docker
+    ```
+
+1. Verify that Docker version 1.13 was installed:
+
+    ```bash
+    docker version --format '{{.Server.Version}}'
     ```
 
 1.  Test Docker with `hello-world` app:
@@ -122,5 +96,5 @@ For more generic Docker requirements, see [System Requirements: Docker][1].
 
 [1]: /1.12/installing/production/system-requirements/#docker
 [2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
-[3]: https://docs.docker.com/install/linux/docker-ce/centos/
+[3]: https://docs.docker.com/install/linux/docker-ee/rhel
 [4]: /1.12/installing/production/deploying-dcos/installation/
