@@ -11,7 +11,7 @@ enterprise: false
 
 
 
-在安装过程中，代理节点被指定为 [公共](/1.11/overview/concepts/#public-agent-node) 或 [私有](/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/1.11/installing/evaluation/cloud-installation/) 方法中被指定为私有节点。
+在安装过程中，代理节点被指定为 [公共](/1.11/overview/concepts/#public-agent-node) 或 [专用](/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/1.11/installing/evaluation/cloud-installation/) 方法中被指定为私有节点。
 
 **注意：**
 - DC/OS 支持添加/替换代理节点，但不支持添加管理节点。
