@@ -6,6 +6,12 @@ menuWeight: 90
 excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Monitoring Service.
 ---
 
+# Version v0.2.1
+
+## Updates
+
+* Correct permissions required to run the package.
+
 # Version v0.2.0
 
 ## New features
@@ -29,7 +35,6 @@ Bug fix release.
 ## Updates
 
 * Add missing release notes.
-* Fix documentation.
 
 # Version v0.1.0
 
