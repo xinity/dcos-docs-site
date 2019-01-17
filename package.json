@@ -16,7 +16,8 @@
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
     "eslint-init": "eslint --init",
-    "crawler": "node ./scripts/crawler.js"
+    "crawler": "node ./scripts/crawler.js",
+    "dev:install": "RENDER_PATH_PATTERN=1.12/installing/** NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js"
   },
   "author": "Ettrics",
   "devDependencies": {
