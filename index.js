@@ -291,10 +291,20 @@ if (ALGOLIA_UPDATE === 'true') {
 
 // Can only watch with a RENDER_PATH_PATTERN because there are too many
 // files without it.
-if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
+// if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
+//   CB.use(watch({
+//     paths: {
+//       [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
+//       'layouts/**/*': '**/*.pug',
+//     },
+//   }));
+//   CB.use(timer('CB: Watch'));
+// }
+
+if (process.env.NODE_ENV === 'development') {
   CB.use(watch({
     paths: {
-      [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
+      ['pages/*']: '**/*.{md,tmpl}',
       'layouts/**/*': '**/*.pug',
     },
   }));
