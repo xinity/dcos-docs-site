@@ -43,15 +43,16 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 
 |**Display Icon** | **Service** |
 |---------- | ------- |
-| ⚫| Supported |
-| ◯| Not Supported |
+| ⚫ | Supported |
+| ◯ | Not Supported |
+
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <tr>
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "7" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
     <th>1.11.1</th>
@@ -60,6 +61,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.11.4</th>
     <th>1.11.5</th>
     <th>1.11.6</th>
+    <th>1.11.7</th>
    </tr>
     <th>1.11.0</th>
     <td Align = "center">⚫</td>
@@ -68,6 +70,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.1</th>
@@ -77,6 +80,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.2</th>
@@ -86,6 +90,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.3</th>
@@ -95,6 +100,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.4</th>
@@ -104,9 +110,21 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+    <tr>
+    <th>1.11.6</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -174,7 +192,7 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching DC/OS 1.11 in strict mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.11 without changing security mode
-This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](//1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the cluster's [security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -197,11 +215,11 @@ This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the c
 1.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
 
 # <a name="permissive"></a>Patching DC/OS 1.11 in permissive mode
-This procedure patches to DC/OS 1.11 in [permissive security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches to DC/OS 1.11 in [permissive security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
 
 <table class=“table” bgcolor=#858585>
 <tr> 
