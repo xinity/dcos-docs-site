@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Mesosphere Release Notes Proposal
 title: Mesosphere Release Notes Proposal
-menuWeight: 1
+menuWeight: 5
 excerpt: Background and suggestions for improving the content in release notes
 ---
 29 January 2019
@@ -34,13 +34,13 @@ How do we provide the best experience for casual explorers, prospects, serious-b
 What we have is not radically different from what other vendors doing. However, the best solutions in the commercial space provide more consistently robust content in describing fixes and features. 
 
 In general, the release notes I surveyed provide better descriptions of changes than we do.
-[Openshift]
-[Pivotal]
-[Confluent]
-[Databricks]
-[Portworx]
+[Openshift](https://docs.openshift.com/container-platform/3.9/release_notes/ocp_3_9_release_notes.html#ocp-3-9-27)
+[Pivotal](https://docs.pivotal.io/pivotalcf/2-3/pcf-release-notes/index.html )
+[Confluent](https://docs.confluent.io/current/release-notes.html#)
+[Databricks](https://docs.confluent.io/current/release-notes.html#)
+[Portworx](https://docsnew.portworx.com/reference/release-notes/px-enterprise#12116-release-notes)
 
-Just to round things out, I also looked at release notes for [Amazon EC2], [Azure], [Google Cloud], and [Splunk Enterprise]. For frequently released software, the number of items documented was relatively small but the descriptions were often fairly detailed.
+Just to round things out, I also looked at release notes for [Amazon EC2](https://aws.amazon.com/releasenotes/?tag=releasenotes%23keywords%23amazon-ec2), [Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/whats-new), [Google Cloud](https://cloud.google.com/compute/docs/release-notes), and [Splunk Enterprise](http://docs.splunk.com/Documentation/ES/5.2.0/RN/Enhancements). For frequently released software, the number of items documented was relatively small but the descriptions were often fairly detailed.
 
 ### Content suggestions
 There are a few content-driven changes we could make to improve the release notes:
