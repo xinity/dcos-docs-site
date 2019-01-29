@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Mesosphere DC/OS Release Notes (sample 1)
-title: Mesosphere DC/OS Release Notes (sample 1)
+navigationTitle: Mesosphere DC/OS Release Notes
+title: Mesosphere DC/OS Release Notes
 menuWeight: 5
-excerpt: Mesosphere DC/OS Release Notes (sample 1)
+excerpt: Sample to illustrate changess to Mesosphere DC/OS Release Notes
 ---
 | [Download](https://support.mesosphere.com/s/downloads) | [Share](https://docs.mesosphere.com/1.12/) | [Print](fake) | [Contribute](https://github.com/mesosphere/dcos-docs-site/blob/master/pages/1.12/release-notes/1.12.1/index.md) | [Discuss](https://dcos-community.slack.com/) | [Feedback](https://jira.mesosphere.com/secure/CreateIssueDetails!init.jspa?pid=14105&issuetype=1&summary=Feedback+for+Release+Notes%20for%201.12.0&description=Source:%20https://docs.mesosphere.com/1.12/release-notes/1.12.0&labels=documentation&components=19804&priority=3&customfield_12300=44) |
 

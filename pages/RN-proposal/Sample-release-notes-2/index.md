@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Mesosphere DC/OS Release Notes (NavTitle)
-title: Mesosphere DC/OS Release Notes (Title)
+navigationTitle: Mesosphere DC/OS Release Notes
+title: Mesosphere DC/OS Release Notes
 menuWeight: 5
-excerpt: Mesosphere DC/OS Release Notes (Excerpt)
+excerpt: Second sample to illustrate potential changes to Mesosphere DC/OS release notes
 ---
 Version 1.12.1 - Released 3 January 2019
 
