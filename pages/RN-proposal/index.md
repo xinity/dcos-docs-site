@@ -1,8 +1,14 @@
 ---
-layout: layout.pug
+layout: dcos-docs-landing.pug
+# title: DC/OS Docs
+# navigationTitle: DC/OS Docs
+menus: ['header']
+# menuWeight: 0
+# ---
+# layout: layout.pug
 navigationTitle: Mesosphere Release Notes Proposal
 title: Mesosphere Release Notes Proposal
-menuWeight: 5
+menuWeight: 0
 excerpt: Background and suggestions for improving the content in release notes
 ---
 29 January 2019
