@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Getting started with Edge-LB
+navigationTitle:  Getting Started with Edge-LB
 title: Getting started with Edge-LB
 menuWeight: 10
 excerpt: Planning, preparing, and installing Edge-LB

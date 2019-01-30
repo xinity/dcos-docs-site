@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 20
-excerpt: Learning to use Edge-LB
+excerpt: How to configure and deploy Edge-LB
 
 enterprise: false
 ---
