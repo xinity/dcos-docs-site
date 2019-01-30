@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Documentation History
-title: Release notes
+title: Documentation history
 menuWeight: 60
 excerpt: Summarizes the timeline for Edge-LB documentation and feature updates
 enterprise: false
