@@ -21,9 +21,9 @@ DCOS-46043 - Improve the `apiserver` file comparison functions.
 # Notable changes for Edge-LB 1.2.3
 Released on November 27, 2018.
 
-* lbmgr: Enforce the timeout also during the connection phase of the healthcheck
+* `lbmgr`: Enforce the timeout also during the connection phase of the healthcheck
   command
-* apiserver: Make the following parameters of the pool tasks healthchecking configurable using the following new pool parameters:
+* `apiserver`: Make the following parameters of the pool tasks healthchecking configurable using the following new pool parameters:
   * `poolHealthcheckGracePeriod` - Defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s).
   * `poolHealthcheckInterval` - Defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s).
   * `poolHealthcheckMaxFail` - Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
@@ -82,12 +82,12 @@ Released on September 17, 2018.
 * Increased log retention for edge-lb containers
 * Added extra logging about the mesos state snapshot logging for better troubleshooting of Edge-LB
 
-# # Notable changes in Edge-LB 1.2.0
+# Notable changes in Edge-LB 1.2.0
 Released on September 11, 2018.
 
 * dcos-template: Properly handle nil values for some of the Mesos tasks protobuf fields.
 * dcos-template: Set maximum grpc recv. message size to 100MIB.
-* lbmgr: Adjust environment passing to match the new HAProxy svc launch model. This fixes `AUTOCERT` and `SECRET` env passing in the HAProxy task container.
+* lbmgr: Adjust environment passing to match the new HAProxy svc launch model. This change fixes `AUTOCERT` and `SECRET` env passing in the HAProxy task container.
 * api-swagger-spec: Bump api version to match Edge-LB version.
 * Introduce proper versioning for edgelb-pool cosmos package to match the version of the package with the version of the edgelb package itself instead of `stub-universe`.
 * Make the output of `dcos edgelb show --json` copmmand be the actual pool configuration instead of wrapping it in a configuration container. This enables feeding the output of `show` command directly to the `update` command.
@@ -98,3 +98,45 @@ Released on September 11, 2018.
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
 
 <p class="message--warning"><strong>WARNING: </strong>With the introduction of proper versioning of the edgelb-pool cosmos package, it is neccessary to remove any `packageVersion` fields from the pool configuration prior to upgrading.</p>
+
+## Issues fixed in this release
+* COPS-3566, DCOS-39655 - Edge-LB. HAProxy disobeys "use_backend if" filter
+* COPS-3682, DCOS-40510 - The EdgeLB pool 'show --json' command produces JSON that cannot be used in a subsequent pool operationCOPS-3733, DCOS-40866 - 
+* COPS-3733, DCOS-40866 - EdgeLB 1.1.0 broke Autocert feature
+* COPS-3736 - Edge-LB: Cannot configure SSL certificate using secrets
+* COPS-3767, DCOS-41274 - High churn of sidecar tasks in the cluster
+* COPS-3768, DCOS-41288/DCOS-41544 - Increase the maximum size of the GRPC msg. supported by API server
+* COPS-3769, DCOS-41287 - SIGSEGV ind dcos-template if the Name of the port is missing
+* COPS-3770, DCOS-41322 - Applications exposed through EdgeLB encountering 503 errors
+
+# Notable changes in Edge-LB 1.1.0
+Released on June ?, 2018.
+
+# Notable changes in Edge-LB 1.0.3
+Released on June 6, 2018.
+
+# Notable changes in Edge-LB 1.0.2
+Released on March 20, 2018.
+
+# Notable changes in Edge-LB 1.0.1
+Released on March 12, 2018.
+
+# Notable changes in Edge-LB 1.0.0
+Released on March 7, 2018.
+
+# Notable changes in Edge-LB 0.1.9
+Released on October 6, 2017.
+
+# Notable changes in Edge-LB 0.1.8
+Released on September 13, 2017.
+
+# Notable changes in Edge-LB 0.1.7
+Released on September 8, 2017.
+
+
+# Notable changes in Edge-LB 0.1.6
+Released on September 5, 2017.
+
+
+# Notable changes in Edge-LB 0.1.5
+Released on August 30, 2017.
