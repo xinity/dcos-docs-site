@@ -1,10 +1,4 @@
 ---
-layout: dcos-docs-landing.pug
-# title: DC/OS Docs
-# navigationTitle: DC/OS Docs
-menus: ['header']
-# menuWeight: 0
-# ---
 # layout: layout.pug
 navigationTitle: Mesosphere Release Notes Proposal
 title: Mesosphere Release Notes Proposal
