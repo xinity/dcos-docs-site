@@ -12,11 +12,6 @@ excerpt: Sample to illustrate changes to patch-level release notes
 
 Version 1.11.8 - Released 6 December 2018. 
 
-DC/OS 1.11.8 includes the following components:
-- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/9c28b265804269de9411f04cfcccefe3bdd8ef1a/CHANGELOG).
-- Marathon 1.6.567 [change log](https://github.com/mesosphere/marathon/tree/2d8b3e438).
-- Metronome 0.4.5 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
-
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
 
