@@ -7,7 +7,7 @@ excerpt: Common issues and troubleshooting tips for Edge-LB
 enterprise: false
 ---
 
-This section covers potential issues and troubleshooting techniques for DC/OS clusters using Edge-LB load balancer.
+This section covers potential issues and troubleshooting techniques Edge-LB load balancer instances running on DC/OS clusters.
 
 # Prerequisites
 
@@ -17,10 +17,6 @@ This section covers potential issues and troubleshooting techniques for DC/OS cl
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
-
-## Limitations
-
-- Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:
@@ -33,21 +29,17 @@ You must install Universe repositories for the Edge-LB API server and the Edge-L
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
-
 ## Obtaining package artifacts
-
 
 In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
-Once you have these artifacts, they need to be made accesible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
-
+Once you have these artifacts, they need to be made accesible to the cluster through an HTTP server. The address of the HTTP server will be used in the next step.
 
 ## Add them to the package repository
 
 Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repos are available, use the following command to add them to the universe package repository:
-
 
 ```bash
 dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
@@ -102,7 +94,6 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 
 1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
-
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
@@ -153,7 +144,7 @@ List the secrets with this command and confirm that the secret was created.
 dcos security secrets list /
 ```
 
-## <a name="give-perms"></a>Create and Assign Permissions
+## <a name="give-perms"></a>Create and assign permissions
 
 Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
 
