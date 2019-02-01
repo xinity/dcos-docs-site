@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release notes
-menuWeight: 55
+menuWeight: 101
 excerpt: Provides release-specific information for Edge-LB 
 enterprise: false
 ---

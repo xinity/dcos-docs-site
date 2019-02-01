@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Version Support
 title: Version support
-menuWeight: 65
+menuWeight: 102
 excerpt: Summarizes supported versions for Edge-LB
 enterprise: false
 ---

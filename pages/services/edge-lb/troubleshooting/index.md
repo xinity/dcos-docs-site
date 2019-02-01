@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Troubleshooting Edge-LB
 title: Troubleshooting Edge-LB
-menuWeight: 45
+menuWeight: 50
 excerpt: Common issues and troubleshooting tips for Edge-LB
 enterprise: false
 ---

@@ -1,29 +1,28 @@
 ---
 layout: layout.pug
 navigationTitle:  Edge-LB Pool Configuration
-title: Pool confiuration reference (V2)
-# menuWeight: -4
-excerpt: Provides reference information for all Edge-LB pool configurations options in the V2 API
+title: Pool configuration reference (V2)
+menuWeight: 95
+excerpt: Provides reference information and examples for Edge-LB pool configurations options in the V2 API
 
 enterprise: false
 ---
 
-# V2 Pool Reference
+The tables below describe all possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.
 
-The tables below describe all possible configuration options. The majority of fields have sensible defaults and should be modified with caution.
-
-## Configuration Guidelines
-
-- If a default is not set, it will be left empty, even for objects.
-- Set defaults in the object that is furthest from the root object.
-- Always set a default for arrays.
-- The purpose of "nullable" is to allow the output JSON field to be set to the golang "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
+# Before you modify configuration settings
+If you plan to modify the Edge-LB pool configuration options, you should keep the following guidelines in mind:
+- If a configuration option does not have a default value and you do not explicitly set a value, the configuration is left as empty (unconfigured), even for objects.
+- You should set default values in the object that is furthest from the root object.
+- You should always set a default for arrays.
+- The purpose of a "nullable" configuration option is to allow the output JSON field to be set to the Go language "zero value". Without "nullable" support, the configuration option would be removed from the resulting JSON.
 - Actual validation is done in the code, not expressed in swagger.
-- Since an empty boolean is interpreted as "false", do not set a default.
-- CamelCase.
-- Swagger will only do enum validation if it is a top level definition.
+- If the data type for a configuration option is a boolean, an empty value is interpreted as "false". For boolean configuration options, you should not set a default value.
+- Use CamelCase to set configuration values.
+- Swagger only validates enumerated (enum) data values if the configuration option is a top level definition.
 
 <a name="pool"></a>
+
 # pool
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
 | Key                         | Type     |  Nullable   |  Properties     | Description    |
@@ -54,6 +53,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | poolhealthcheckTimeout      | int32    |             |                 | Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test. Introduced in v1.2.3.|
 
 <a name="secrets-prop"></a>
+
 ## pool.secrets
 
 | Key           | Type        | Description |
@@ -68,6 +68,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | file          | string      | File name.<br />The file `myfile` will be found at `$SECRETS/myfile`. |
 
 <a name="env-var"></a>
+
 ## pool.environmentVariables
 
 | Key                   | type        | Description |
@@ -75,6 +76,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | additionalProperties  | string      | Environment variables to pass to tasks.<br />Prefix with "ELB_FILE_" and it will be written to a file. For example, the contents of "ELB_FILE_MYENV" will be written to "$ENVFILE/ELB_FILE_MYENV". |
 
 <a name="vn-prop"></a>
+
 ## pool.virtualNetworks
 
 | Key           | Type        | Description |
@@ -83,6 +85,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | labels        | string      | Labels to pass to the virtual network plugin. |
 
 <a name="haproxy-prop"></a>
+
 # pool.haproxy
 
 | Key             | Type    | Description         |
@@ -92,6 +95,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | backends        | array   | Array of backends.  |
 
 <a name="stats-prop"></a>
+
 # pool.haproxy.stats
 
 | Key            | Type     |
@@ -100,6 +104,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | bindPort       | int 32   |
 
 <a name="frontend-prop"></a>
+
 # pool.haproxy.frontend
 
 | Key             | Type    | Properties     | Description    | x-nullable | Format |
@@ -114,6 +119,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | linkBackend     | object  | <ul><li>defaultBackend</li><li>map</li></ul>  | This describes what backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.<br />Default: map: []   |   |   |
 
 <a name="redirect-https-prop"></a>
+
 ## pool.haproxy.frontend.redirectToHttps
 
 | Key             | Type    | Properties  | Description     |
@@ -122,6 +128,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | items           | object  | <ul><li>[host](#items-prop)</li><li>[pathBeg](#items-prop)</li></ul> | Boolean AND will be applied with every selected value. |
 
 <a name="items-prop"></a>
+
 ### pool.frontend.redirectToHttps.items
 
 | Key             | Type    | Description |
@@ -137,6 +144,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | map             | array   | <ul><li>[backend](#map-prop)</li><li>[hostEq](#map-prop)</li><li>[hostReg](#map-prop)</li><li>[pathBeg](#map-prop)</li><li>[pathEnd](#map-prop)</li><li>[pathReg](#map-prop)</li></ul> | This is an optional field that specifies a mapping to various backends. These rules are applied in order.<br />"Backend" and at least one of the condition fields must be filled out. If multiple conditions are filled out, they will be combined with a boolean "AND". |
 
 <a name="map-prop"></a>
+
 ### pool.frontend.linkBackend.map
 
 | Key             | Type    | Description |
@@ -149,6 +157,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | pathReg         | string  |             |
 
 <a name="backend-prop"></a>
+
 # pool.haproxy.backend
 
 | Key             | Type    | Properties     | Description    |
@@ -162,6 +171,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | services        | array   |                | Array of backend service selectors.  |
 
 <a name="customCheck-prop"></a>
+
 ## pool.haproxy.backend.customCheck
 
 | Key            | Type     |
@@ -172,6 +182,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | miscStr        | string   |
 
 <a name="#rewrite-prop"></a>
+
 # pool.haproxy.backend.rewriteHttp
 
 | Key             | Type    | Properties     | Description    |
@@ -183,6 +194,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | sticky          | object  | <ul><li>[enabled](#sticky-prop)</li><li>[customStr](#sticky-prop)</li></ul>  | Sticky sessions via a cookie.<br />To use the default values (recommended), set this field to the empty object.  |
 
 <a name="path-prop"></a>
+
 ## pool.haproxy.backend.rewriteHttp.path
 
 | Key             | Type    |
@@ -191,6 +203,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | toPath          | string  |
 
 <a name="sticky-prop"></a>
+
 ## pool.haproxy.backend.rewriteHttp.sticky
 
 | Key             | Type    | nullable   |
@@ -199,6 +212,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | customStr       | string  |            |
 
 <a name="rewrite-req-prop"></a>
+
 # pool.haproxy.backend.rewriteHttp.request
 
 | Key                         | Type       | nullable   |
@@ -210,6 +224,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | rewritePath                 | boolean    | true       |
 
 <a name="rewrite-resp-prop"></a>
+
 # pool.haproxy.backend.rewriteHttp.response
 
 | Key             | Type       | nullable   |
@@ -217,6 +232,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | rewriteLocation | boolean    | true       |
 
 <a name="service-prop)"></a>
+
 # pool.haproxy.backend.service
 
 | Key             | Type       |
@@ -226,6 +242,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | endpoint        | object     |
 
 <a name="service-marathon-prop)"></a>
+
 # pool.haproxy.backend.service.marathon
 
 | Key                  | Type      | Description                                                       |
@@ -236,6 +253,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | containerNamePattern | string    | containerName as a regex pattern.                                 |
 
 <a name="service-mesos-prop)"></a>
+
 # pool.haproxy.backend.service.mesos
 
 | Key                  | Type      | Description                       |
@@ -250,6 +268,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | taskIDPattern        | string    | taskID as a regex pattern.        |
 
 <a name="service-endpoint-prop)"></a>
+
 # pool.haproxy.backend.service.endpoint
 
 | Key         | Type      | Description                                                                                   |
@@ -263,6 +282,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | allPorts  | boolean | Selects all ports defined in service when `true`.                     |
 
 <a name="service-endpoint-check-prop)"></a>
+
 # pool.haproxy.backend.service.endpoint.check
 
 | Key         | Type      |
@@ -271,9 +291,536 @@ The pool contains information on resources that the pool needs. Changes made to 
 | customStr   | string    |
 
 <a name="error-prop"></a>
+
 # error
 
 | Key             | Type        |
 | --------------- | ----------- |
 | code            | int32       |
 | message         | string      |
+
+# Applying pool configuration settings
+The code excerpts in this section provide examples of how to set Edge-LB pool configuration options using the Edge-LB REST API.
+
+## Using Edge-LB pool for a sample Marathon application
+
+DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you need to know the Mesos `task` name and `port` name.
+
+For example, in the following snippet from a sample Marathon app definition:
+* the `task` name is `my-app`
+* the `port` name is `web`
+
+```json
+{
+  "id": "/my-app",
+  ...
+  "portDefinitions": [
+    {
+      "name": "web",
+      "protocol": "tcp",
+      "port": 0
+    }
+  ]
+}
+```
+
+The following code provides a simple example of how to configure an Edge-LB pool to do load-balancing for the sample Marathon application above:
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-app"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Path-based routing
+
+This pool configures a load balancer which sends traffic to the `httpd` backend unless the path begins with `/nginx`, in which case it sends traffic to the `nginx` backend. The path in the request is rewritten before getting sent to nginx.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "path-routing",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "httpd",
+        "map": [{
+          "pathBeg": "/nginx",
+          "backend": "nginx"
+        }]
+      }
+    }],
+    "backends": [{
+      "name": "httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    },{
+      "name": "nginx",
+      "protocol": "HTTP",
+      "rewriteHttp": {
+        "path": {
+          "fromPath": "/nginx",
+          "toPath": "/"
+        }
+      },
+      "services": [{
+        "mesos": {
+          "frameworkName": "marathon",
+          "taskName": "bridge-nginx"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+Here are some examples of how the path would be changed for different `fromPath` and `toPath` values:
+
+* `fromPath: "/nginx"`, `toPath: ""`, request: `/nginx` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/index.html` -> `/index.html`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/subpath/index.html` -> `/subpath/index.html`
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx` -> `/nginx` (The path is not rewritten in this case because the request did not match `/nginx/`)
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx/` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx` -> `/subpath`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/` -> `/subpath/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/index.html` -> `/subpath/index.html`
+* `fromPath: "/nginx"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath//index.html` (Note that for cases other than `toPath: ""` or `toPath: "/"`, it is suggested that the `fromPath` and `toPath` either both end in `/`, or neither do because the rewritten path could otherwise end up with a double slash.)
+* `fromPath: "/nginx/"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath/index.html`
+
+We used `pool.haproxy.frontend.linkBackend.pathBeg` in this example to match on the beginning of a path. Other useful fields are:
+
+* `pathBeg`: Match on path beginning
+* `pathEnd`: Match on path ending
+* `pathReg`: Match on a path regular expression
+
+## Internal (East / West) load balancing
+
+Sometimes it is desired or necessary to use Edge-LB for load balancing traffic inside of a DC/OS cluster. This can also be done using [Minuteman VIPs](/latest/networking/load-balancing-vips), but if you need layer 7 functionality, Edge-LB can be configured for internal only traffic.
+
+The changes necessary are:
+
+* Change the `pool.haproxy.stats.bindPort`, `pool.haproxy.frontend.bindPort` to some port that is available on at least one private agent.
+* Change the `pool.role` to something other than `slave_public` (the default). Usually `"*"` works unless you have created a separate role for this purpose.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "internal-lb",
+  "role": "*",
+  "count": 1,
+  "haproxy": {
+    "stats": {
+      "bindPort": 15001
+    },
+    "frontends": [{
+      "bindPort": 15000,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-app"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Using static DNS and virtual IP addresses
+
+Internal addresses such as those generated by Mesos-DNS, Spartan, or Minuteman VIPs can be exposed outside of the cluster with Edge-LB by using `pool.haproxy.backend.service.endpoint.type: "ADDRESS"`.
+
+It should also be noted that this is not always a good idea. Exposing secured internal services to the outside world using an insecure endpoint can be dangerous, keep this in mind when using this feature.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "dns-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "myapp.marathon.l4lb.thisdcos.directory",
+          "port": 555
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Using Edge-LB with other frameworks and data services
+
+You can use Edge-LB load balancing for frameworks and data services that run tasks not managed by Marathon. For example, you might have tasks managed by Kafka brokers or Cassandra. For tasks that run under other frameworks and data services, you can use the `pool.haproxy.backend.service.mesos` object to filter and select tasks for load balancing.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "services-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 1025,
+      "protocol": "TCP",
+      "linkBackend": {
+        "defaultBackend": "kafka-backend"
+      }
+    }],
+    "backends": [{
+      "name": "kafka-backend",
+      "protocol": "TCP",
+      "services": [{
+        "mesos": {
+          "frameworkName": "beta-confluent-kafka",
+          "taskNamePattern": "^broker-*$"
+        },
+        "endpoint": {
+          "port": 1025
+        }
+      }]
+    }]
+  }
+}
+```
+
+Other useful fields for selecting frameworks and tasks in `pool.haproxy.backend.service.mesos`:
+
+* `frameworkName`: Exact match
+* `frameworkNamePattern`: Regular expression
+* `frameworkID`: Exact match
+* `frameworkIDPattern`: Regular expression
+* `taskName`: Exact match
+* `taskNamePattern`: Regular expression
+* `taskID`: Exact match
+* `taskIDPattern`: Regular expression
+
+## Using host name and SNI routing with VHOSTS
+
+To direct traffic based on the hostname to multiple backends for a single port (such as 80 or 443), use `pool.haproxy.frontend.linkBackend`.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "vhost-routing",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "map": [{
+          "hostEq": "nginx.example.com",
+          "backend": "nginx"
+        },{
+          "hostReg": "*.httpd.example.com",
+          "backend": "httpd"
+        }]
+      }
+    },{
+      "bindPort": 443,
+      "protocol": "HTTPS",
+      "linkBackend": {
+        "map": [{
+          "hostEq": "nginx.example.com",
+          "backend": "nginx"
+        },{
+          "hostReg": "*.httpd.example.com",
+          "backend": "httpd"
+        }]
+      }
+    }],
+    "backends": [{
+      "name": "httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    },{
+      "name": "nginx",
+      "protocol": "HTTP",
+      "services": [{
+        "mesos": {
+          "frameworkName": "marathon",
+          "taskName": "bridge-nginx"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Setting weighted values for backend servers
+
+To add relative weights to backend servers, use the `pool.haproxy.backend.service.endpoint.miscStr` field. In the example below, the `/app-v1` service will receive 20 out of every 30 requests, and `/app-v2` will receive the remaining 10 out of every 30 requests. The default weight is 1, and the max weight is 256.
+
+This approach can be used to implement some canary or A/B testing use cases.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "default"
+      }
+    }],
+    "backends": [{
+      "name": "default",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/app-v1"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 20"
+        }
+      },{
+        "marathon": {
+          "serviceID": "/app-v2"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 10"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Using SSL/TLS certificates
+
+There are three different ways to get and use a certificate:
+
+### Automatically generated self-signed certificate
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "auto-certificates",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+### DC/OS Secrets (Enterprise Only)
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "secret-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "secrets": [
+    {
+      "secret": "mysecret",
+      "file": "mysecretfile"
+    }
+  ],
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$SECRETS/mysecretfile"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+### Environment variables (Insecure)
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "env-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "environmentVariables": {
+    "ELB_FILE_HAPROXY_CERT": "-----BEGIN CERTIFICATE-----\nfoo\n-----END CERTIFICATE-----\n-----BEGIN RSA PRIVATE KEY-----\nbar\n-----END RSA PRIVATE KEY-----\n"
+  },
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$ENVFILE/ELB_FILE_HAPROXY_CERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Using virtual networks
+
+In this example we create a pool that will be launched on the virtual network provided by DC/OS overlay called "dcos". In general you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "vnet-lb",
+  "count": 1,
+  "virtualNetworks": [
+    {
+      "name": "dcos",
+      "labels": {
+        "key0": "value0",
+        "key1": "value1"
+      }
+    }
+  ],
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "vnet-be"
+      }
+    }],
+    "backends": [{
+      "name": "vnet-be",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-vnet-app"
+        },
+        "endpoint": {
+          "portName": "my-vnet-port"
+        }
+      }]
+    }]
+  }
+}
+```

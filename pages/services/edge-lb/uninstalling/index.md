@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
-menuWeight: 75
+menuWeight: 50
 excerpt: How to uninstall the Edge-LB package
 
 enterprise: false
