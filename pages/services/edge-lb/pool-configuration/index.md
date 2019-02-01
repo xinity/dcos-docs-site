@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB Pool Config Reference
 title: Edge-LB Pool Config Reference
-menuWeight: 80
+# menuWeight: -100
 excerpt: Reference for all possible Edge-LB pool configuration values
 
 enterprise: false

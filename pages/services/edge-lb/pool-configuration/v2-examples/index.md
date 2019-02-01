@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: V2 Pool Examples
 title: V2 Pool Examples
-menuWeight: 86
+# menuWeight: -3
 excerpt: Example Edge-LB pool configurations using the V2 API
 
 

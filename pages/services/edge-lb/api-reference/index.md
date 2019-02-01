@@ -1,11 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle:  API Reference
-title: API Reference
+navigationTitle:  Edge-LB Reference
+title: Edge-LB Reference
 menuWeight: 80
-excerpt: Reference for all API endpoints exposed by the Edge-LB package
+excerpt: Provides reference information for the Edge-LB REST API, HAProxy endpoints, and Edge-LB pool configuration settings
 
 enterprise: false
 ---
 
-The API exposed to users consists of the Edge-LB API, which enables creation and manipulation of pools of load balancers and HAProxy API itself. Please choose a section on the left for details.
+Edge-LB reference information includes the following:
+* Edge-LB REST API functions for creating, reading, updating, and deleting Edge-LB instances and load balancing pools.
+
+* Edge-LB HAProxy endpoints for returning information about HAProxy operations and activity.
+
+* Edge-LB pool configuration settings and examples.
