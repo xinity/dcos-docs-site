@@ -11,7 +11,7 @@ excerpt: Sample to illustrate changes to Mesosphere DC/OS Release Notes
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-Version 1.12 - Released 4 February 2019
+Version 1.12 - Released 3 February 2019
 
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
