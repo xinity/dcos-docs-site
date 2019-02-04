@@ -10,10 +10,10 @@ excerpt: Sample to illustrate changes to patch-level release notes
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-Version 1.11.8 - Released 6 December 2018. 
+Version 1.11.8 - Released 6 December 2018.
 
 # Release summary
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 This component-level release includes changes to improve the user experience, fix reported issues, integrate enhancements from previous releases, and maintain compatibility and support for other packages--such as Marathon and Metronome--used in DC/OS.
 
