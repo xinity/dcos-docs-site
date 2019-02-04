@@ -11,8 +11,8 @@ enterprise: false
 #include /include/tutorial-disclaimer.tmpl
 
 
-You can use the [Marathon-LB-autoscale](https://github.com/mesosphere/Marathon-LB-autoscale) application to implement request rate-based autoscaling with Marathon. The Marathon-LB-autoscale application works with any application that uses TCP traffic and can be routed through HAProxy.
+You can use the [marathon-lb-autoscale](https://github.com/mesosphere/marathon-lb-autoscale) application to implement request rate-based autoscaling with Marathon. The `marathon-lb-autoscale` application works with any application that uses TCP traffic and can be routed through HAProxy.
 
-`Marathon-LB-autoscale` collects data from all HAProxy instances to determine the current RPS (requests per second) for your apps. The autoscale controller then attempts to maintain a defined target number of requests per second per service instance. `Marathon-LB-autoscale` makes API calls to Marathon to scale the app.
+The `marathon-lb-autoscale` script collects data from all HAProxy instances to determine the current RPS (requests per second) for your apps. The autoscale controller then attempts to maintain a defined target number of requests per second per service instance. The script also makes API calls to Marathon to scale the app.
 
-For more information, see the [Marathon-LB Reference](/services/Marathon-LB/advanced/).
+For more information, see the [Marathon-LB Reference](/services/marathon-lb/mlb-reference/).
