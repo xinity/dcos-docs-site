@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 Code for Edge-LB config and Marathon-LB config
-Configuration example for app with Marathon-LB App - minitwit.json:
+# Sample configuration example for app with Marathon-LB App - minitwit.json:
 
 ```json
 {

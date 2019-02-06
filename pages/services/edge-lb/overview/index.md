@@ -31,7 +31,7 @@ Edge-LB has three core architectural components:
 The following diagram illustrates the relationship between these core components running on a DC/OS cluster.
 
 <p>
-<img src="/services/img/Edge-LB-2.png" alt="Core components of the Edge-LB architecture">
+<img src="/services/edge-lb/img/Edge-LB-2.png" alt="Core components of the Edge-LB architecture">
 </p>
 
 Outside requests are received through the public-facing agent node and distributed through HAProxy to the application backend tasks.
