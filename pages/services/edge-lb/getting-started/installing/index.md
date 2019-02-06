@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Installing
 title: Installing
-menuWeight: 10
+menuWeight: 5
 excerpt: Configuring a service account and installing Edge-LB
 enterprise: false
 ---
