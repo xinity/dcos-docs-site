@@ -9,7 +9,7 @@ enterprise: false
 
 To configure a service account and install the Edge-LB package, use the instructions below.
 
-# Prerequisites
+# Before you begin
 
 - [DC/OS CLI is installed](/1.12/cli/install/)
 - You are logged in as a superuser.
@@ -17,10 +17,6 @@ To configure a service account and install the Edge-LB package, use the instruct
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
-
-## Limitations
-
-- Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:
@@ -33,9 +29,7 @@ You must install Universe repositories for the Edge-LB API server and the Edge-L
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
-
 ## Obtaining package artifacts
-
 
 In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
@@ -43,11 +37,9 @@ In order to install both packages, you need to obtain package artifacts. They ca
 
 Once you have these artifacts, they need to be made accesible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
 
-
-## Add them to the package repository
+## Add Edge-LB artifacts to the package repository
 
 Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repos are available, use the following command to add them to the universe package repository:
-
 
 ```bash
 dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
@@ -58,7 +50,9 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ```
 
 [enterprise]
-## <a name="build"></a>Deploying a local Universe containing Edge-LB
+<a name="build"></a>
+
+## Deploying a local Universe containing Edge-LB
 [/enterprise]
 
 If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.12/administering-clusters/deploying-a-local-dcos-universe/#certified).
@@ -101,7 +95,6 @@ cp -rpv stub-repo/packages/* ../../repo/packages
     ```
 
 1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
-
 
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
