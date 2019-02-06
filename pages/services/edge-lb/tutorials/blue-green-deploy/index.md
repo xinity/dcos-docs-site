@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Blue/Green Service Update
-title: Blue/Green Service
-menuWeight: 30
-excerpt: Tutorial - Using blue/green deployment
+navigationTitle:  Blue/Green Service Deployment
+title: Blue/Green service deployment
+menuWeight: 10
+excerpt: How to deploy with two load-balanced versions of the same service
 
 enterprise: false
 ---
