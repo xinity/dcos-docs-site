@@ -2,35 +2,34 @@
 layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
-menuWeight: 50
-excerpt: How to uninstall the Edge-LB package
+menuWeight: 20
+excerpt: Uninstalling the Edge-LB package
 
 enterprise: false
 ---
 
+
 <p class="message--warning"><strong>WARNING: </strong>Do not use the DC/OS web interface or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>
 
-To uninstall Edge-LB:
-1. List the pools which are managed by Edge-LB.
+1.  List the pools which are managed by Edge-LB
 
     ```bash
     dcos edgelb list
     ```
 
-1. Delete each pool returned from the list command in the previous step by running the following command:
+1. Deleting pools will automatically uninstall managed load balancers. Delete each pool from the previous step with this command.
 
     ```bash
-    dcos edgelb pool delete <name>
+    dcos edgelb delete <pool-name>
     ```
-    Deleting pools automatically uninstalls managed load balancers.
 
-1. Uninstall the Edge-LB API server by running the following command:
+1.  Uninstall the Edge-LB API server.
 
     ```bash
     dcos package uninstall edgelb
     ```
 
-1. Remove the Universe repositories by running the following commands:
+1.  Remove the Universe repositories.
 
     ```bash
     dcos package repo remove edgelb-aws
