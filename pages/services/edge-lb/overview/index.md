@@ -14,5 +14,5 @@ Edge-LB leverages HAProxy, which provides the core load balancing and proxying f
 The following diagram provides a simplified overview of Edge-LB load balancing.
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-1.png" alt="Simplified overview of Edge-LB architecture">
+<img src="/services/edge-lb/img/simple-load-balancer.png" alt="Load balancing as a network layer">
 <p>
