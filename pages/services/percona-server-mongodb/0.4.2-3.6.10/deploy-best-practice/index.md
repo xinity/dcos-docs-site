@@ -61,7 +61,7 @@ For block device read-ahead, we recommend a setting of 32 sectors (=16KB) for mo
 ACTION=="add|change", KERNEL=="sda", ATTR{queue/scheduler}="deadline", ATTR{bdi/read_ahead_kb}="16"
 ```
 
-## Linux / Operating System
+## Linux Operating System
 
 ### Linux Kernel
 

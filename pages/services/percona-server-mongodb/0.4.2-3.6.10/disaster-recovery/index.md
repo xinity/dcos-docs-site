@@ -12,9 +12,9 @@ render: mustache
 
 # Backing Up
 
-The service supports a custom plan for creating a consistent backup of the {{ model.dbName }} replica set that is uploaded to a remote location. The backup plan launches an instance of [Percona-Lab/mongodb_consistent_backup](https://github.com/Percona-Lab/mongodb_consistent_backup), creates a consistent backup of the replica set and uploads the backup to remote storage. Currently only AWS S3 is supported as an upload destination for backups via the plan named 'backup-s3'. More upload methods are coming in the future!
+The DC/OS {{ model.techName  }} service supports a custom plan for creating a consistent backup of the {{ model.dbName }} replica set that is uploaded to a remote location. The backup plan launches an instance of [Percona-Lab/mongodb_consistent_backup](https://github.com/Percona-Lab/mongodb_consistent_backup), creates a consistent backup of the replica set and uploads the backup to remote storage. Currently only AWS S3 is supported as an upload destination for backups via the plan named `backup-s3`. More upload methods are coming in the future!
 
-There are two ways to configure backups: via the DC/OS {{ model.techName }} service configuration section 'Backup restore' in the DC/OS web interface, or the DC/OS CLI.
+There are two ways to configure backups: via the DC/OS {{ model.techName }} service configuration section 'Backup restore' in the DC/OS GUI, or the DC/OS CLI.
 
 ### Hidden secondary member
 The service supports the ability to launch a dedicated {{ model.dbName }} [hidden secondary](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) replica set member to perform backups. [Hidden secondary](https://docs.mongodb.com/manual/core/replica-set-hidden-member/) members cannot become Primary in a failover situation and are hidden to application drivers.

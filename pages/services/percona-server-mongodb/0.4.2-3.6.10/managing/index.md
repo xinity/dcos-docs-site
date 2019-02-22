@@ -16,7 +16,7 @@ You can make changes to the {{ model.techName }} service after it has been launc
 
 After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `mongo-rs-0`, then `mongo-rs-1`, and so on. Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](#limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/percona-server-mongodb/0.4.2-3.6.10/limitations/).
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 

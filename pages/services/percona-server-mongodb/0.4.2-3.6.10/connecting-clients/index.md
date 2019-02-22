@@ -52,7 +52,7 @@ $ dcos {{ model.serviceName }} endpoints mongo-port
     }
 ```
 
-2. Connect to MongoDB using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool, using the `dns` hostname+port list from Step 1. Note that a username and password is provided in the connect string, as well as the replica set name:
+2. Connect to {{ model.dbName  }} using the [mongo shell](https://docs.mongodb.com/manual/mongo/) tool, using the `dns` hostname+port list from Step 1. Note that a username and password is provided in the connect string, as well as the replica set name:
 
 ```
 $ mongo mongodb://clusteradmin:clusteradminpassword@mongo-rs-0-mongod.{{ model.serviceName }}.autoip.dcos.thisdcos.directory,
@@ -61,7 +61,7 @@ mongo-rs-2-mongod.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:27017/a
 > db.serverStatus();
 ```
 
-Or for applications, most MongoDB drivers will accept `mongodb://` connection-string used in the example above to connect to MongoDB.
+Or for applications, most {{ model.dbName  }} drivers will accept `mongodb://` connection-string used in the example above to connect to {{ model.dbName  }}.
 ```
 mongodb://clusteradmin:clusteradminpassword@mongo-rs-0-mongod.{{ model.serviceName }}.autoip.dcos.thisdcos.directory,
 mongo-rs-1-mongod.{{ model.serviceName }}.autoip.dcos.thisdcos.directory,
