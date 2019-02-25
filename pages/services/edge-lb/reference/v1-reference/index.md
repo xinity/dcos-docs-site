@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB Pool Configuration
 title: Pool configuration reference (V1)
-menuWeight: 152
+menuWeight: -1
 excerpt: Provides reference information and examples for Edge-LB pool configuration in the V1 API
 
 enterprise: false

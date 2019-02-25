@@ -2,13 +2,13 @@
 layout: layout.pug
 navigationTitle:  Edge-LB Pool Configuration
 title: Pool configuration reference (V2)
-menuWeight: 95
+menuWeight: 84
 excerpt: Provides reference information and examples for Edge-LB pool configurations options in the V2 API
 
-enterprise: false
+enterprise: true
 ---
 
-The tables below describe all possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.
+The tables in this section describe all possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.
 
 # Before you modify configuration settings
 If you plan to modify the Edge-LB pool configuration options, you should keep the following guidelines in mind:
@@ -21,36 +21,57 @@ If you plan to modify the Edge-LB pool configuration options, you should keep th
 - Use CamelCase to set configuration values.
 - Swagger only validates enumerated (enum) data values if the configuration option is a top level definition.
 
+# API version compatibility
+There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) has been replaced with `pool.haproxy.backends.services` to a more intuitive way to select services and backends for HAProxy load balancers. Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need information for the older specification, see [Edge-LB pool configuration (v1)](/services/edge-lb/reference/v1-reference/).
+
+The V1 and V2 specifications were merged into a single spec; however, there are still separate v1 and v2 docs for reference configs, pool examples, etc.
+
+
 <a name="pool"></a>
 
 # pool
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
-| Key                         | Type     |  Nullable   |  Properties     | Description    |
-| --------------------------- | -------- | ----------- | --------------  | -------------- |
-| apiVersion                  | string   |             |                 | The api/schema version of this pool object. Should be V2 for new pools. |
-| name                        | string   |             |                 | The pool name. |
-| namespace                   | string   |  true       |                 | The DC/OS space (sometimes also referred to as a "group"). |
-| packageName                 | string   |             |                 |                |
-| packageVersion              | string   |             |                 |                |
-| role                        | string   |             |                 | Mesos role for load balancers. Defaults to "slave_public" so that load balancers will be run on public agents. Use "*" to run load balancers on private agents. Read more about Mesos roles at http://mesos.apache.org/documentation/latest/roles/.  |
-| cpus                        | number   |             |                 |                |
-| cpusAdminOverhead           | number   |             |                 |                |
-| mem                         | int32    |             |                 | Memory requirements (in MB). |
-| memAdminOverhead            | int32    |             |                 | Memory requirements (in MB). |
-| disk                        | int32    |             |                 | Disk size (in MB). |
-| count                       | integer  | true        |                 | Number of load balancer instances in the pool. |
-| constraints                 | string   | true        |                 | Marathon style constraints for load balancer instance placement. |
-| ports                       | array    |             |                 | <ul><li>Override ports to allocate for each load balancer instance.</li><li>Defaults to {{haproxy.frontend.objs[].bindPort}} and {{haproxy.stats.bindPort}}.</li><li>Use this field to pre-allocate all needed ports with or without the frontends present. For example: [80, 443, 9090].</li><li>If the length of the ports array is not zero, only the ports specified will be allocated by the pool scheduler.</li></ul> |
-| items                       | int32    |             |                 |                |
-| secrets                     | array    |             | <ul><li>[secret](#secrets-prop)</li><li>[file](#secrets-prop)</li></ul> | DC/OS secrets. |
-| environmentVariables        | object   |             | [additionalProperties](#env-var) | Environment variables to pass to tasks. Prefix with `ELB_FILE_` and it will be written to a file. For example, the contents of `ELB_FILE_MYENV` will be written to `$ENVFILE/ELB_FILE_MYENV`. |
-| autoCertificate             | boolean  |             |                 | Autogenerate a self-signed SSL/TLS certificate. It is not generated by default. It will be written to `$AUTOCERT`. |
-| virtualNetworks             | array    |             | <ul><li>[name](#vn-prop)</li><li>[labels](#vn-prop)</li></ul> | Virtual networks to join. |
-| haproxy                     |          |             |                 |                 |
-| poolHealthcheckGracePeriod  | int32    |             |                 | Defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s). Introduced in v1.2.3.|
-| poolHealthcheckInterval     | int32    |             |                 | Defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s). Introduced in v1.2.3.|
-| poolHealthcheckMaxFail      | int32    |             |                 | Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5). Introduced in v1.2.3.|
-| poolhealthcheckTimeout      | int32    |             |                 | Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test. Introduced in v1.2.3.|
+<table class="table" style="table-layout: fixed">
+<tr>
+<th style="font-weight:bold">Key</th>
+<th style="font-weight:bold">Type</th>
+<th style="font-weight:bold">Nullable</th><th style="font-weight:bold">Properties</th>
+<th style="font-weight:bold">Description</th>
+</tr>
+<tbody valign="top">
+<tr>
+<td>apiVersion</td><td>string</td><td></td><td></td><td>Specifies the API schema version of this pool object. Should be V2 for new pools.</td>
+</tr>
+<tr><td>name</td><td>string</td><td></td><td></td><td>Specifies the pool name.</td>
+</tr>
+<tr><td>namespace</td><td>string</td><td>true</td><td></td><td>Specifies the DC/OS space (sometimes also referred to as a "group").</td>
+</tr>
+<tr><td>packageName</td><td>string</td><td></td><td></td><td>Specifies the Edge-LB package name</td></tr>
+<tr><td>packageVersion</td><td>string</td> <td></td><td></td></tr>
+<tr><td>role</td><td>string</td><td></td><td></td> <td>Mesos role for load balancers. Defaults to "slave_public" so that load balancers will be run on public agents. Use "*" to run load balancers on private agents. For more information, see <a href="http://mesos.apache.org/documentation/latest/roles/">Mesos roles</a>. </td></tr>
+<tr><td>cpus</td><td>number</td><td></td><td></td></tr>
+<tr><td>cpusAdminOverhead</td><td>number</td><td></td><td></td><tr>
+<tr><td>mem</td><td>int32</td><td></td><td></td><td>Memory requirements (in MB).</td></tr>
+<tr><td>memAdminOverhead</td><td>int32</td></td><td></td><td>Memory requirements (in MB).</td></tr>
+<tr><td>disk</td><td>int32</td></td><td></td><td>Disk size (in MB).</td></tr>
+<tr><td>count</td><td>integer<td>true</td><td><td>Number of load balancer instances in the pool.</td></tr>
+<tr><td>count</td><td>integer<td>true</td><td><td>Number of load balancer instances in the pool.</td></tr>
+<tr><td>count</td><td>integer<td>true</td><td></td><td>Number of load balancer instances in the pool.</td></tr>
+<tr><td>constraints</td><td>string</td>true<td></td><td>Marathon style constraints for load balancer instance placement.</td></tr>
+<tr><td>ports</td><td>array</td><td></td><td>                 | <ul><li>Override ports to allocate for each load balancer instance.</li><li>Defaults to {{haproxy.frontend.objs[].bindPort}} and {{haproxy.stats.bindPort}}.</li><li>Use this field to pre-allocate all needed ports with or without the frontends present. For example: [80, 443, 9090].</li><li>If the length of the ports array is not zero, only the ports specified will be allocated by the pool scheduler.</li></ul> |
+<tr><td>items</td><td>int32</td><td></td><td></td></tr>
+<tr><td>secrets</td><td>array</td><td></td><td>
+<ul><li>[secret](#secrets-prop)</li><li>[file](#secrets-prop)</li></ul> | DC/OS secrets. |
+<tr><td>environmentVariables</td><td>object</td><td>[additionalProperties](#env-var)</td><td>Environment variables to pass to tasks. Prefix with `ELB_FILE_` and it will be written to a file. For example, the contents of `ELB_FILE_MYENV` will be written to `$ENVFILE/ELB_FILE_MYENV`.</td></tr>
+<tr><td>autoCertificate</td><td>boolean  |             |                 | Autogenerate a self-signed SSL/TLS certificate. It is not generated by default. It will be written to `$AUTOCERT`. |
+<tr><td>virtualNetworks</td><td>array</td><td></td><td></td><td><ul><li>[name](#vn-prop)</li><li>[labels](#vn-prop)</li></ul> | Virtual networks to join.</td></tr>
+<tr><td>haproxy</td><td></td><td></td></tr>
+<tr><td>poolHealthcheckGracePeriod</td><td>int32</td><td><td></td><td></td><td>Defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s). Introduced in v1.2.3.</td></tr>
+<tr><td>poolHealthcheckInterval</td><td>int32</td><td></td><td></td><td>Defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s). Introduced in v1.2.3.</td></tr>
+<tr><td>poolHealthcheckMaxFail</td><td>int32</td><td></td><td></td><td>Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5). Introduced in v1.2.3.</td></tr>
+<tr><td>poolhealthcheckTimeout</td><td>int32</td><td></td><td>Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test. Introduced in v1.2.3.</td></tr>
+</tbody>
+</table>
 
 <a name="secrets-prop"></a>
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB REST API reference
 title: REST API reference
-menuWeight: 85
+menuWeight: 83
 excerpt: Provides reference for Edge-LB REST API endpoints
 
 enterprise: false

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB HAProxy Endpoints
 title: Edge-LB HAProxy endpoints reference
-menuWeight: 90
+menuWeight: 85
 excerpt: Describes the endpoints exposed by Edge-LB HAProxy instances
 
 enterprise: false

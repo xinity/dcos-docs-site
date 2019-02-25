@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Command-Line Interface (CLI)
 title: Edge-LB Command-Line Interface
-menuWeight: 81
+menuWeight: 82
 excerpt: Provides usage and reference information for Edge-LB commands
 enterprise: false
 ---

@@ -14,7 +14,7 @@ If you have DC/OS deployed in a production environment, see [Known limitations a
 The release notes summarize release-specific changes to fix issues or update fnew eatures in DC/OS Enterprise and DC/OS Open Source clusters.
 
 # Notable changes Edge-LB 1.3
-Released on xxx, 2019.
+Released on February 6, 2019.
 
 DCOS-46043 - Improve the `apiserver` file comparison functions.
 
