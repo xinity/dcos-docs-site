@@ -195,7 +195,11 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
+<<<<<<< Updated upstream:pages/services/edge-lb/getting-started/index.md
 For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.2/permissions)
+=======
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.1/permissions)
+>>>>>>> Stashed changes:pages/services/edge-lb/1.1/installing/index.md
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -244,5 +248,10 @@ You should receive this message when ready:
 pong
 ```
 
+<<<<<<< Updated upstream:pages/services/edge-lb/getting-started/index.md
 - For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.2/pool-configuration) section.
 - For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.2/cli-reference).
+=======
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.1/pool-configuration) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.1/cli-reference).
+>>>>>>> Stashed changes:pages/services/edge-lb/1.1/installing/index.md
