@@ -185,15 +185,26 @@ type: string
 <a name="redirect-https-prop"></a>
 
 ## pool.haproxy.frontend.redirectToHttps
-
-|<b>Key</b>|<b>Type</b>|<b>Properties</b>| <b>Description</b>|
-| ------ | ------- | ----------- | --------------- |
-| except | array   |             | You can additionally set a whitelist of fields that must be matched to allow HTTP. |
-| items  | object  | 
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="40px">
+    <col span="1" width="30px">
+    <col span="1" width="80px">
+</colgroup>
+<tr>
+<th style="font-weight:bold">Key</th>
+<th style="font-weight:bold">Type</th>
+<th style="font-weight:bold">Description and related properties</th>
+<tbody valign="top">
+<tr><td>except</td><td>array</td><td>You can additionally set a whitelist of fields that must be matched to allow HTTP.</td></tr>
+<tr><td>items</td><td>object</td><td>Boolean AND will be applied with every selected value. 
 <ul>
-<li>[host](#items-prop)</li>
-<li>[pathBeg](#items-prop)</li>
-</ul> | Boolean AND will be applied with every selected value. |
+<li><a href="#items-prop">host</a></li>
+<li><a href="#items-prop">pathBeg</a></li>
+</ul>
+</td></tr>
+</tbody>
+</table>
 
 <a name="items-prop"></a>
 
@@ -205,19 +216,31 @@ type: string
 | pathBeg    | string  | Math on path.  |
 
 ## pool.haproxy.frontend.linkBackend
-
-|<b>Key</b>|<b>Type</b>|<b>Properties</b>|<b>Description</b>|
-| -------- | ------- | ---------- | ----------- |
-| defaultBackend | string |  | This is default backend that is routed to if none of the other filters are matched.|
-| map  | array   | 
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="40px">
+    <col span="1" width="30px">
+    <col span="1" width="80px">
+</colgroup>
+<tr>
+<th style="font-weight:bold">Key</th>
+<th style="font-weight:bold">Type</th>
+<th style="font-weight:bold">Description and related properties</th>
+<tbody valign="top">
+<tr><td>
+defaultBackend</td><td>string</td><td>This is the default backend that is routed to if none of the other filters are matched.</td></tr>
+<tr><td>map</td><td>array</td><td>This is an optional field that specifies a mapping to various backends. These rules are applied in order.<br />"Backend" and at least one of the condition fields must be filled out. If multiple conditions are filled out, they will be combined with a boolean "AND". 
 <ul>
-<li>[backend](#map-prop)</li>
-<li>[hostEq](#map-prop)</li>
-<li>[hostReg](#map-prop)</li>
-<li>[pathBeg](#map-prop)</li>
-<li>[pathEnd](#map-prop)</li>
-<li>[pathReg](#map-prop)</li>
-</ul> | This is an optional field that specifies a mapping to various backends. These rules are applied in order.<br />"Backend" and at least one of the condition fields must be filled out. If multiple conditions are filled out, they will be combined with a boolean "AND". |
+<li><a href="#map-prop">backend</a></li>
+<li><a href="#map-prop">hostEq</a></li>
+<li><a href="#map-prop">hostReg</a></li>
+<li><a href="#map-prop">pathBeg</a></li>
+<li><a href="#map-prop">pathEnd</a></li>
+<li><a href="#map-prop">pathReg</a></li>
+</ul>
+</td></tr>
+</tbody>
+</table>
 
 <a name="map-prop"></a>
 
