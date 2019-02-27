@@ -68,14 +68,11 @@ dcos:adminrouter:service:edgelb:/v1/loadbalancers
 
 After launching a service and creating a [pool configuration file](/services/edge-lb/reference/pool-configuration-reference), you can use the following command to deploy it:
 
-```bash
-dcos edgelb create <pool-configuration-file>
-```
+`dcos edgelb create <pool-configuration-file>`
+
 For example, to create a new Edge-LB pool that uses the customized configuration file `my-edgelb-options`:
 
-```bash
-dcos edgelb create my-edge-lb-options
-```
+`dcos edgelb create my-edge-lb-options`
 
 For additional examples of pool configuration, see [Tutorials](/services/edge-lb/tutorials/).
 
@@ -99,9 +96,7 @@ dcos edgelb delete <pool-name>
 ### Permissions
 To delete an existing pool and uninstall the deployed load balancers, the Edge-LB service account or user account must have the following permission for a specified pool:
 
-<code>
-dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME> full
-</code>
+`dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME> full`
 
 ### Examples
 To delete an existing Edge-LB pool named `aqua01` and uninstall the deployed load balancer instances for this pool:
@@ -126,6 +121,8 @@ dcos edgelb endpoints [<flags>] <pool-name>
 | `--name="<name>"`   | Name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
+<!-- ### Permissions -->
+
 <!-- ### Examples -->
 
 # dcos edgelb lb-config
@@ -145,6 +142,8 @@ dcos edgelb lb-config [<flags>] <pool-name>
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
 | `--raw` | Show unparsed load-balancer config. |
+
+<!-- ### Permissions -->
 
 <!-- ### Examples -->
 
@@ -176,15 +175,11 @@ dcos:adminrouter:service:edgelb:/config full
 ### Examples
 To list detailed Edge-LB pool configuration information for all Edge-LB pool instances:
 
-```bash
-dcos edgelb list --verbose
-```
+`dcos edgelb list --verbose`
 
 To list detailed Edge-LB pool configuration information for the `sanfrancisco05` Edge-LB pool instance:
 
-```bash
-dcos edgelb list --name sanfrancisco05 --verbose
-```
+`dcos edgelb list --name sanfrancisco05 --verbose`
 
 # dcos edgelb ping
 Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
@@ -211,11 +206,9 @@ dcos:adminrouter:service:edgelb:/ping full
 </code>
 
 ### Examples
-To test the connection to the sanfrancisco05 Edge-LB pool by sending a `ping` request:
+To test the connection to the `sanfrancisco05` Edge-LB pool by sending a `ping` request:
 
-```bash
-dcos edgelb ping --name sanfrancisco05
-```
+`dcos edgelb ping --name sanfrancisco05`
 
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
@@ -238,6 +231,8 @@ dcos edgelb show [<flags>] [<pool-name>]
 | `--reference` | Display the configuration reference. |
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
 | `--json` | Show unparsed JSON response. |
+
+<!--### Permissions-->
 
 ### Examples
 To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), run the following command:
@@ -263,6 +258,8 @@ dcos edgelb status [<flags>] <pool-name>
 | `--task-ids` | Only Display the task ids. |
 | `--json` | Show unparsed JSON response. |
 
+<!-- ### Permissions -->
+
 <!-- ### Examples -->
 
 # dcos edgelb template create
@@ -285,6 +282,8 @@ dcos edgelb template create <pool-name> <template-file>
 | `--name="<name>"`   | Name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
+<!-- ### Permissions -->
+
 <!-- ### Examples -->
 
 # dcos edgelb template delete
@@ -305,6 +304,8 @@ dcos edgelb template delete <pool-name>
 | `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
+
+<!-- ### Permissions -->
 
 <!-- ### Examples -->
 
@@ -327,6 +328,8 @@ dcos edgelb template show [<pool-name>]
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
 
+<!-- ### Permissions -->
+
 <!-- ### Examples -->
 
 # dcos edgelb template update
@@ -347,6 +350,8 @@ dcos edgelb template update <pool-name> <template-file>
 | `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
+
+<!-- ### Permissions -->
 
 <!-- ### Examples -->
 
@@ -387,14 +392,11 @@ dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>
 
 You can update a pool's configuration with the following command:
 
-```bash
-dcos edgelb update <pool-configuration-file>
-```
+`dcos edgelb update <pool-configuration-file>`
+
 For example, if you want to update a pool to use the `mysampleconfig` pool configuration file:
 
-```bash
-dcos edgelb update mysampleconfig
-```
+`dcos edgelb update mysampleconfig`
 
 # dcos edgelb version
 Use this command to display the current Edge-LB version you have installed.
@@ -412,5 +414,7 @@ dcos edgelb [<flags>] version
 | `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
+
+<!-- ### Permissions -->
 
 <!-- ### Examples -->
