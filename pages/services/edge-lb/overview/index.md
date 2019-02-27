@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Edge-LB Overview
+navigationTitle: Edge-LB overview
 title: Edge-LB overview
 menuWeight: 5
 excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
