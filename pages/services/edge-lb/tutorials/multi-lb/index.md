@@ -10,13 +10,9 @@ enterprise: false
 
 This tutorial demonstrates how to set up multiple load balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers. Multiple Edge-LB instances enable you to create a highly-available load balanced environment and support increased throughput.
 
-# Prerequisites
+# Before you begin
 
-<<<<<<< Updated upstream:pages/services/edge-lb/tutorials/multi-lb/index.md
-* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/1.2/installing).
-=======
-* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/1.0/installing).
->>>>>>> Stashed changes:pages/services/edge-lb/1.0/tutorials/multi-lb/index.md
+* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/getting-started/installing).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
 * At least one DC/OS private agent node to run the load balanced service (more is better).
 * Multiple (two or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.

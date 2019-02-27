@@ -155,6 +155,8 @@ dcos edgelb ping
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
 
+You can also use this command to convert YAML files to their equivalent JSON format. Edge-LB accepts configuration files in either YAML or JSON format. Because the YAML file format is intended for deprecation in favor or JSON format, however, you should use JSON and migrate any previous configuration settings from YAML format to their equivalent JSON format. 
+
 ### Usage
 
 ```bash
@@ -172,7 +174,10 @@ dcos edgelb show [<flags>] [<pool-name>]
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
 | `--json` | Show unparsed JSON response. |
 
-<!-- ### Examples -->
+### Examples
+To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), run the following command:
+
+`dcos edgelb show --convert-to-json=/path/to/yaml`
 
 # dcos edgelb status
 Use this command to return a list of the load balancer task information associated with a pool. For example, you can run this command to return the agent IP address and task ID for a specified Edge-LB pool. 
