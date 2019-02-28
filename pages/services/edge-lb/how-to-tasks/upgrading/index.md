@@ -11,7 +11,7 @@ In general, you should regularly update or upgrade the Edge-LB pacakge you have 
 
 For information about what's new or fixed in any release, see th Edge-LB [release notes](/services/edge-lb/related-documentation/release-notes/) and [related documentation](/services/edge-lb/related-documentation/).
 
-Perform an Edge-LB upgrade by following this procedure.
+### To upgrade Edge-LB upgrade:
 
 1. Uninstall the `apiserver` package.
 
@@ -37,9 +37,7 @@ Perform an Edge-LB upgrade by following this procedure.
 
 1. Install the new `apiserver`. 
 
-    Use the service account you created when you installed the previous version.
-
-    For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/services/edge-lb/getting-started/installing) and [Service account permissions](/services/edge-lb/reference/permissions/#service-account-permission).
+    Use the service account you created when you installed the previous version. For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/services/edge-lb/getting-started/installing) and [Service account permissions](/services/edge-lb/reference/permissions/#service-account-permission).
     
     The configuration file below matches the one created by following the installation instructions.
 

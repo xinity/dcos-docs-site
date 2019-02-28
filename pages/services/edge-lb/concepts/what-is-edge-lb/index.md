@@ -12,7 +12,7 @@ Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edg
 The following diagram provides a simplified overview of Edge-LB load balancing.
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-1.png" alt="Simplified overview of Edge-LB architecture">
+<img src="/services/edge-lb/img/Edge-LB-Basic-01.png" alt="Simplified overview of Edge-LB architecture">
 <p>
   
 Edge-LB is an highly available North-South load-balancer for Layer-7 traffic ingressing to Mesosphere cluster. 
