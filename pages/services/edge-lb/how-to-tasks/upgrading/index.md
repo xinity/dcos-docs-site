@@ -7,10 +7,13 @@ excerpt: Upgrading an Edge-LB installation
 
 enterprise: false
 ---
+In general, you should regularly update or upgrade the Edge-LB pacakge you have installed to the latest version available to ensure you can take advantage of any fixes and new features that are included in the most recent release.
+
+For information about what's new or fixed in any release, see th Edge-LB [release notes](/services/edge-lb/related-documentation/release-notes/) and [related documentation](/services/edge-lb/related-documentation/).
 
 Perform an Edge-LB upgrade by following this procedure.
 
-1. Uninstall the `apiserver`.
+1. Uninstall the `apiserver` package.
 
     ```bash
     dcos package uninstall edgelb --yes
@@ -32,7 +35,13 @@ Perform an Edge-LB upgrade by following this procedure.
       https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
-1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.2/installing) for more information. The configuration file below matches the one created while following the install instructions.
+1. Install the new `apiserver`. 
+
+    Use the service account you created when you installed the previous version.
+
+    For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/services/edge-lb/getting-started/installing) and [Service account permissions](/services/edge-lb/reference/permissions/#service-account-permission).
+    
+    The configuration file below matches the one created by following the installation instructions.
 
     ```bash
     tee edgelb-options.json <<EOF
@@ -47,13 +56,16 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package install --options=edgelb-options.json edgelb
     ```
 
-EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
+    EdgeLB requires the following options to be specified based on the security mode of the cluster:
+    - `service.mesosProtocol`
+        - `"https"` for permissive or strict security
+        - `"http"` (default) for disabled security
 
-* `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
-* `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
+    - `service.mesosAuthNZ`
+        = `true` (default) for permissive or strict security
+        - `false` for disabled security mode
 
-
-Upgrade each pool.
+1. Upgrade each pool.
 
     ```bash
     dcos edgelb update <pool-file>

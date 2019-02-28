@@ -7,11 +7,18 @@ excerpt: Edge-LB proxies and load balances traffic to all services that run on D
 enterprise: true
 ---
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
+One of the most important ways you can manage cluster operations is through efficient load balancing of access requests and workload processing. Load balancing improves the performance, reliability, and network efficiency for web-nased properties, applications, databases, and other services by distributing workload across multiple servers.
 
-Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
+Without load balancing, users or clients attempting to access a service can be blocked by server failures, network downtime, system overload, or too many simultaneous processing requests. You can mitigate these potential problems by introducing a load balancer and additional nodes on the backend to handle the demand. 
 
-Conceptually, a load balancer provides a network communication layer for distributing client requests to applications. In its simplest form, you can envision the load balancing device represented like this:
+Conceptually, the load balancer provides a network communication layer for distributing client requests to applications. In its simplest form, you can envision the load balancing service represented like this:
 <p>
 <img src="/services/edge-lb/img/simple-load-balancer.png" alt="Load balancing as a network layer">
 <p>
+
+The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the frontend for the inbound request. The load balancer routes the inbound traffic to the appropriate backend servers that are configured to respond to the service request.
+
+You can configure and use Edge-LB to load balance traffic to all services that run on DC/OS Enterprise clusters. 
+
+Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
+

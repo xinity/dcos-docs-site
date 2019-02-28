@@ -10,7 +10,7 @@ You can use Edge-LB to proxy and load balance traffic to all services that run o
 
 Although this type of **external-to-internal** or **North-South** load balancing is the most common scenario, you can also use Edge-LB for load balancing and workload distribution when both the clients requesting access and the services available are both running inside of the DC/OS cluster. This type of **internal-only** or **East-West** load balancing is most often managed through the DC/OS networking layer (`dcos-net`) by the distributed layer-4 load balancer `dcos-l4lb` (previously known as Minuteman). 
 
-Edge-LB augments the native layer-4 load balancer by providing layer-7 load balancing for internal traffic and granular control over how traffic is routed for all inbound requests.
+Edge-LB augments the native layer-4 load balancer by providing layer-7 load balancing for internal traffic and granular control over how traffic is routed for all inbound requests whether they originate inside or outside of the DC/OS cluster.
 
 To handle its load balancing and distribution duties, Edge-LB leverages `HAProxy` features and configuration options. `HAProxy` is an open-source project that provides:
 - Load balancing for TCP and HTTP-based applications
