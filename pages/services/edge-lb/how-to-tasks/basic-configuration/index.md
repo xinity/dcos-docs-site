@@ -3,52 +3,538 @@ layout: layout.pug
 navigationTitle: Configuring Edge-LB
 title: Configuring Edge-LB
 menuWeight: 20
-excerpt: Describes and provides examples for the most common required and optional Edge-LB configuration settings
+excerpt: Provides examples for the most common required and optional Edge-LB configuration settings
 enterprise: false
 ---
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
+This section provides code examples that illustrate how to set Edge-LB pool configuration options using the Edge-LB REST API with application definitions and sample pool configuration settings.
 
-Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
+# Using Edge-LB for a sample Marathon application
+DC/OS services typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you need to know the Mesos `task` name and `port` name. With this information, you can then configure an Edge-LB pool to handle load balancing for that Marathon appllication.
 
-# Architecture
+## Identify the task and port for an app
+The following code snippet is an excerpt from a sample Marathon app definition. For this sample app definition:
+* the `task` name is `my-app`
+* the `port` name is `web`
 
-Edge-LB has a 3-part architecture:
-- [API server](#edge-lb-api-server)
-- [pool](#edge-lb-pool)
-- [load balancer](#edge-lb-load-balancer)
+```json
+{
+  "id": "/my-app",
+  ...
+  "portDefinitions": [
+    {
+      "name": "web",
+      "protocol": "tcp",
+      "port": 0
+    }
+  ]
+}
+```
 
-These components run on top of DC/OS.
+## Configure load balancing for the sample app
+The following code provides a simple example of how to configure an Edge-LB pool to do load balancing for the sample Marathon application above:
 
-Edge-LB runs as a DC/OS service launched by [Marathon](/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
+```json
+{
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-app"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
 
-The diagram below shows how configuration and outside requests flow through Edge-LB to the application backend tasks.
+# Path-based routing
 
-Configuration is sent to the API Server, which controls pool management.
+This pool configures a load balancer which sends traffic to the `httpd` backend unless the path begins with `/nginx`, in which case it sends traffic to the `nginx` backend. The path in the request is rewritten before getting sent to nginx.
 
-Outside traffic moves through a hardware load balancer, then to the load balancer pool. One of the Edge-LB load balancers in the pool accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
+```json
+{
+  "apiVersion": "V2",
+  "name": "path-routing",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "httpd",
+        "map": [{
+          "pathBeg": "/nginx",
+          "backend": "nginx"
+        }]
+      }
+    }],
+    "backends": [{
+      "name": "httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    },{
+      "name": "nginx",
+      "protocol": "HTTP",
+      "rewriteHttp": {
+        "path": {
+          "fromPath": "/nginx",
+          "toPath": "/"
+        }
+      },
+      "services": [{
+        "mesos": {
+          "frameworkName": "marathon",
+          "taskName": "bridge-nginx"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
 
-![Edge-LB Architecture](/services/edge-lb/1.2/img/edge-lb-flow.png)
+Here are some examples of how the path would be changed for different `fromPath` and `toPath` values:
 
-Figure 1. Edge-LB architecture
+* `fromPath: "/nginx"`, `toPath: ""`, request: `/nginx` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/index.html` -> `/index.html`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/subpath/index.html` -> `/subpath/index.html`
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx` -> `/nginx` (The path is not rewritten in this case because the request did not match `/nginx/`)
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx/` -> `/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx` -> `/subpath`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/` -> `/subpath/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/index.html` -> `/subpath/index.html`
+* `fromPath: "/nginx"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath//index.html` (Note that for cases other than `toPath: ""` or `toPath: "/"`, it is suggested that the `fromPath` and `toPath` either both end in `/`, or neither do because the rewritten path could otherwise end up with a double slash.)
+* `fromPath: "/nginx/"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath/index.html`
 
-## <a name="edge-lb-api-server"></a>Edge-LB API Server
+We used `pool.haproxy.frontend.linkBackend.pathBeg` in this example to match on the beginning of a path. Other useful fields are:
 
-The Edge-LB API Server is the service that responds to CLI commands and manages pools.
+* `pathBeg`: Match on path beginning
+* `pathEnd`: Match on path ending
+* `pathReg`: Match on a path regular expression
 
-## <a name="edge-lb-pool"></a>Edge-LB Pool
+# Internal (East / West) load balancing
+In most cases, load balancing for traffic inside of a DC/OS cluster--referred to **internal** or **East-West** load balancing--is managed through the DC/OS layer-4 load-balancer (`dcos-l4lb`), which is part of the networking layer (`dcos-net`) of the DC/OS platform. With the DC/OS layer-4 load-balancer, you configure load balancing through [virtual IP addresses](/latest/networking/load-balancing-vips) in app definitions without creating a separate load balancing configuration file.
 
-The Edge-LB Pool is a group of identically configured load balancers. Traffic to the pool is balanced among the load balancers within the pool. The load balancer pool manages properties such as the number of load balancer instances and their placement. The pool is the smallest unit of load balancer configuration within Edge-LB. The load balancers within the same pool are identical. You can configure Edge-LB to have multiple load balancer pools with different configurations.
+In some cases, however, you might find it desirable or necessary to use Edge-LB for load balancing the traffic inside of a DC/OS cluster. For example, if you need layer-7 load balancing capability at the application level for traffic within the cluster, you can configure an Edge-LB pool to handle load balancing for internal-only traffic.
 
-## <a name="edge-lb-load-balancer"></a>Edge-LB Load Balancer
+The changes necessary are:
 
-These are the individual instances of the load balancer software (such as HAProxy). These accept traffic and route it to the appropriate services within the DC/OS cluster.
+* Change the `pool.haproxy.stats.bindPort`, `pool.haproxy.frontend.bindPort` to some port that is available on at least one private agent.
+* Change the `pool.role` to something other than `slave_public` (the default). Usually `"*"` works unless you have created a separate role for this purpose.
 
-# Multiple Edge-LB Instances
+```json
+{
+  "apiVersion": "V2",
+  "name": "internal-lb",
+  "role": "*",
+  "count": 1,
+  "haproxy": {
+    "stats": {
+      "bindPort": 15001
+    },
+    "frontends": [{
+      "bindPort": 15000,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-app"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
 
-Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput. There are two primary external architectures that support this:
+# Using static DNS and virtual IP addresses
 
-- External Load Balancer: Configures multiple Edge-LB pools such that the Edge-LB load balancers that are on DC/OS public nodes are behind an external load balancer. Direct end users or clients to the external load balancer device, which will then load balance the traffic between the multiple Edge-LB pools. The external load balancer can be a cloud-based load balancer, such as an AWS Elastic Load Balancer (ELB), an Azure Load Balancer, or a physical load balancer such as an F5 or Cisco ACE device.
+Internal addresses, such as those generated by Mesos-DNS, Spartan, or the DC/OS layer-4 load-balancer (`dcos-l4lb`) can be exposed outside of the cluster with Edge-LB by using `pool.haproxy.backend.service.endpoint.type: "ADDRESS"`.
 
+Keep in mind that exposing secured internal services to the outside world using an insecure endpoint can make your cluster vulnerable to attack. To mitigate the risk involved when using this feature, you should ensure access to internal endopoints is strictly regulated and monitored.
 
-- Round Robin DNS: Configures DNS such that a single DNS entry responds with IP addresses corresponding to a different Edge-LB pool. The DNS will round robin between the VIPs for each Edge-LB pool.
+The following code sample illustrates the Edge-LB pool configuration for a static IP address resolved by Mesos-DNS.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "dns-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "app-backend"
+      }
+    }],
+    "backends": [{
+      "name": "app-backend",
+      "protocol": "HTTP",
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "myapp.marathon.l4lb.thisdcos.directory",
+          "port": 555
+        }
+      }]
+    }]
+  }
+}
+```
+
+# Using Edge-LB with other frameworks and data services
+
+You can use Edge-LB load balancing for frameworks and data services that run tasks not managed by Marathon. For example, you might have tasks managed by Kafka brokers or Cassandra. For tasks that run under other frameworks and data services, you can use the `pool.haproxy.backend.service.mesos` object to filter and select tasks for load balancing.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "services-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 1025,
+      "protocol": "TCP",
+      "linkBackend": {
+        "defaultBackend": "kafka-backend"
+      }
+    }],
+    "backends": [{
+      "name": "kafka-backend",
+      "protocol": "TCP",
+      "services": [{
+        "mesos": {
+          "frameworkName": "beta-confluent-kafka",
+          "taskNamePattern": "^broker-*$"
+        },
+        "endpoint": {
+          "port": 1025
+        }
+      }]
+    }]
+  }
+}
+```
+
+Other useful fields for selecting frameworks and tasks in `pool.haproxy.backend.service.mesos`:
+
+* `frameworkName`: Exact match
+* `frameworkNamePattern`: Regular expression
+* `frameworkID`: Exact match
+* `frameworkIDPattern`: Regular expression
+* `taskName`: Exact match
+* `taskNamePattern`: Regular expression
+* `taskID`: Exact match
+* `taskIDPattern`: Regular expression
+
+# Using host name and SNI routing with VHOSTS
+
+To direct traffic based on the hostname to multiple backends for a single port (such as 80 or 443), use `pool.haproxy.frontend.linkBackend`.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "vhost-routing",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "map": [{
+          "hostEq": "nginx.example.com",
+          "backend": "nginx"
+        },{
+          "hostReg": "*.httpd.example.com",
+          "backend": "httpd"
+        }]
+      }
+    },{
+      "bindPort": 443,
+      "protocol": "HTTPS",
+      "linkBackend": {
+        "map": [{
+          "hostEq": "nginx.example.com",
+          "backend": "nginx"
+        },{
+          "hostReg": "*.httpd.example.com",
+          "backend": "httpd"
+        }]
+      }
+    }],
+    "backends": [{
+      "name": "httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    },{
+      "name": "nginx",
+      "protocol": "HTTP",
+      "services": [{
+        "mesos": {
+          "frameworkName": "marathon",
+          "taskName": "bridge-nginx"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+# Setting weighted values for backend servers
+
+To add relative weights to backend servers, use the `pool.haproxy.backend.service.endpoint.miscStr` field. In the example below, the `/app-v1` service will receive 20 out of every 30 requests, and `/app-v2` will receive the remaining 10 out of every 30 requests. The default weight is 1, and the max weight is 256.
+
+This approach can be used to implement some canary or A/B testing use cases.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "app-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "default"
+      }
+    }],
+    "backends": [{
+      "name": "default",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/app-v1"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 20"
+        }
+      },{
+        "marathon": {
+          "serviceID": "/app-v2"
+        },
+        "endpoint": {
+          "portName": "web",
+          "miscStr": "weight 10"
+        }
+      }]
+    }]
+  }
+}
+```
+
+# Using SSL/TLS certificates
+
+There are three different ways to get and use a certificate for secure communication. You can use:
+- Self-signed or trusted certificates as part of a public key infrastructure (PKI). 
+- Secrets stored as encrypted files in the DC/OS vault.
+- Environment variables stored as secrets in the DC/OS vault.
+
+## Automatically generated self-signed certificate
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "auto-certificates",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## DC/OS Secrets (Enterprise Only)
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "secret-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "secrets": [
+    {
+      "secret": "mysecret",
+      "file": "mysecretfile"
+    }
+  ],
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$SECRETS/mysecretfile"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+## Environment variables (Insecure)
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "env-certificates",
+  "count": 1,
+  "autoCertificate": false,
+  "environmentVariables": {
+    "ELB_FILE_HAPROXY_CERT": "-----BEGIN CERTIFICATE-----\nfoo\n-----END CERTIFICATE-----\n-----BEGIN RSA PRIVATE KEY-----\nbar\n-----END RSA PRIVATE KEY-----\n"
+  },
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 443,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$ENVFILE/ELB_FILE_HAPROXY_CERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [{
+      "name": "host-httpd",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/host-httpd"
+        },
+        "endpoint": {
+          "portName": "web"
+        }
+      }]
+    }]
+  }
+}
+```
+
+# Using virtual networks
+
+The following example creates a pool that will be launched on the virtual network provided by DC/OS overlay called "dcos". In general, you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "vnet-lb",
+  "count": 1,
+  "virtualNetworks": [
+    {
+      "name": "dcos",
+      "labels": {
+        "key0": "value0",
+        "key1": "value1"
+      }
+    }
+  ],
+  "haproxy": {
+    "frontends": [{
+      "bindPort": 80,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "vnet-be"
+      }
+    }],
+    "backends": [{
+      "name": "vnet-be",
+      "protocol": "HTTP",
+      "services": [{
+        "marathon": {
+          "serviceID": "/my-vnet-app"
+        },
+        "endpoint": {
+          "portName": "my-vnet-port"
+        }
+      }]
+    }]
+  }
+}
+```
