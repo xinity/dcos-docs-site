@@ -9,6 +9,8 @@ enterprise: true
 
 This tutorial demonstrates how to connect to a Kubernetes cluster using the Edge-LB service for inbound load-balancing. In this tutorial, you will configure one Edge-LB pool to handle load-balancing for requests to access Kubernetes.
 
+For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/services/kubernetes/).
+
 # Before you begin
 You can use Edge-LB to provide inbound load balancing when you connect to a private Kubernetes cluster from outside of a DC/OS cluster.
 

@@ -127,8 +127,7 @@ Nullable: true.</td></tr>
 | <b>Key</b>    | <b>Type</b> | <b>Description</b>|
 | ------------- | ----------- | ----------- |
 | secret        | string      | Specifies the secret name. |
-| file          | string      | Specifies the file name for the secret.
-<p>For example, the file `myfile` will be found at `$SECRETS/myfile`.|
+| file          | string      | Specifies the file name for the secret.<br>For example, the file `myfile` will be found at `$SECRETS/myfile`.|
 
 <a name="env-var"></a>
 
@@ -136,8 +135,7 @@ Nullable: true.</td></tr>
 
 | <b>Key</b>    | <b>Type</b> | <b>Description</b>|
 | ------------- | ----------- | ----------------- |
-| additionalProperties  | string  | Specifies the environment variables to pass to tasks.
-<p>If you use the environment varaible prefix `ELB_FILE_`, the variable is written to a file with that prefix. For example, the contents of the `ELB_FILE_MYENV` environment variable will be written to the file `$ENVFILE/ELB_FILE_MYENV`. |
+| additionalProperties  | string  | Specifies the environment variables to pass to tasks.<br>If you use the environment varaible prefix `ELB_FILE_`, the variable is written to a file with that prefix. For example, the contents of the `ELB_FILE_MYENV` environment variable will be written to the file `$ENVFILE/ELB_FILE_MYENV`. |
 
 <a name="vn-prop"></a>
 
@@ -170,29 +168,46 @@ Nullable: true.</td></tr>
 <a name="frontend-prop"></a>
 
 # pool.haproxy.frontend
-
-| <b>Key </b> | <b>Type</b> | <b>Properties</b> | <b>Description</b> | 
-| --------- | ------- | -------------- | -------------- |
-| name | string | | Defaults to `frontend_{{bindAddress}}_{{bindPort}}`. | 
-| bindAddress | string  | | Only use characters that are allowed in the frontend name. Known invalid frontend name characters include `*`, `[`, and `]`. |
-| bindPort | integer | | The port (e.g. 80 for HTTP or 443 for HTTPS) that this frontend will bind to. |
-| bindModifier    | string | | Additional text to put in the bind field. |
-| certificates    | array | | SSL/TLS certificates in the load balancer.<br>
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="40px">
+    <col span="1" width="30px">
+    <col span="1" width="80px">
+    <!--<col span="1" width="40px">
+    <col span="1" width="80px">-->
+</colgroup>
+<tr>
+<th style="font-weight:bold">Key</th>
+<th style="font-weight:bold">Type</th>
+<th style="font-weight:bold">Description and related properties</th>
+</tr>
+<tbody valign="top">
+<tr>
+<td>name</td><td>string</td><td>Defaults to `frontend_{{bindAddress}}_{{bindPort}}`.</td></tr>
+<tr><td>bindAddress</td><td>string</td><td>Only use characters that are allowed in the frontend name. Known invalid frontend name characters include `*`, `[`, and `]`.</td></tr>
+<tr><td>bindPort</td><td>integer</td><td>The port that this frontend will bind to. For example, port `80` for HTTP or port `443` for HTTPS.</td></tr>
+<tr><td>bindModifier</td><td>string</td><td>Additional text to put in the bind field.</td></tr>
+<tr><td>certificates</td><td>array</td><td>SSL/TLS certificates in the load balancer.
 <ul><li>For secrets, use `$SECRETS/my_file_name`</li>
 <li>For environment files, use `$ENVFILE/my_file_name`</li>
 <li>For autoCertificate, use `$AUTOCERT`.</li>
 type: string
-</ul> |
-| redirectToHttps | object | <ul>
-<li>[except](#redirect-https-prop)</li>
-<li>[items](#redirect-https-prop)</li>
-</ul>  | Setting this to the empty object is enough to redirect all traffic from HTTP (this frontend) to HTTPS (port 443). Default: except: [] |
-| miscStrs | array of strings |  | Additional template lines inserted before `use_backend` |
-| protocol | | | The frontend protocol is how clients/users communicate with HAProxy. |
-| linkBackend | object | <ul>
-<li>defaultBackend</li>
-<li>map</li>
-</ul>  | This describes what backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.<br />Default: map: [] |
+</ul></td></tr>
+<tr><td>redirectToHttps</td><td>object</td><td>Setting this option to the empty object is enough to redirect all traffic from HTTP (this frontend) to HTTPS (port 443). 
+<ul><li><a href="#redirect-https-prop">except</a></li>
+<li><a href="#redirect-https-prop">items</a></li>
+</ul>
+The default is `except`.</td></tr>
+<tr><td>miscStrs</td><td>array of strings</td><td>Specifies additional template lines inserted before `use_backend`</td></tr>
+<tr><td>protocol</td><td></td><td>The frontend protocol is how clients/users communicate with HAProxy.</td></tr>
+<tr><td>linkBackend</td><td>object</td><td>Specifies the backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.
+<ul>
+<li><a href="#backend-prop">defaultBackend</a></li>
+<li><a href="#backend-prop">map</a></li>
+</ul>
+The default is `map`.</td></tr>
+</tbody>
+</table>
 
 <a name="redirect-https-prop"></a>
 
@@ -226,6 +241,8 @@ type: string
 | ---------- | --------- | ---------------- |
 | host       | string  | Match on host. |
 | pathBeg    | string  | Math on path.  |
+
+<a name="backend-prop"></a>
 
 ## pool.haproxy.frontend.linkBackend
 <table class="table" style="table-layout: fixed">
@@ -431,12 +448,12 @@ Nullable = true. |
 <tbody valign="top">
 <tr><td>type</td><td>string</td><td>Specifies the endpoint type. This property is an enumerated field that can be one of the following valid values:
 <ul>
-<li>`AUTO_IP`</li>
-<li>`AGENT_IP`</li>
-<li>`CONTAINER_IP`</li>
-<li>`ADDRESS`</li>
+<li>AUTO_IP</li>
+<li>AGENT_IP</li>
+<li>CONTAINER_IP</li>
+<li>ADDRESS</li>
 </ul>
-The default is `AUTO_IP`.</td></tr>
+The default is <code>AUTO_IP</code>.</td></tr>
 <tr><td>miscStr</td><td>string</td><td>Appends an arbitrary string that you want to add to the end of the "server" directive. </td></tr>
 <tr><td>check</td><td>object</td><td>Enables health checks. By default, the referenced objects are TCP health checks. For more options, see <a href="#customCheck-prop">customCheck</a>. These properties are required for DNS resolution to function properly.</td></tr>
 <tr><td>address</td><td>string</td><td>Specifies a server address override. This property can be used to specify a cluster internal address such as a virtual IP address (VIP). Only allowed when the `type` property is `ADDRESS`.</td></tr>
@@ -463,4 +480,3 @@ The default is `AUTO_IP`.</td></tr>
 | -------- | --------- | ---------------- |
 | code     | int32     | Specifies the error result code. |
 | message  | string    | Specifies the content of the error message. |
-
