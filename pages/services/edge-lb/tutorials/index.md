@@ -4,8 +4,7 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 15
 excerpt: How to configure and deploy Edge-LB
-
-enterprise: false
+enterprise: true
 ---
 
 The tutorials in this section cover the following items:

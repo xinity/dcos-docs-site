@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  HAProxy templates and labels
-title: HAProxy Templates and Labels
+title: HAProxy templates and labels
 menuWeight: 86
 excerpt: Lists configuration templates and labels you can use for HAProxy load balancers
 enterprise: true
