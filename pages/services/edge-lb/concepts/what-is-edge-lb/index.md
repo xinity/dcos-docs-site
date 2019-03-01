@@ -39,14 +39,6 @@ Dynamic applications can be built and orchestrated using containers to be highly
 
 Edge-LB is the Ingress Load Balancer for variety of load balancing/proxy requirements depending on the DC/OS architecture, deployed services, and size. Its delivered on Enterprise package only.
 
-Edge-LB is released on a regular cadence to provide regular feature support and bug fixes. It is always recommended to install the latest version of Edge-LB. Here is the current Edge-LB support matrix: 
-
-Edge-LB 1.3.1 --> DC/OS 1.12.2
-Edge-LB 1.3.0 --> DC/OS 1.11.9
-Edge-LB 1.2.3 --> DC/OS 1.10.10
-
-Please pick the latest version of Edge-LB to get started!
-
 While Edge-LB provides North-South loadbalancing, if you are interested in East-West (internal to internal)Loadbalancing in the Mesosphere cluster please check out the L4LB from Mesosphere here.
 
 Edge-LB addresses the challenge of exposing contained apps to the outside world. Its a L7/L4 load-balancer has easy-to-use yet powerful CLI and API interfaces that provide advanced configuration options to expose applications for high performance and high avialability environments.
