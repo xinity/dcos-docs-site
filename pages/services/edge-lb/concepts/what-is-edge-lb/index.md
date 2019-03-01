@@ -12,12 +12,12 @@ Edge-LB is a high-availability North-South load-balancer for [layer-7](https://e
 The following diagram provides a simplified overview of Edge-LB load balancing.
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-Basic-01.png" alt="Simplified overview of Edge-LB architecture">
+<img src="/services/edge-lb/img/Edge-LB-01.png" alt="Simplified overview of Edge-LB architecture">
 <p>
   
 As illustrated in this simplified diagram, Edge-LB  is most often used for external-to-internal load balancing. In this typical scenario, the distributed layer-4 load balancing and [virtual networking](/latest/networking/load-balancing-vips/) can be used with or without Edge-LB to provide internal-to-internal or East-West workload distribution and load balancing. Although this is a common deployment model, Edge-LB offers operational flexibility so that you can combine and optimize load balancing options to ensure high availability of the applications you are running on the DC/OS cluster. For example, you can set configuration options to select specific ports for specific frontend to backend connections or allow Edge-LB to dynamically allocate ports as needed.
 
-Edge-LB is available with all three interfaces in DC/OS cluster. You can have a seamless experience between the DC/OS GUI, CLI, or API of your choice. You can install the Edge-LB via GUI and then can update the configuratio with CLI if needed. Edge-LB is integreated with DC/OS Secret store for Secure Certificate usage and storage. An end-user can leverage the build-in support for security in DC/OS when they are deploying their applications. 
+<!--Edge-LB is available with all three interfaces in DC/OS cluster. You can have a seamless experience between the DC/OS GUI, CLI, or API of your choice. You can install the Edge-LB via GUI and then can update the configuratio with CLI if needed. Edge-LB is integreated with DC/OS Secret store for Secure Certificate usage and storage. An end-user can leverage the build-in support for security in DC/OS when they are deploying their applications. 
 
 Edge-LB also respects the Mesos health-check for efficient load-balancing. 
 
@@ -61,4 +61,4 @@ The API server receives the commands from clients like CLI or GUI. It then execu
 
 You can configure Edge-LB Health Checks to monitor the health of the pool instances. This ensures all traffics are load-balanced to the healthy Edge-LB pools.
 
-Edge-LB distributes traffic evenly to all containers.
+Edge-LB distributes traffic evenly to all containers. -->

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Reference information
-title: Reeference information
+title: Reference information
 menuWeight: 80
 excerpt: Provides reference information for Edge-LB commands, REST API, HAProxy endpoints, and pool configuration settings
 
