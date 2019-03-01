@@ -13,12 +13,9 @@ Without load balancing, users or clients attempting to access a service can be b
 
 Conceptually, the load balancer provides a network communication layer for distributing client requests to applications. In its simplest form, you can envision the load balancing service represented like this:
 <p>
-<img src="/services/edge-lb/img/simple-load-balancer.png" alt="Load balancing as a network layer">
+<img src="/services/edge-lb/img/Simple-Load-Balancer.png" alt="Load balancing as a network layer">
 <p>
 
-The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the frontend for the inbound request. The load balancer routes the inbound traffic to the appropriate backend servers that are configured to respond to the service request.
+The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the **frontend** for the inbound request. The load balancer routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
 
-You can configure and use Edge-LB to load balance traffic to all services that run on DC/OS Enterprise clusters. 
-
-Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
-
+You can configure Edge-LB to require secure socket layer (SSL) certificates to secure communication coming into the DC/OS Enterprise cluster before it is routed to the services that run on the cluster.  
