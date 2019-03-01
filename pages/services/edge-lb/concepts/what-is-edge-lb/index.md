@@ -4,7 +4,7 @@ navigationTitle: What is Edge-LB?
 title: What is Edge-LB?
 menuWeight: 5
 excerpt: Introduces the high-level capability that Edge-LB provides
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB is a high-availability North-South load-balancer for [layer-7](https://en.wikipedia.org/wiki/OSI_model) traffic inbound to a DC/OS Enterprise cluster. Once you install and configure Edge-LB to handle inbound requests, you can use it to distribute the processing of those requests for all or selected services that run on DC/OS agent nodes in the cluster.
@@ -12,7 +12,7 @@ Edge-LB is a high-availability North-South load-balancer for [layer-7](https://e
 The following diagram provides a simplified overview of Edge-LB load balancing.
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-01.png" alt="Simplified overview of Edge-LB architecture">
+<img src="/services/edge-lb/img/Edge-LB-1.png" alt="Simplified overview of Edge-LB architecture">
 <p>
   
 As illustrated in this simplified diagram, Edge-LB  is most often used for external-to-internal load balancing. In this typical scenario, the distributed layer-4 load balancing and [virtual networking](/latest/networking/load-balancing-vips/) can be used with or without Edge-LB to provide internal-to-internal or East-West workload distribution and load balancing. Although this is a common deployment model, Edge-LB offers operational flexibility so that you can combine and optimize load balancing options to ensure high availability of the applications you are running on the DC/OS cluster. For example, you can set configuration options to select specific ports for specific frontend to backend connections or allow Edge-LB to dynamically allocate ports as needed.
