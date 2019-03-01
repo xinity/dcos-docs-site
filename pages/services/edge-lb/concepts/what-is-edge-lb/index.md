@@ -7,7 +7,7 @@ excerpt: Introduces the high-level capability that Edge-LB provides
 enterprise: false
 ---
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while [virtual networking](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
+Edge-LB is a high-availability North-South load-balancer for [layer-7](https://en.wikipedia.org/wiki/OSI_model) traffic inbound to a DC/OS Enterprise cluster. Once you install and configure Edge-LB to handle inbound requests, you can use it to distribute the processing of those requests for all or selected services that run on DC/OS agent nodes in the cluster.
 
 The following diagram provides a simplified overview of Edge-LB load balancing.
 
@@ -15,9 +15,7 @@ The following diagram provides a simplified overview of Edge-LB load balancing.
 <img src="/services/edge-lb/img/Edge-LB-Basic-01.png" alt="Simplified overview of Edge-LB architecture">
 <p>
   
-Edge-LB is an highly available North-South load-balancer for Layer-7 traffic ingressing to Mesosphere cluster. 
-
-Edge-LB is very flexible in terms of operations. An operator can have multiple pool instances for high availability of the applications running on DC/OS cluster. He is able to pick and choose the ports for frontend and backend for flexible configuration. This allows for much richer functionality when it comes to load balancing on DC/OS cluster. 
+As illustrated in this simplified diagram, Edge-LB  is most often used for external-to-internal load balancing. In this typical scenario, the distributed layer-4 load balancing and [virtual networking](/latest/networking/load-balancing-vips/) can be used with or without Edge-LB to provide internal-to-internal or East-West workload distribution and load balancing. Although this is a common deployment model, Edge-LB offers operational flexibility so that you can combine and optimize load balancing options to ensure high availability of the applications you are running on the DC/OS cluster. For example, you can set configuration options to select specific ports for specific frontend to backend connections or allow Edge-LB to dynamically allocate ports as needed.
 
 Edge-LB is available with all three interfaces in DC/OS cluster. You can have a seamless experience between the DC/OS GUI, CLI, or API of your choice. You can install the Edge-LB via GUI and then can update the configuratio with CLI if needed. Edge-LB is integreated with DC/OS Secret store for Secure Certificate usage and storage. An end-user can leverage the build-in support for security in DC/OS when they are deploying their applications. 
 
