@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Blue/Green Service Deployment
-title: Blue/Green service deployment
+navigationTitle:  Blue/Green service deployment
+title: Phased "Blue/Green" service deployment
 menuWeight: 10
 excerpt: How to deploy with two load-balanced versions of the same service
-
-enterprise: false
+enterprise: true
 ---
 
 A blue/green deployment is a method of achieving zero downtime by running two versions of the same service (a "blue" and a "green" version) and having the load balancer switch between the two.

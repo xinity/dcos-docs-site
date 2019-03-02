@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Load Balance and Expose a Service
-title: Load Balance and Expose a Service
+navigationTitle: Expose and load balance a service
+title: Expose and load balance a sample service
 menuWeight: 10
-excerpt: Tutorial - Load balancing a DC/OS service
-
-enterprise: false
+excerpt: Illustrates the basic steps for load balancing a single service runs on DC/OS
+enterprise: true
 ---
 
 This tutorial demonstrates how to load balance a DC/OS service and set it up for access outside of the cluster.

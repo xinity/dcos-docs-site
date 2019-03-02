@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: How Edge-LB Works
+navigationTitle: How Edge-LB works
 title: How Edge-LB works
 menuWeight: 10
 excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.

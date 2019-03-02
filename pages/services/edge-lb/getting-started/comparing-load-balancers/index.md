@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Comparing Load Balancers
+navigationTitle: Comparing load balancers
 title: Comparing load balancing services
 menuWeight: 15
 excerpt: Summarizes the differences between Marathon-LB and Edge-LB load balancing services
-
-enterprise: false
+enterprise: true
 ---
 
 Code for Edge-LB config and Marathon-LB config
