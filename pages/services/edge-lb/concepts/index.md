@@ -11,6 +11,4 @@ One of the most important ways you can manage cluster operations is through effi
 
 Without load balancing, users or clients attempting to access a service can be blocked by server failures, network downtime, system overload, or too many simultaneous processing requests. You can mitigate these potential problems by introducing a load balancer and additional nodes on the backend to handle the demand. 
 
-Conceptually, the load balancer provides a network communication layer for distributing client requests to applications.
-
-The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the **frontend** for the inbound request. The load balancer routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
+Conceptually, the load balancer provides a network communication layer for distributing client requests to applications. The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the **frontend** for the inbound request. The load balancer routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
