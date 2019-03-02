@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB REST API reference
+navigationTitle: Edge-LB REST API reference
 title: REST API reference
 menuWeight: 83
 excerpt: Provides reference for Edge-LB REST API endpoints
-
-enterprise: false
+enterprise: true
 ---
 
 The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API. The two models are almost identical, with one important difference: the `pool.haproxy.backends.servers` configuration setting has been replaced with [`pool.haproxy.backends.services`](/services/edge-lb/api-reference/pool-configuration-reference/#pool.haproxy.backends.services) in the latest version of the Edge-LB API. This change provides a more intuitive way to select services and backends for HAProxy. In addition, the Edge-LB API includes a top-level `apiVersion` configuration field to specify which version of an API call you want to use. 

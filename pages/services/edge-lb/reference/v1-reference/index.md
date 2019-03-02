@@ -4,8 +4,7 @@ navigationTitle:  Edge-LB Pool Configuration
 title: Pool configuration reference (V1)
 menuWeight: -1
 excerpt: Provides reference information and examples for Edge-LB pool configuration in the V1 API
-
-enterprise: false
+enterprise: true
 ---
 
 # V1 Pool Reference
