@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Documentation History
+navigationTitle:  Documentation history
 title: Documentation history
 menuWeight: 104
 excerpt: Summarizes the timeline for Edge-LB documentation and feature updates
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB acts as a proxy server and load balancer for TCP, HTTP, and HTTPS requests. Edge-LB leverages features provided by `HAProxy`, which is open-source software that provides high-availability, failover support, load balancing, server health checks, and throughput metrics for TCP and HTTP based applications.

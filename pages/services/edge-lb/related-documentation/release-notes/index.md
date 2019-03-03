@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes
+navigationTitle:  Release notes
 title: Release notes
 menuWeight: 101
 excerpt: Provides release-specific information for Edge-LB 
-enterprise: false
+enterprise: true
 ---
 
 Edge-LB acts as a proxy server and load balancer for TCP, HTTP, and HTTPS requests. Edge-LB leverages features provided by `HAProxy`, which is open-source software that provides high-availability, failover support, load balancing, server health checks, and throughput metrics for TCP and HTTP based applications.
 
-If you have DC/OS deployed in a production environment, see [Known limitations and issues](/services/edge-lb/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
+If you have DC/OS deployed in a production environment, see [Known issues and limitations](/services/edge-lb/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
 The release notes summarize release-specific changes to fix issues or update fnew eatures in DC/OS Enterprise and DC/OS Open Source clusters.
 

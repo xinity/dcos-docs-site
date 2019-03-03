@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Known Limitations and Issues
-title: Known limitations and issues
+navigationTitle:  Known issues and limitations
+title: Known issues and limitations 
 menuWeight: 103
 excerpt: Lists known limitations and issues for Edge-LB 
-enterprise: false
+enterprise: true
 ---
 
 # Known Edge-LB limitations

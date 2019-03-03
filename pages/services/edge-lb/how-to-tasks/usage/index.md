@@ -4,7 +4,6 @@ navigationTitle: Usage
 title: Usage
 menuWeight: 60
 excerpt: Common commands for Edge-LB usage
-
 enterprise: true
 ---
 
@@ -48,9 +47,9 @@ An Example config file for Edge-LB pool config:
 }
 ```
 
-# Exposing mesos task without pre-defined mesos-assigned ports
+# Exposing a task without pre-assigned ports
 
-This feature allows you to expose task without mesos assigend port. 
+This feature allows you to expose task without a Mesos-assigned port. 
 
 Prior to this feature, Edge-LB only exposed task that have ports assigned by mesos. Its not a requirement for Mesos tasks to have port assigned always. By leveraging this feature, when there is no port assigned for task, an Operator can specify a port in the pool config to expose that task.
 
@@ -65,7 +64,6 @@ Prior to this feature, it wasn't possible to disable Stats port 9090 for a pool.
 This feature allows allocating Frontend port dynamically if there is more than on pool on an agent node. 
 
 When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/ load-balancing between the Client and Edge-LB pool. In such scenarios having frontend ports doesn't provide much value. By leveraging this feature, you can have multiple Frontend ports allocated dynamiccaly for multiple Edge-LB pools on the same agent for better resource utilization.
-
 
 ## Normal reload scenario
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Version Support
+navigationTitle:  Version support
 title: Version support
 menuWeight: 102
 excerpt: Summarizes supported versions for Edge-LB
