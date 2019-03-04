@@ -9,6 +9,11 @@ enterprise: false
 
 This section provides code examples that illustrate how to set Edge-LB pool configuration options using the Edge-LB REST API with application definitions and sample pool configuration settings.
 
+# Before you begin
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and hae previously downloaded and installed the latest Edge-LB packages. 
+
+For information about installing Edge-LB packages, see the [installation](/services/edge-lb/installing/) instructions.
+
 # Using Edge-LB for a sample Marathon application
 DC/OS services typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you need to know the Mesos `task` name and `port` name. With this information, you can then configure an Edge-LB pool to handle load balancing for that Marathon appllication.
 

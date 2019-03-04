@@ -9,7 +9,7 @@ enterprise: true
 
 Because Edge-LB is installed as a DC/OS service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`) or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.
 
-In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI), see [Enterprise CLI plug-in](/latest/cli/plugins/#enterprise-cli-plugin). For more information about how to set and manage permissions, see [managing permissions](/latest/security/ent/perms-management/) and the DC/OS [permissions reference](/latest/security/ent/perms-management/).
+In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI) and plug-ins, see [CLI plug-ins](/1.13/cli/plugins/). For more information about how to set and manage permissions, see [managing permissions](/1.13/security/ent/perms-management/) and the DC/OS [permissions reference](/1.13/security/ent/perms-management/).
 
 # General permission requirements
 
