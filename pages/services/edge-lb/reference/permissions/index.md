@@ -9,7 +9,7 @@ enterprise: true
 
 Because Edge-LB is installed as a DC/OS service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`) or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.
 
-For information about how to set these permssions, see [Managing permissions](/?/).
+In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI), see [Enterprise CLI plug-in](/latest/cli/plugins/#enterprise-cli-plugin). For more information about how to set and manage permissions, see [managing permissions](/latest/security/ent/perms-management/) and the DC/OS [permissions reference](/latest/security/ent/perms-management/).
 
 # General permission requirements
 
@@ -25,11 +25,17 @@ The following permission are required for the user or service account you use to
 - `dcos:adminrouter:service:marathon`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb`
 
+You can add the permissions required for installation to an account by running a command similar to this:
+`dcos security org users grant [OPTIONS] UID RID ACTION`
+
+For example, to grant installation permissions to the user account `patsmith`:
+`dcos security org users grant patsmith dcos:adminrouter:package full`
+
 # Service account permissions
 
 The [service account](/services/edge-lb/1.2/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary. 
 
-If you are using the principle of least privilege, grant the following permissions to the service account principal:
+If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/services/edge-lb/how-to-tasks/installing), then grant the following permissions to the service account principal:
 
 - `dcos:adminrouter:ops:ca:rw full`
 - `dcos:adminrouter:ops:ca:ro full`
@@ -55,6 +61,17 @@ Additionally, grant the following permission **for each Edge-LB pool created**:
 
 - `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 
+## Adding specific permissions for a service principal
+You can add the permissions required for the service account by running a command similar to this:
+`dcos security org users grant [OPTIONS] UID RID ACTION`
+
+For example, to grant the Edge-LB service account permissions to the `edge-lb-principal` service principal:
+`dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full`
+
+## Adding a service principal account to the superusers group
+If you are not using the least-privilege security model, you can add the Edge-LB service account to the `superusers` group to simplify adding and updating permissions. For example, you can аdd the `edge-lb-principal` service account to the `superusers` group by running a command similar to this:
+`dcos security org groups add_user superusers edge-lb-principal`
+
 # Multi-tenant permissions
 
 To grant limited permissions to manage only a single Edge-LB pool, the user must have the following permissions:
@@ -64,7 +81,13 @@ To grant limited permissions to manage only a single Edge-LB pool, the user must
 - `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
 
-# Task-speicifc endpoint permissions
+You can add the permissions required for managing a pool in a multi-tenant environment to an account by running a command similar to this:
+`dcos security org users grant [OPTIONS] UID RID ACTION`
+
+For example, to grant the permissions for single pool management in a multi-tenant environment to the `sf-tenant-08` account:
+`dcos security org users grant sf-tenant-08 dcos:adminrouter:service:edgelb:/ping full`
+
+# Task-specific endpoint permissions
 The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand. Permissions can be granted individually:
 
 - Ping:
