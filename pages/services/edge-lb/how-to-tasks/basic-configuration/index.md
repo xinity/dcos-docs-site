@@ -37,36 +37,84 @@ The following code snippet is an excerpt from a sample Marathon app definition. 
 ```
 
 ## Configure load balancing for the sample app
-The following code provides a simple example of how to configure an Edge-LB pool to do load balancing for the sample Marathon application above:
+After you identify a Marathon application task name and port, you can create a pool configuration for load balancing that app definition. 
 
-```json
-{
-  "apiVersion": "V2",
-  "name": "app-lb",
-  "count": 1,
-  "haproxy": {
-    "frontends": [{
-      "bindPort": 80,
-      "protocol": "HTTP",
-      "linkBackend": {
-        "defaultBackend": "app-backend"
+1. Create an Edge-LB pool configuration file and name it `app-lb.json`.
+
+    The following code provides a simple example of how to configure an Edge-LB pool named `app-lb` with a pool configuration file named `app-lb.json` to do load balancing for the sample Marathon application:
+
+    ```json
+    {
+      "apiVersion": "V2",
+      "name": "app-lb",
+      "count": 1,
+      "haproxy": {
+        "frontends": [{
+          "bindPort": 80,
+          "protocol": "HTTP",
+          "linkBackend": {
+            "defaultBackend": "app-backend"
+          }
+        }],
+        "backends": [{
+          "name": "app-backend",
+          "protocol": "HTTP",
+          "services": [{
+            "marathon": {
+              "serviceID": "/my-app"
+            },
+            "endpoint": {
+              "portName": "web"
+            }
+          }]
+        }]
       }
-    }],
-    "backends": [{
-      "name": "app-backend",
-      "protocol": "HTTP",
-      "services": [{
-        "marathon": {
-          "serviceID": "/my-app"
+    }
+    ```
+
+1. Upload the pool configuration to Edge-LB by running the following command:
+
+    ```bash
+    dcos edgelb create app-lb.json
+    ```
+
+1. Create a Marathon application definition containing the service and name it `my-app.json`. For example:
+
+    ```json
+    {
+        "id": "/my-app",
+        "cmd": "/start $PORT0",
+        "instances": 1,
+        "cpus": 0.1,
+        "mem": 32,
+        "container": {
+            "type": "DOCKER",
+            "docker": {
+                "image": "mesosphere/httpd"
+            }
         },
-        "endpoint": {
-          "portName": "web"
-        }
-      }]
-    }]
-  }
-}
-```
+        "portDefinitions": [
+            {
+                "name": "web",
+                "protocol": "tcp",
+                "port": 0
+            }
+        ],
+        "healthChecks": [
+            {
+                "portIndex": 0,
+                "path": "/",
+                "protocol": "HTTP"
+            }
+        ]
+    }
+    ```
+
+1. Deploy the service by running the following command:
+
+    ```bash
+    dcos marathon app add my-app.json
+    ```
 
 # Path-based routing
 
@@ -123,7 +171,7 @@ This pool configures a load balancer which sends traffic to the `httpd` backend 
 }
 ```
 
-Here are some examples of how the path would be changed for different `fromPath` and `toPath` values:
+The following examples illustrate how the path would be changed for different `fromPath` and `toPath` values:
 
 * `fromPath: "/nginx"`, `toPath: ""`, request: `/nginx` -> `/`
 * `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx` -> `/`
@@ -149,7 +197,7 @@ In most cases, load balancing for traffic inside of a DC/OS cluster--referred to
 
 In some cases, however, you might find it desirable or necessary to use Edge-LB for load balancing the traffic inside of a DC/OS cluster. For example, if you need layer-7 load balancing capability at the application level for traffic within the cluster, you can configure an Edge-LB pool to handle load balancing for internal-only traffic.
 
-The changes necessary are:
+The following changes necessary are:
 
 * Change the `pool.haproxy.stats.bindPort`, `pool.haproxy.frontend.bindPort` to some port that is available on at least one private agent.
 * Change the `pool.role` to something other than `slave_public` (the default). Usually `"*"` works unless you have created a separate role for this purpose.
@@ -270,7 +318,7 @@ Other useful fields for selecting frameworks and tasks in `pool.haproxy.backend.
 
 # Using host name and SNI routing with VHOSTS
 
-To direct traffic based on the hostname to multiple backends for a single port (such as 80 or 443), use `pool.haproxy.frontend.linkBackend`.
+To direct traffic based on the host name to multiple backends for a single port (such as 80 or 443), use `pool.haproxy.frontend.linkBackend`.
 
 ```json
 {

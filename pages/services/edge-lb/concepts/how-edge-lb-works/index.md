@@ -6,50 +6,47 @@ menuWeight: 10
 excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
 enterprise: true
 ---
+Edge-LB is a powerful load balancer with a simplified design that is built to handle a distributed architecture with robust functionality and stellar performance. Edge-LB provides core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. It provides first class support for zero-downtime service deployment strategies like blue/green deployment. 
 
-Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
+Edge-LB is usually deployed on the public nodes for increased security. Public nodes are in demilitarized zones (DMZ) or perimeter networks of the DC/OS cluster. Multiple public nodes are recommended for high availability for traffic ingressing in the cluster. Operators can deploy individual pool instances specific to tenants or group of applications. It is designed to scale and provide granular control. 
 
-Depending on your network and cluster configuration, you might route outside traffic through a hardware load balancer, then to the Edge-LB load balancer pool. One of the Edge-LB load balancers within that pool then accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
+In the diagram below, a CLI client accesses Edge-LB through the API server. After the client submits a request for the Edge-LB pool creation, the API server launches a Edge-LB pool by deploying the pool configuration file. The internet-facing traffic ingress into the cluster and the pool instance load balances the traffic to the proper backend service instances.
 
-Edge-LB leverages HAProxy for its core load balancing and proxying features. Every time there is a Edge-LB pool is launched, it launches the HAProxy instances inside the pool instance to do it proxying and load balancing functionality. Thus all features and functionality are automatically supported in Edge-LB.
-
-Edge-LB can be deployed on any node. Its typically deployed on Public nodes for Ingress. Operators can deploy individual pool servers and load balancers specific to tenants and groups of applications. Its designed to scale and provide granular control. Pool configs are added for specific backend service by deploying a new pool configuration by operators.
-
-As a public load balancer, Edge-LB can provide outbound connections for containers running on DC/OS cluster by translating their Private IP addresses to Public IP addresses.
-
-Edge-LB can be used to: 
-- Load-balance incoming internet traffic to the containers through a public load balancer (external load balancing).
-- Load-balance traffic across containers inside the DC/OS cluster (internal load balancing).
-- Provide outbound connectivity for containers inside the DC/OS cluster by using a public load balancer.
-  
-## Key components of the Edge-LB architecture
-
-Edge-LB has two core architectural components:
-- The [Edge-LB API server](#edge-lb-api-server).
-- One or more [Edge-LB pool](#edge-lb-pool).
-
-The following diagram illustrates the relationship between these core components running on a DC/OS cluster.
+The following diagram provides a simplified architectural view of Edge-LB:
 
 <p>
 <img src="/services/edge-lb/img/Edge-LB-2.png" alt="Core components of the Edge-LB architecture">
 </p>
 
-Outside requests are received through the public-facing agent node and distributed through HAProxy to the application backend tasks.
+# Basic workflow
+This diagram illustrates the basic workflow for Edge-LB operations that can be summarized as: 
+	- Deploy a service on DC/OS cluster.
+	- Install an Edge-LB API server.
+	- Deploy an Edge-LB pool instance to expose and access the service.
 
-<a name="edge-lb-api-server"></a>
+In the event of the update, you simply update the pool configuration and deploy the updated Edge-LB pool configuration to reflect the changes.
 
-### Edge-LB API server
+# Key Edge-LB components
+Edge-LB has two core components that provide the proxying and load-balancing functionality for inbound traffic to the DC/OS cluster:
+- Edge-LB API server
+- Edge-LB pool
 
-The **Edge-LB API Server** is the service that responds to CLI commands and manages pools.
+Both Edge-LB API server and the pool server run as a Marathon service on the DC/OS cluster. 
 
-Edge-LB runs as a DC/OS service launched by [Marathon](/latest/deploying-services/). The Edge-LB API server processes requests and configuration details in response to Edge-LB commands, launches Edge-LB load balancer pools, and manages the creation and removal of Edge-LB pools. 
+## Edge-LB API server
 
-<a name="edge-lb-pool"></a>
+The API server presents an API to submit configurations to the Edge-LB pool and handles the generation of the configuration file. The API server executes requests from the CLI client to manage the pools in the cluster. The API server provides two functionalities for the traffic ingressing into the cluster:
+- Performs create, read, update, and delete (CRUD) actions on Edge-LB pool(s)
+- Responds to Edge-LB pool-related API endpoints queries
 
-### Edge-LB pools
+The API server stores the pool configuration in a configuration management systems (CMS). When you deploy the Edge-LB pool, the API server saves a copy of the pool configuration file in CMS. When the configuration is updated, the API server updates the configuration file in the CMS and reloads the load balancer in real-time to load balance traffic to the backends.
 
-Each **Edge-LB pool** is a group of identically configured load balancers. Traffic to any individual pool is distributed to the load balancers within that pool. 
+## Edge-LB pool
 
-The load balancer pool manages pool-specific properties such as the number of load balancer instances and their placement. The pool is the smallest unit of load balancer configuration within Edge-LB. The load balancers within the same pool are identical. You can configure Edge-LB to have multiple load balancer pools with different configurations.
+The Edge-LB pool provides the main load balancing and proxying functionalities for the cluster. The pool instances are created, deleted, or updated through the Edge-LB API server. When a CLI client installs a configuration pool defined in a JSON file, the API server launches an Edge-LB pool. Pool configurations are added to specific backend service by deploying a new pool configuration file by operators.
 
-From the perspective of Marathon, each Edge-LB pool is a DC/OS service.
+Edge-LB pool instances leverage built-in HAProxy functionality for core load balancing and proxying features. Every time an Edge-LB pool is launched, the pool launches the HAProxy instances inside the pool instance to proxy and load balance services to proper backends.
+
+The pool configuration depends on size of the organization, roles, responsibilities, and other factors.
+
+Like other services in DC/OS, pool instances are also self-healing. If an pool instance is killed, DC/OS will automatically respawn the pool instances in other available agents.
