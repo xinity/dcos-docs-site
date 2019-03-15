@@ -101,7 +101,7 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 | `dcos:mesos:agent:container:role[:<role-name>]`<br>控制对给定 [Mesos 角色](/cn/1.11/overview/concepts/#mesos-role) 的[调试](/cn/1.11/monitoring/debugging/debug-perms/)功能的访问。| | | | x | |
 | `dcos:mesos:agent:endpoint:path[:<endpoint>]`<br> 控制对未受保护的 [Mesos 端点](https://mesos.apache.org/documentation/latest/authorization/) 的访问。| | | x | | |
 | `dcos:mesos:agent:executor:app_id[:<service-or-job-group>]`<br> 控制对服务和作业的查看访问权限 [执行器信息](https://mesos.apache.org/documentation/latest/app-framework-development-guide/)。| | | x | | |
-| `dcos:mesos:agent:flags`<br> 控制对 [agent flag](https://mesos.apache.org/documentation/latest/slave/flags/) 配置的查看访问权限。| | | x | | |
+| `dcos:mesos:agent:flags`<br> 控制对 [agent flag](https://mesos.apache.org/documentation/latest/endpoints/slave/flags/) 配置的查看访问权限。| | | x | | |
 | `dcos:mesos:agent:framework:role[:<role-name>]`<br> 控制对使用给定 [Mesos 角色](/cn/1.11/overview/concepts/#mesos-role)注册的 DC/OS 服务的查看访问权限。| | | x | | |
 | `dcos:mesos:agent:log`<br>控制对 [agent logs](/cn/1.11/monitoring/logging/) 的访问。| | | x | | |
 | `dcos:mesos:agent:nested_container_session:app_id[:<service-or-job-group>]`<br> 在[调试](/cn/1.11/monitoring/debugging/)时，按服务或作业组，控制对服务或作业容器内启动容器的访问。| | x | | | |

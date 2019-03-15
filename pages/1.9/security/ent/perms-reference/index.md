@@ -22,7 +22,7 @@ The DC/OS permissions are enforced based on your security mode.
 | [Superuser permissions](#superuser) (`dcos:superuser`)            |     x    |      x     |    x   |
 
 # Permissions
-Here are the available CRUD actions (`create`, `read`, `update`, and `delete`). `full` indicates that the permission only supports all CRUD actions, and that individual CRUD permissions are not available. 
+Here are the available CRUD actions (`create`, `read`, `update`, and `delete`). `full` indicates that the permission only supports all CRUD actions, and that individual CRUD permissions are not available.
 
 ## <a name="admin-router"></a>Admin Router Permissions
 
@@ -66,7 +66,7 @@ Here are the available CRUD actions (`create`, `read`, `update`, and `delete`). 
 | `dcos:mesos:agent:container:role[:<role-name>]`<br>Controls access to the [debugging](/1.9/monitoring/debugging/debug-perms/) features for a specific role.                                                                                                                       |      |   |   | x |   |
 | `dcos:mesos:agent:endpoint:path[:<endpoint>]`<br> Controls access to unprotected [Mesos endpoints](https://mesos.apache.org/documentation/latest/authorization/).                                                                                                                         |      |   | x |   |   |
 | `dcos:mesos:agent:executor:app_id[:<service-or-job-group>]`<br> Controls view access to service and job [executor information](https://mesos.apache.org/documentation/latest/app-framework-development-guide/).                                                                           |      |   | x |   |   |
-| `dcos:mesos:agent:flags`<br> Controls view access to [agent flag](https://mesos.apache.org/documentation/latest/slave/flags/) configurations.                                                                                                                                              |      |   | x |   |   |
+| `dcos:mesos:agent:flags`<br> Controls view access to [agent flag](https://mesos.apache.org/documentation/latest/endpoints/slave/flags/) configurations.                                                                                                                                              |      |   | x |   |   |
 | `dcos:mesos:agent:framework:role[:<role-name>]`<br> Controls view access to DC/OS services registered with a particular role.                                                                                                                                                     |      |   | x |   |   |
 | `dcos:mesos:agent:log`<br>Controls access to the [agent logs](/1.9/monitoring/logging/).                                                                                                                                                                                          |      |   | x |   |   |
 | `dcos:mesos:agent:nested_container_session:app_id[:<service-or-job-group>]`<br> Controls access, by service or job group, to launching a container within a container of a service or job while [debugging](/1.9/monitoring/debugging/).                                          |      | x |   |   |   |
