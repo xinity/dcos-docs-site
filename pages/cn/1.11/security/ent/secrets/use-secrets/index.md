@@ -48,7 +48,7 @@ enterprise: true
  - `dcos:adminrouter:ops:mesos full`：查看 **Task** 面板信息。
  - `dcos:adminrouter:ops:slave full`：查看任务的详细信息，包括日志。
 
- 只要密钥的路径和组的路径[匹配正确](/cn/1.11//security/ent/#spaces)，服务将能够访问密钥值。
+ 只要密钥的路径和组的路径[匹配正确](/cn/1.11/security/ent/#spaces)，服务将能够访问密钥值。
 
 该程序根据您是否要将密钥提供给 [pod](/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
 
@@ -84,16 +84,16 @@ enterprise: true
               基于环境变量的密钥：
 
                 ```json
-                {  
+                {
                     "id":"/developer/service",
                     "cmd":"sleep 100",
-                    "env":{  
-                      "MY_SECRET":{  
+                    "env":{
+                      "MY_SECRET":{
                           "secret":"secret0"
                       }
                     },
-                    "secrets":{  
-                      "secret0":{  
+                    "secrets":{
+                      "secret0":{
                           "source":"developer/my-secret"
                       }
                     }
@@ -126,7 +126,7 @@ enterprise: true
 
     在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
 
-    由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。             
+    由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
 
 1. 单击 **REVIEW & RUN**。
 
@@ -149,16 +149,16 @@ enterprise: true
     基于环境变量的密钥：
 
       ```json
-      {  
+      {
           "id":"/developer/service",
           "cmd":"sleep 100",
-          "env":{  
-            "MY_SECRET":{  
+          "env":{
+            "MY_SECRET":{
                 "secret":"secret0"
             }
           },
-          "secrets":{  
-            "secret0":{  
+          "secrets":{
+            "secret0":{
                 "source":"developer/my-secret"
             }
           }
@@ -295,7 +295,7 @@ enterprise: true
    }
    ```
   <p class="message--note"><strong>注意: </strong>
-由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/cn/1.11//security/ent/#spaces">命名空间</a>。</p>
+由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/cn/1.11/security/ent/#spaces">命名空间</a>。</p>
 
 3. 使用描述性名称保存文件，如 `mypod.json`。
 

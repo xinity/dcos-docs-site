@@ -27,7 +27,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 - An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.11/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
 - [DC/OS CLI installed](/1.11/cli/install/) and the [DC/OS Enterprise CLI installed](/1.11/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 - If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 - The appropriate permissions for your [security mode](/1.11/security/ent/#security-modes).
 
@@ -51,7 +51,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
   - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
   - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-  As long as the path of the secret and the path of the group [match up properly](/1.11//security/ent/#spaces), the service will be able to access the secret value.
+  As long as the path of the secret and the path of the group [match up properly](/1.11/security/ent/#spaces), the service will be able to access the secret value.
 
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.11/deploying-services/pods/) or to an individual service.
 
@@ -85,18 +85,18 @@ The procedure varies by interface. Refer to the section that corresponds to your
 1. Copy one of the following simple application definitions and paste it into the black box. This application definition creates a new service inside of the developer group and references a secret stored inside a developer path.
 
    Environment variable-based secret:
-   
+
     ```json
-    {  
+    {
       "id":"/developer/service",
       "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
+      "env":{
+         "MY_SECRET":{
             "secret":"secret0"
          }
       },
-      "secrets":{  
-         "secret0":{  
+      "secrets":{
+         "secret0":{
             "source":"developer/my-secret"
          }
       }
@@ -106,7 +106,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
    File-based secret:
-   
+
    ```json
     {
      "id": "developer/service",
@@ -177,16 +177,16 @@ The procedure varies by interface. Refer to the section that corresponds to your
    Environment variable-based secret:
 
     ```json
-    {  
+    {
       "id": "/developer/service",
       "cmd": "sleep 100",
-      "env": {  
-        "MY_SECRET": {  
+      "env": {
+        "MY_SECRET": {
           "secret": "secret0"
         }
       },
-      "secrets": {  
-        "secret0": {  
+      "secrets": {
+        "secret0": {
           "source": "developer/my-secret"
         }
       }
@@ -266,11 +266,11 @@ The procedure varies by interface. Refer to the section that corresponds to your
         }
       }
     }
-    ``` 
+    ```
 
 # <a name="deploying-the-job-via-metronome-job-definition"></a>Configuring a job to use an environment variable-based secret via Metronome job definition
 
-1. Log into the CLI as an user with the necessary permissions via `dcos auth login`. 
+1. Log into the CLI as an user with the necessary permissions via `dcos auth login`.
 
 1. Within a text editor, create a job definition for your Metronome job. The following job definition creates a new job and references a stored secret.
 
@@ -422,7 +422,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-    Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.
+    Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11/security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

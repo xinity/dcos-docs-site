@@ -22,7 +22,7 @@ enterprise: true
 
 - [使用密匙来存储敏感信息并将其传递给服务](/cn/1.11/security/ent/secrets/)。
 
-- [使用空间来限制对密匙的服务访问](/cn/1.11//security/ent/#spaces)。
+- [使用空间来限制对密匙的服务访问](/cn/1.11/security/ent/#spaces)。
 
 - 严格限制 SSH 密钥的分发。对于调试，请考虑使用 [`dcos task exec`](/cn/1.11/monitoring/debugging/)。
 

@@ -23,7 +23,7 @@ Your cluster will become more secure as you move from `disabled` to `permissive`
 
 - [Use secrets to store and pass sensitive information to services](/1.11/security/ent/secrets/).
 
-- [Use spaces to restrict service access to secrets](/1.11//security/ent/#spaces).
+- [Use spaces to restrict service access to secrets](/1.11/security/ent/#spaces).
 
 - Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.11/monitoring/debugging/) instead.
 

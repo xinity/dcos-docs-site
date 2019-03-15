@@ -67,9 +67,9 @@ This mode provides the most robust security posture and requires a significant a
 The security mode is set during [DC/OS installation](/1.11/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/1.11/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> You can only move from "disabled" to "permissive", and from "permissive" to "strict" during an upgrade.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> You can only move from "disabled" to "permissive", and from "permissive" to "strict" during an upgrade.</td>
+</tr>
 </table>
 
 ## <a name="discover"></a>Discovering your security mode
@@ -88,9 +88,9 @@ The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introd
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.11/security/ent/hardening/#zk">Hardening</a> for more information.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.11/security/ent/hardening/#zk">Hardening</a> for more information.</td>
+</tr>
 </table>
 
 ## <a name="user"></a>User Login
@@ -130,9 +130,9 @@ For example, the Mesos agents are provisioned with service accounts that they us
 You can view the `systemd` service accounts from the **Organization -> Service Accounts** tab of the DC/OS GUI. These service accounts are prefixed with `dcos_`.
 
 <table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Modifying the permissions of any of the automatically provisioned service accounts may cause the service to fail.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:black><strong>Warning:</strong> Modifying the permissions of any of the automatically provisioned service accounts may cause the service to fail.</td>
+</tr>
 </table>
 
 
@@ -234,7 +234,7 @@ DC/OS allows you to restrict:
 
 - **User access to secrets:** use [permissions](/1.11/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
-- **Application access to secrets:** use [spaces](/1.11//security/ent/#spaces) to control which applications can retrieve what secrets.
+- **Application access to secrets:** use [spaces](/1.11/security/ent/#spaces) to control which applications can retrieve what secrets.
 
 # <a name="linux-users"></a>Linux User Accounts
 

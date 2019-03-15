@@ -221,7 +221,7 @@ DC/OS 允许您限制：
 
 - **用户对密钥的访问：**使用 [权限](/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些密钥及其可执行的操作。
 
-- **应用程序对密钥的访问：**使用 [空间](/cn/1.11//security/ent/#spaces)以控制哪些应用程序可以检索哪些密钥。
+- **应用程序对密钥的访问：**使用 [空间](/cn/1.11/security/ent/#spaces)以控制哪些应用程序可以检索哪些密钥。
 
 # <a name="linux-users"></a>Linux 用户帐户
 
