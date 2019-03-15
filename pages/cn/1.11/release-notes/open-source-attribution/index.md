@@ -72,7 +72,7 @@ excerpt: Mesosphere 提供的第三方开源软件的列表
 		</tr>
 		<tr>
 			<td>flask</td>
-			<td><a href="http://flask.pocoo.org/docs/0.11/license/#flask-license">Flask 许可证</a></td>
+			<td><a href="http://flask.pocoo.org/docs/1.0/license/#flask-license">Flask 许可证</a></td>
 		</tr>
 		<tr>
 			<td>hadoop</td>

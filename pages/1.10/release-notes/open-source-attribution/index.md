@@ -75,7 +75,7 @@ Below is a list of third party open source software which is provided by Mesosph
 		</tr>
 		<tr>
 			<td>flask</td>
-			<td><a href="http://flask.pocoo.org/docs/0.11/license/#flask-license">Flask License</a></td>
+			<td><a href="http://flask.pocoo.org/docs/1.0/license/#flask-license">Flask License</a></td>
 		</tr>
 		<tr>
 			<td>hadoop</td>
