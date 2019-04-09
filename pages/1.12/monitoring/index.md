@@ -38,7 +38,7 @@ Possible health states are unhealthy and healthy. We infer this from codes 0 and
 *   **Healthy** All cluster nodes are healthy. The units are loaded and not in the "active" or "inactive" state.
 *   **Unhealthy** One or more nodes have issues. The units are not loaded or are in the "active" or "inactive" state.
 
-The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN. 
+The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN.
 
 ## System health HTTP API endpoint
 
@@ -86,7 +86,7 @@ The DC/OS user interface uses these aggregation endpoints to generate the data y
 
 ### Misinterpreting system health by unit
 
-You can sort system health by `systemd` unit. However, this search can bring up misleading information, as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy". 
+You can sort system health by `systemd` unit. However, this search can bring up misleading information, as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy".
 
 ### Missing cluster hosts
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Security
 title: Security
-menuWeight: 80
+menuWeight: 60
 excerpt: Configuring security for Enterprise and Open Source deployments
 
 enterprise: false

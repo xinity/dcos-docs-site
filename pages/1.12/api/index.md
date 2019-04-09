@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
-menuWeight: 150
+menuWeight: 140
 excerpt: DC/OS API reference manual
 
 enterprise: true
@@ -26,7 +26,7 @@ Admin Router runs on each DC/OS node in one of two configurations:
 
 - **Admin Router Master** exposes the [Master Routes](/1.12/api/master-routes/). This configuration runs on each master node and serves as the primary API gateway for interaction with DC/OS components.
 
-- **Admin Router Agent** exposes the [Agent Routes](/1.12/api/agent-routes/). This configuration runs on each agent node and provides routes for monitoring, debugging, and administration. 
+- **Admin Router Agent** exposes the [Agent Routes](/1.12/api/agent-routes/). This configuration runs on each agent node and provides routes for monitoring, debugging, and administration.
 
 Some agent routes, like logs and metrics, are proxied through the master Admin Router to allow external access.
 Other routes, like component management, are for internal use only.

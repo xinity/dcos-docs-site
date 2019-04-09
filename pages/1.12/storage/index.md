@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Storage
 title: Storage
-menuWeight: 90
+menuWeight: 70
 excerpt: Preserving your application in case of termination and relaunch
 
 enterprise: false

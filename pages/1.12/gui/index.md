@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  GUI
 title: GUI
-menuWeight: 40
+menuWeight: 290
 excerpt: Using the GUI for DC/OS management
 ---
 
