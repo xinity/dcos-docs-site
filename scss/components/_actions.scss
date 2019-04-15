@@ -1,0 +1,65 @@
+.actions {
+  margin: 2rem 0;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+    justify-content: space-around;
+  }
+  &__item {
+    margin: 0 1rem 1rem 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    color: $color-grey;
+    text-decoration: none;
+    &:hover {
+      color: $color-purple-d3;
+      & .actions__icon--rss {
+        fill: $color-purple-d3;
+      }
+    }
+  }
+  &__icon {
+    width: 22px;
+    height: 22px;
+    &--rss {
+      fill: $color-grey;
+    }
+  }
+  &__text {
+    display: none;
+  }
+  @include md {
+    &__list {
+      justify-content: flex-start;
+    }
+  }
+  @include lg {
+    &__text {
+      display: inline;
+      margin-left: 10px;
+    }
+  }
+  @include xl {
+    &__item {
+      margin-right: 15px;
+    }
+  }
+  @include xxl {
+    &__text {
+      margin-left: 10px;
+    }
+    &__item {
+      margin-right: 20px;
+    }
+  }
+  @include print {
+    display: none;
+  }
+}

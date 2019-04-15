@@ -1,0 +1,150 @@
+.search {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(4rem + 80px) auto 0;
+  padding: 0 2rem;
+  &__form {
+    display: flex;
+    width: 100%;
+    margin-top: 3rem;
+    border-bottom: 2px $color-purple-d3 solid;
+    border-radius: 5px;
+    background: $color-light;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    &-input {
+      flex-basis: calc(100% - 70px);
+      padding: 20px;
+      outline: 0;
+      border: 0;
+    }
+    &-submit {
+      justify-content: center;
+      flex-basis: 70px;
+      margin: 0;
+      padding: 0 20px 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+    }
+    &-icon {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      color: $color-purple-d3;
+    }
+  }
+  &__filters {
+    margin-top: 1.5rem; // TODO: Waiting on pull request to fix cssClasses in instantsearch.js
+  }
+  &__filter {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-right: 10px;
+    & select {
+      width: 100%;
+      font-weight: bold;
+      padding: 10px 0;
+      color: $color-grey;
+      background: transparent;
+      border: none;
+      appearance: none;
+      &:focus {
+        outline: none
+      }
+    }
+    &:after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 5px;
+      height: 100%;
+      font-size: 12px;
+      color: $color-grey;
+      pointer-events: none;
+    }
+  }
+  &__results {
+    margin-top: 3rem;
+    & em {
+      /*
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      background: #FF007D;
+      color: $color-light;
+      */
+      font-style: normal;
+      font-weight: bold;
+    }
+    &-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    &-item {
+      margin-top: 1rem;
+      a {
+        word-wrap: break-word;
+      }
+    }
+    .ais-hits--item {
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  &__title {
+    font-weight: 400;
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__description {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  &__meta {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    &-product {
+      margin-right: 10px;
+    }
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style-type: none;
+    &__item {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      &--active {
+        font-weight: bold;
+      }
+    }
+    &__link {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @include md {
+    &__filter {
+      width: auto;
+      margin-right: 30px;
+      & select {
+        width: auto;
+      }
+    }
+  }
+}

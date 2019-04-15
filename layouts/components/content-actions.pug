@@ -1,0 +1,44 @@
+- var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + ((pdfConcat) ? '-complete' : '') + '.pdf'
+- var githubBranch = (gitBranch) ? gitBranch : 'develop';
+- var githubPath = 'https://github.com/mesosphere/dcos-docs-site/tree/' + githubBranch + '/pages/' + path + '/index.md'
+- var slackPath = 'https://dcos-community.slack.com/';
+- var rssPath = (rss) ? '/' + path + '/rss.xml' : ''
+
+if (!title)
+  - throw `File ${path} does not contain a title`
+- var feedbackPath = 'https://jira.dcos.io/secure/CreateIssueDetails!init.jspa'
+- feedbackPath += '?pid=14105'
+- feedbackPath += '&issuetype=1'
+- feedbackPath += '&summary=Feedback+for+' + title.replace(' ', '+')
+- feedbackPath += '&description=Source:%20' + url + '/' + path
+- feedbackPath += '&labels=documentation'
+- feedbackPath += '&components=19804'
+- feedbackPath += '&priority=3'
+- feedbackPath += '&customfield_12300=44' // Sets the team field to Documentation Team
+
+div(class='actions')
+  ul(class='actions__list')
+    li(class='actions__item')
+      a(href='/', class='actions__link addthis_button')
+        i(class='actions__icon', data-feather='share')
+        span(class='actions__text') Share
+    //- li(class='actions__item')
+    //-   a(href=pdfPath, class='actions__link', target="_blank")
+    //-     i(class='actions__icon', data-feather='download')
+    //-     span(class='actions__text') Download
+    li(class='actions__item')
+      a(href='javascript:window.print()', class='actions__link')
+        i(class='actions__icon', data-feather='printer')
+        span(class='actions__text') Print
+    li(class='actions__item')
+      a(href=githubPath, class='actions__link', target="_blank")
+        i(class='actions__icon', data-feather='github')
+        span(class='actions__text') Contribute
+    li(class='actions__item')
+      a(href=slackPath, class='actions__link', target="_blank")
+        i(class='actions__icon', data-feather='slack')
+        span(class='actions__text') Discuss
+    li(class='actions__item')
+      a(href=feedbackPath, class='actions__link', target="_blank")
+        i(class='actions__icon', data-feather='message-square')
+        span(class='actions__text') Feedback

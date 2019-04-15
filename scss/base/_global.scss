@@ -1,0 +1,22 @@
+html {
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.debug * {
+  border: 1px red dotted;
+}
+
+svg {
+  flex-shrink: 0;
+}

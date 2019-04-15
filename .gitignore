@@ -1,0 +1,21 @@
+node_modules
+build
+build-swagger
+build-ngindox
+build-pdf
+linkchecker
+crawler
+npm-debug.log
+package-lock.json
+.DS_Store
+./**/*.tmp
+.tmp
+.revision
+.byebug_history
+secrets.sh
+
+# files used by CI
+.site-image
+.pdf-image
+.pdf-bundle-path
+.pdf-bundle-url

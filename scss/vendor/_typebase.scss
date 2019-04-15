@@ -1,0 +1,127 @@
+/*! Typebase.scss v0.1.0 | MIT License */
+
+$baseFontSize: 14;
+$baseLineHeight: 1.7;
+$leading: $baseLineHeight * 1rem;
+
+html {
+  font-family: $font-family-sans-source;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  line-height: $baseLineHeight;
+  margin: $leading 0 0;
+}
+
+ul,
+ol {
+  margin-top: $leading;
+  margin-bottom: $leading;
+  padding-left: 20px;
+  li {
+    line-height: $baseLineHeight;
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      display: inline-block;
+    }
+  }
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+li {
+  p {
+    margin: ($leading / 2) 0 0;
+  }
+}
+
+blockquote {
+  line-height: $leading;
+  margin-top: $leading;
+  margin-bottom: $leading;
+}
+
+small {
+  font-size: 12px;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: $leading;
+  margin-bottom: 0;
+  line-height: $leading;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 2 * $leading;
+  margin-top: 2 * $leading;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 1.75 * $leading;
+  margin-top: 2 * $leading;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 1.5 * $leading;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 15px;
+}
+
+/* Tables */
+
+table {
+  margin-top: $leading;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 0;
+  line-height: $baseLineHeight * $baseFontSize - 0px;
+}
+/* Code blocks */
+
+code {
+  // Forces text to constrain to the line-height. Not ideal, but works.
+  vertical-align: bottom;
+}
+/* Leading paragraph text */
+
+.lead {
+  font-size: 1rem;
+}
+/* Hug a the block above you */
+
+.hug {
+  margin-top: 0;
+}
+
+hr {
+  margin: $leading 0;
+}

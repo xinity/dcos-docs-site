@@ -1,0 +1,36 @@
+.img {
+    width: auto;
+    border: 1px;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        &--fluid {
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        &--inline {
+            display: inline-flex;
+        }
+    }
+    &--inline {
+        display: inline;
+    }
+    &--inline,
+    &--fill,
+    &--fluid {
+        width: 100%;
+        height: auto;
+    }
+    &__caption {
+        display: block;
+        // background-color: #eee;
+        color: $color-grey;
+        font-style: italic;
+        padding: 6px;
+        margin-top: 0px;
+        &--inline {
+            display: inline-block;
+        }
+    }
+}

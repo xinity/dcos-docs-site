@@ -1,0 +1,15 @@
+- var isChinese = path.split('/')[0] == 'cn'
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body
+    div(class='layout')
+      div(role='main', class='layout__content')
+        if isChinese
+          include partials/header/cn-header.pug
+        else
+          include partials/header/en-header.pug
+        include partials/search-results.pug
+    include partials/scripts.pug

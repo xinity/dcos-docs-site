@@ -1,0 +1,75 @@
+.message {
+  margin: 1.5rem 0 0;
+  line-height: 1.5rem;
+  padding: 1rem;
+  border: 1px solid $color-dark;
+  border-radius: 3px;
+  color: $color-light;
+  background: $color-dark;
+  font-weight: 500;
+  *:not(a):not(.badge):not(.tooltip) {
+    color: inherit;
+  }
+  &--warning {
+    color: $color-dark;
+    background: $color-red-lightest;
+    padding: 10px;
+    border-left: 12px solid $color-red;
+  }
+  &--note {
+    color: $color-dark;
+    background: $color-purple-lightest;
+    padding: 10px;
+    border-left: 12px solid $color-purple-d3;
+  }
+  &--important {
+    background: $color-gold-light;
+    padding: 10px;
+    border-left: 12px solid $color-gold;
+  }
+  &--error {
+    border: 1px solid #E77975;
+    color: $color-dark;
+    background: #E77975;
+    padding: 1rem;
+  }
+  &--info {
+    border: 1px solid $color-dark;
+    color: $color-light;
+    background: #303646;
+    padding: 1rem;
+  }
+  &--success {
+    border: 1px solid #89DA71;
+    color: $color-dark;
+    background: #89DA71;
+  }
+  &--outline {
+    border: 1px solid $color-dark;
+    color: $color-dark;
+    background: transparent;
+  }
+  &--outline-warning {
+    border: 1px solid #F2D98E;
+    color: #F2D98E;
+    background: transparent;
+  }
+  &--outline-error {
+    border: 1px solid #E77975;
+    color: #E77975;
+    background: transparent;
+  }
+  &--outline-info {
+    border: 1px solid;
+    color: #505868;
+    background: transparent;
+  }
+  &--outline-success {
+    border: 1px solid #89DA71;
+    color: #89DA71;
+    background: transparent;
+  }
+}
+.warning-label::before {
+  content: "WARNING: ";
+}
