@@ -6,9 +6,8 @@ menuWeight: 30
 excerpt: Troubleshooting DC/OS installation issues
 ---
 
-# <a name="general"></a>General troubleshooting approach
-
-* Verify that you have a valid IP detect script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+# General Installation Troubleshooting
+The three most common issues are ensuring you have a valid IP detect script, having functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP. Please check all of these when dealing with cluster issues.
 
 
 ## IP detect script
@@ -33,16 +32,16 @@ You must have working DNS resolvers, specified in your [config.yaml](/1.13/insta
 When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
  1. Exhibitor
- 1. Mesos master
- 1. Mesos DNS
- 1. DNS Forwarder
- 1. DC/OS Marathon
- 1. Jobs
- 1. Admin Router
+ 2. Mesos master
+ 3. Mesos DNS
+ 4. DNS Forwarder
+ 5. DC/OS Marathon
+ 6. Jobs
+ 7. Admin Router
 
  Be sure to verify that all services are up and healthy on the masters before verifying the agents.
 
- ### NTP
+ ## NTP
 
  Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
 
@@ -52,11 +51,10 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
     timedatectl
 
 
+# Other Common Issues
 * Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
-
 * Ensure that services that bind to port `53`, which is required by DNS Forwarder (`dcos-net.service`), are disabled and stopped. For example:
-
 
    ```bash
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
