@@ -2,8 +2,22 @@ $sections-size: 20%;
 
 .content {
   display: flex;
-  margin-top: 80px;
+  margin-top: 0px;
   padding: 2rem;
+  &__warning-header {
+    width: 100%;
+    background-color: $color-meso-pink;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  &__warning-text {
+    padding: 4;
+    margin-top: -40;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+  }
   &__container {
     position: relative;
     display: flex;
