@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI
-title: GUI
+navigationTitle:  GUI Reference
+title: GUI Reference Pages
 menuWeight: 170
 excerpt: Using the web interface for DC/OS management
 ---
