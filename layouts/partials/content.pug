@@ -1,12 +1,14 @@
 - var pathParts = path.split('/');
 - var gridDisabled = overviewGrid === false
 - var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
+- var isWIP = path.split('/')[0] == '1.13'
 
 main(class='content')
   div(class=containerClass)
     div(class='content__header')
-      div(class='content__warning-header')
-        p(class='content__warning-text') REWRITE IN PROGRESS - DO NOT USE
+      if isWIP
+        div(class='content__warning-header')
+          p(class='content__warning-text') REWRITE IN PROGRESS - DO NOT USE
       div(class='content__header__row')
         h1(class='content__header-title')!= title
         if oss
