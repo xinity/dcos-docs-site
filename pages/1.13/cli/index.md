@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  CLI
-title: CLI
-menuWeight: 50
-excerpt: Understanding the command line interface utility in DC/OS
+navigationTitle:  Using the CLI
+title: Installing and Using the CLI for DC/OS
+menuWeight: 20
+excerpt: Understanding the command line interface utility for DC/OS
 
 enterprise: false
 ---

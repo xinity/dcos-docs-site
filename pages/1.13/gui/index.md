@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI
-title: GUI
-menuWeight: 40
+navigationTitle:  GUI Reference
+title: GUI Reference Pages
+menuWeight: 170
 excerpt: Using the web interface for DC/OS management
 ---
 
@@ -36,7 +36,7 @@ Figure 4 - Cluster Menu with Switch Cluster Option
 
 # Change UI language
 
-You can change the language in which the UI is displayed. 
+You can change the language in which the UI is displayed.
 
 **From the header bar**
 

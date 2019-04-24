@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Tutorials
 title: Tutorials
-menuWeight: 140
-excerpt: Getting started with DC/OS 
+menuWeight: 190
+excerpt: Getting started with DC/OS
 
 enterprise: false
 ---

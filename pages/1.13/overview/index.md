@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Overview
-title: Overview
-menuWeight: 20
-excerpt: Getting started with DC/OS fundamentals
-
+navigationTitle:  Understanding DC/OS
+title: What Makes a Distributed Cloud Operating System
+menuWeight: 10
+excerpt: Learn about the concepts and industry best practices that are at the core of DC/OS.
 enterprise: false
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Mesosphere DC/OS 1.13-beta
 title: Documentation for Mesosphere DC/OS 1.13-beta
 version: 1.13
-menuWeight: 1
+menuWeight: 25
 excerpt: Learning DC/OS
 ---
 
