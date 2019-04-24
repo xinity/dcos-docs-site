@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 title: Creating DC/OS Clusters
-navigationTitle: Installation
-menuWeight: 15
+navigationTitle: Installing DC/OS
+menuWeight: 5
 excerpt: Creating and maintaining your DC/OS clusters.
 ---
 # Understanding Clusters and SRE
