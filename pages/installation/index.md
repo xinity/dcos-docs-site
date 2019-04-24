@@ -17,6 +17,11 @@ The production installation method is used to install production-ready DC/OS tha
 
 The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.13/overview/concepts/#node) documentation for more information.
 
+# On-Prem Installation
+
+The [On-Prem Installation](/1.13/installing/production/) is used to install production-ready DC/OS for datacenters. This method was previously called custom installation.
+
+## Installing DC/OS
 The following steps are required to install DC/OS clusters:
 
 *   Configure bootstrap node
