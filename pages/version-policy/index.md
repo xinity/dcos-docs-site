@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
-menuWeight: 5
+menuWeight: 20
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
@@ -77,7 +77,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
 </table>
 
-### <a name="CentOS-support-matrix"></a>CentOS support matrix 
+### <a name="CentOS-support-matrix"></a>CentOS support matrix
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -133,7 +133,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
 </table>
 
-### <a name="Oracle-support-matrix"></a>Oracle support matrix 
+### <a name="Oracle-support-matrix"></a>Oracle support matrix
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -162,7 +162,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 </table>
 
 ## Web Browser and CLI Matrix
-Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. 
+Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested.
 
 ### Legend for Web Browser and CLI support matrix
 |Display Icon | Service       |
@@ -200,7 +200,7 @@ Use the following legend table to see the supported/not supported service for th
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
-    </tr>    
+    </tr>
     <tr>
         <td>DC/OS CLI 0.4.x</td>
         <td></td>
@@ -476,7 +476,7 @@ The designations are as follows:
 </table>
 
 ### Beta Package Designations
-Services that are labeled as “Beta” are not ready for production. 
+Services that are labeled as “Beta” are not ready for production.
 
 The designations are as follows:
 
