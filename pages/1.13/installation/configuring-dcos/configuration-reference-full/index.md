@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuration Reference
+navigationTitle:  Full Configuration Reference
 title: DC/OS Configuration Reference
-menuWeight: 15
+menuWeight: 30
 excerpt: Reference page for the DC/OS config.yaml
 ---
 

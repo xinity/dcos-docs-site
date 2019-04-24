@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: Installing and Managing DC/OS
-navigationTitle: Installation and Cluster Management
+title: Creating the DC/OS Cluster
+navigationTitle: Installing DC/OS
 menuWeight: 15
-excerpt: Environment agnostic guide to creating and managing your DC/OS cluster and infrastructure
+excerpt: Environment agnostic guide to creating a DC/OS Cluster
 ---
 
 It involves packaging the DC/OS distribution and connecting to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.

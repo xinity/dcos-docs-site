@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Configuring DC/OS
+navigationTitle: Configuring Your Installation
 title: Setting the DC/OS Configuration
 menuWeight: 10
 excerpt: How to configure DC/OS for your environment and operational needs.
 ---
-
+(Add Security Mode config info)
 The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.13/installing/production/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
 <p class="message--important"><strong>IMPORTANT: </strong>If you want to modify the configuration file after installation, you must follow the <a href="/1.13/installing/production/upgrading/">DC/OS upgrade process</a>.</p>

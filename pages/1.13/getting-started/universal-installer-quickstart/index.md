@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Universal Installer Quickstart
-title: DC/OS Clusters using the Universal Installer
+navigationTitle: Terraform Quickstart
+title: DC/OS Clusters using custom Terraform modules
 menuWeight: 5
 excerpt: Getting started on DC/OS using terraform modules
 ---

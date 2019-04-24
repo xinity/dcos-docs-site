@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Ports Reference
 title: DC/OS Ports Reference
-menuWeight: 5
+menuWeight: 25
 excerpt: Reference page for all the ports used by DC/OS.
 ---
 

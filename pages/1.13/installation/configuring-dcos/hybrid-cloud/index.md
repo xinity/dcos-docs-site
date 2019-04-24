@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Hybrid Cloud
 title: Hybrid Cloud
-menuWeight: 115
+menuWeight: 07
 excerpt: Understanding the features of the hybrid cloud
 ---
 
