@@ -137,3 +137,6 @@ mkfs.xfs -ftype=1 /dev/<> |
 Other considerations include:
 - Network access to a public repository or internal Docker registry for all agents
 - On RHEL 7, firewalld must be stopped and disabled. There are known Docker issues that firewalld interacts poorly with.
+
+# Conclusion
+Considering planning and design requirements for Master nodes is a critical aspect to planning any DC/OS deployment. The reliability of the cluster, task workload (number of tasks supported), and performance is directly tied to the infrastructure which is implemented for the Master node function. Additionally, in the event that resources for Master nodes need to be reconsidered, changing the underlying infrastructure is tantamount to re-installing the cluster. While it is possible to add Agent nodes, and in various hardware profiles, it is less of a doable proposition for the Master nodes.
