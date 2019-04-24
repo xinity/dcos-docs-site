@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: Creating DC/OS Clusters
-navigationTitle: Installing a DC/OS Cluster
+title: Deploying a DC/OS Cluster
+navigationTitle: Deploying a DC/OS Cluster
 menuWeight: 15
-excerpt: Installing DC/OS to create a Cluster
+excerpt: Installing DC/OS on your infrastructure to create a cluster.
 ---
 # Understanding Clusters and SRE
 
