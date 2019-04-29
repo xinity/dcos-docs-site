@@ -154,11 +154,12 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
     For this guide we are going to use the default superuser and password to login:
 
-    Username: bootstrapuser Password: deleteme
+    `Username: bootstrapuser`
+    `Password: deleteme`
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Please note that this should NOT be used in a Production environment and you will need generate a password hash.</p>
+    <p class="message--important"><strong>IMPORTANT: </strong>Please note that this should NOT be used in production environments and you will need to generate a password hash.</p>
 
-1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12.0 cluster with the following nodes:
+2. This sample configuration file will get you started on the installation of an open source DC/OS 1.12.0 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents
@@ -172,9 +173,9 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
     - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
     - `public-agent-loadbalancer` The URL of your Public routable services.
 
-1. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
+3. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
 
-1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Make sure you are still working in the `dcos-aws-demo` folder where you created your `main.tf` file, and run the initialization.
+4. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Make sure you are still working in the `dcos-aws-demo` folder where you created your `main.tf` file, and run the initialization.
 
     ```bash
     terraform init
@@ -194,7 +195,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
     <p class="message--note"><strong>Note: </strong>If terraform is not able to connect to your provider, ensure that you are logged in and are exporting your credentials. See the <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS Provider</a> instructions for more information.</p>
 
-1. After Terraform has been initialized, the next step is to run the execution planner and save the plan to a static file - in this case, `plan.out`.
+5. After Terraform has been initialized, the next step is to run the execution planner and save the plan to a static file - in this case, `plan.out`.
 
       ```bash
       terraform plan -out=plan.out
@@ -210,7 +211,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
     Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
 
-1. The next step is to get Terraform to build/deploy our plan.  Run the command below.
+6. The next step is to get Terraform to build/deploy our plan.  Run the command below.
 
     ```bash
     terraform apply plan.out
