@@ -1,0 +1,101 @@
+| parameter | section | format | variant | description |
+| ---       | ---     | ---    | ---     | ---         |
+|	adminrouter_auth_cache_enabled	|	Security 	|	bool	|	EE	|	Controls whether the Admin Router authorization cache is enabled. If true, Admin Router will cache the user’s permissions for 5 seconds after performing an authorization check.	|
+|	adminrouter_tls_1_0_enabled	|	Security 	|	bool	|	EE	|	Indicates whether to enable TLSv1 support in Admin Router.	|
+|	adminrouter_tls_1_1_enabled	|	Security 	|	bool	|	EE	|	Indicates whether to enable TLSv1.1 support in Admin Router.	|
+|	adminrouter_tls_1_2_enabled	|	Security 	|	bool	|	EE	|	Indicates whether to enable TLSv1.2 support in Admin Router.	|
+|	adminrouter_tls_cipher_suite	|	Security 	|	List	|	EE	|	Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router’s ssl_ciphers configuration directive. There is no validation of this string. 	|
+|	agent_list	|	Cluster Setup	|	YAML List - <agent-private-ip>	|	"" ""	|	A YAML nested list (-) of IPv4 addresses to your private agent host names.	|
+|	auth_cookie_secure_flag	|	Security 	|	bool	|	EE	|	Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection.	|
+|	aws_access_key_id	|	Cluster Setup	|	<aws-key-id>	|	"" ""	|	The AWS key ID.	|
+|	aws_region	|	Cluster Setup	|	<bucket-region>	|	"" ""	|	The AWS region for your S3 bucket.	|
+|	aws_secret_access_key	|	Cluster Setup	|	<aws-secret-access-key>	|	"" ""	|	The AWS secret access key.	|
+|	aws_template_storage_access_key_id	|	Cluster Setup	|	"" ""	|	"" ""	|	The access key ID of the account owning the AWS S3 bucket.	|
+|	aws_template_storage_bucket	|	Cluster Setup	|	"" ""	|	"" ""	|	The name of an S3 bucket to contain customized advanced AWS templates.	|
+|	aws_template_storage_bucket_path	|	Cluster Setup	|	"" ""	|	"" ""	|	The path to a location within the S3 bucket to store template artifacts.	|
+|	aws_template_storage_region_name	|	Cluster Setup	|	"" ""	|	"" ""	|	The region containing the S3 bucket.	|
+|	aws_template_storage_secret_access_key	|	Cluster Setup	|	"" ""	|	"" ""	|	The secret access key of the account owning the AWS S3 bucket.	|
+|	aws_template_upload	|	Cluster Setup	|	"" ""	|	"" ""	|	Whether to upload the customized advanced AWS templates to an S3 bucket.	|
+|	bootstrap_url	|	Cluster Setup	|	<path-to-installer>	|	"" ""	|	??(Required) The URL path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify bootstrap_url: file:///opt/dcos_install_tmp unless you have moved the installer assets. By default the automated DC/OS installer places the build files in file:///opt/dcos_install_tmp.	|
+|	bouncer_expiration_auth_token_days	|	Security 	|	<pyth-float-time-in-days>	|	EE	|	Sets the auth token time-to-live (TTL) for Identity and Access Management. Must be Python float syntax wrapped in YAML string (single quotes, i.e. '0.5'), no less than 0.25	|
+|	ca_certificate	|	Security 	|	<path-to-certificate>	|	"" ""	|	**Likely dep'd to ca_certificate_path	|
+|	ca_certificate_chain	|	Security 	|	<path-to-certificate-chain>	|	"" ""	|	"" ""	|
+|	ca_certificate_chain_path	|	Security 	|	"" ""	|	EE	|	Use this to set up a custom CA certificate. See using a Custom CA Certificate page for a detailed configuration parameter reference. ENTERPRISE	|
+|	ca_certificate_key	|	Security 	|	<path-to-private-key>	|	"" ""	|	"" ""	|
+|	ca_certificate_key_path	|	Security 	|	"" ""	|	EE	|	Use this to set up a custom CA certificate. See using a Custom CA Certificate page for a detailed configuration parameter reference. ENTERPRISE	|
+|	ca_certificate_path	|	Security 	|	"" ""	|	EE	|	Use this to set up a custom CA certificate. See using a Custom CA Certificate page for a detailed configuration parameter reference. ENTERPRISE	|
+|	cluster_docker_credentials	|	Cluster Setup	|	GROUP	|	"" ""	|	The dictionary of Docker credentials to pass. Can be left empty, can be passed in as json using a --docker_config	|
+|	cluster_docker_credentials_dcos_owned	|	Cluster Setup	|	bool	|	"" ""	|	The credentials file is stored in /opt/mesosphere.	|
+|	cluster_docker_credentials_enabled	|	Cluster Setup	|	bool	|	"" ""	|	Whether to pass the Mesos --docker_config option to Mesos.	|
+|	cluster_docker_registry_url	|	Cluster Setup	|	<url>	|	"" ""	|	The custom URL that Mesos uses to pull Docker images from. Otherwise the default is https://registry-1.docker.io	|
+|	cluster_name	|	Cluster Setup	|	<cluster-name>	|	"" ""	|	The name of your cluster. !! There are formatting ruls	|
+|	cosmos_config	|	Cluster Setup	|	""	|	"" ""	|	The dictionary of packaging configuration to pass to the DC/OS Package Manager (Cosmos).	|
+|	custom_checks	|	Cluster Setup	|	GROUP	|	"" ""	|	Custom installation checks that are added to the default check configuration process.	|
+|	customer_key	|	??	|	<customer-key>	|	"" ""	|	"" ""	|
+|	dcos_audit_logging	|	Performance and Tuning	|	bool	|	EE	|	Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs. ENTERPRISE	|
+|	dcos_l4lb_enable_ipv6	|	Networking 	|	bool	|	"" ""	|	A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if enable_ipv6 is set to true. Default value is false. NOTE: Layer-4 load balancing for IPv6 containers should be turned on with caution.	|
+|	dcos_overlay_config_attempts	|	Networking 	|	<num-failed-attempts>	|	"" ""	|	Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.	|
+|	dcos_overlay_enable	|	Networking 	|	bool	|	"" ""	|	Block of parameters that specifies whether to enable DC/OS virtual networks.	|
+|	dcos_overlay_mtu	|	??	|	<mtu>	|	"" ""	|	The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.	|
+|	dcos_overlay_network	|	Networking 	|	GROUP	|	"" ""	|	This group of parameters defines a virtual network for DC/OS. The default configuration of DC/OS provides a virtual network named dcos with this YAML configuration	|
+|	dcos_ucr_default_bridge_subnet	|	Networking 	|	<ipv4-subnet>	|	"" ""	|	Takes an IPv4 subnet. The subnet is allocated to the bridge ucr-br0 created by the mesos-bridge CNI network. The mesos-bridge CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers. The only constraint in selecting an IPv4 subnet for dcos_ucr_default_bridge_subnet is that the subnet should not be used on the network to which the agents are connected. In other words, this subnet should be accessible from only within an agent.	|
+|	dns_bind_ip_blacklist	|	Networking 	|	YAML List - <ip-address>	|	"" ""	|	A list of IP addresses that DC/OS DNS resolvers cannot bind to.	|
+|	dns_forward_zones	|	Networking 	|	GROUP	|	"" ""	|	A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.	|
+|	dns_search	|	Networking 	|	<domain1 domain2 domain3>	|	"" ""	|	A space-separated list of domains that are tried when an unqualified domain is entered.	|
+|	docker_remove_delay	|	Performance and Tuning	|	<num>hrs	|	"" ""	|	The amount of time to wait before removing docker containers (i.e., docker rm) after Mesos regards the container as TERMINATED.	|
+|	enable_docker_gc	|	Performance and Tuning	|	bool	|	"" ""	|	Indicates whether to run the docker-gc script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers.	|
+|	enable_gpu_isolation	|	Cluster Setup	|	bool	|	"" ""	|	Indicates whether to enable GPU support in DC/OS.	|
+|	enable_ipv6	|	Networking 	|	bool	|	"" ""	|	Currently, IPv6 networks are supported only for Docker containers. Setting this flag to true will allow the following features to be enabled: Users can create IPv6 DC/OS overlay networks. This will work only for Docker containers. Service discovery for IPv6 containers will be available. Layer-4 load-balancing will be available for IPv6 Docker containers if dcos_l4lb_enable_ipv6 is set to true.	|
+|	enable_mesos_input_plugin	|	Metrics	|	bool	|	"" ""	|	Indicates whether to enable Telegraf’s Mesos input plugin to collect Mesos metrics from Mesos masters and agents.	|
+|	exhibitor_address	|	Cluster Setup	|	<loadbalancer-ip>	|	"" ""	|	The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. 	|
+|	exhibitor_azure_account_key	|	Cluster Setup	|	<azure-secret-access-key>	|	"" ""	|	The secret key to access the Azure Storage Account.	|
+|	exhibitor_azure_account_name	|	Cluster Setup	|	<azure-storage-acct-name>	|	"" ""	|	The Azure Storage Account Name.	|
+|	exhibitor_azure_prefix	|	Cluster Setup	|	<blob-prefix>	|	"" ""	|	exhibitor_azure_prefix The blob prefix to be used within your Storage Account to be used by Exhibitor.	|
+|	exhibitor_explicit_keys	|	Cluster Setup	|	bool	|	"" ""	|	Indicates whether you are using AWS API keys to grant Exhibitor access to S3. Use false if you’re using AWS Identity and Access Management (IAM) to grant Exhibitor access to s3.	|
+|	exhibitor_storage_backend	|	Cluster Setup	|	<aws_s3|azure|static|zookeeper>	|	"" ""	|	The type of storage backend to use for Exhibitor.	|
+|	exhibitor_zk_hosts	|	Cluster Setup	|	<zk-ip>:<zk-port>, <zk-ip>:<zk-port>	|	"" ""	|	A comma-separated list (<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>) of one or more ZooKeeper node IP and port addresses to use for configuring the internal Exhibitor instances. Exhibitor uses this ZooKeeper cluster to orchestrate its configuration. Multiple ZooKeeper instances are recommended for failover in production environments.  ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability.	|
+|	exhibitor_zk_path	|	Cluster Setup	|	<filepath-to-data>	|	"" ""	|	The file path that Exhibitor uses to store data.	|
+|	fault_domain_enabled	|	??	|	bool	|	"" ""	|	By default, DC/OS clusters have fault domain awareness enabled, so no changes to your config.yaml are required to use this feature.	|
+|	feature_dcos_storage_enabled	|	Storage	|	bool	|	EE	|	A flag, if set, will enable advanced storage features in DC/OS, including Mesos CSI support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the DC/OS Storage Service (DSS)	|
+|	gc_delay	|	Performance and Tuning	|	<num>days	|	"" ""	|	The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.	|
+|	gpus_are_scarce	|	Cluster Setup	|	bool	|	"" ""	|	Indicates whether to treat GPUs as a scarce resource in the cluster.	|
+|	http_proxy	|	Networking 	|	http://<proxy_host>:<http_proxy_port>	|	"" ""	|	The HTTP proxy.	|
+|	https_proxy	|	Networking 	|	https://<proxy_host>:<https_proxy_port>	|	"" ""	|	The HTTPS proxy.	|
+|	iam_ldap_sync_interval	|	Security 	|	"" ""	|	EE	|	Interval in seconds between LDAP synchronization operations.	|
+|	ip_detect_public_filename	|	Cluster Setup	|	dir	|	"" ""	|	The path to a file (/genconf/ip-detect-public) on your bootstrap node that contains a shell script to map internal IPs to a public IP. 	|
+|	license_key_contents	|	??	|	<literally-the-content>	|	EE	|	A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. 	|
+|	log_directory	|	Performance and Tuning	|	dir	|	"" ""	|	The path to the installer host logs from the SSH processes.	|
+|	master_discovery	|	Cluster Setup	|	<static|master_http_loadbalancer>	|	"" ""	|	(Required) The Mesos master discovery method.	|
+|	master_dns_bindall	|	Networking 	|	bool	|	"" ""	|	An open master DNS port listens publicly on the masters. If you are upgrading, set this parameter to true.	|
+|	master_external_loadbalancer	|	Cluster Setup	|	<dns-name|ip-address>	|	EE	|	The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the DC/OS certificate of the Admin Router on the master nodes.	|
+|	master_list	|	Cluster Setup	|	YAML List	|	"" ""	|	A YAML nested list (`-`) of static master IP addresses.	|
+|	mesos_agent_work_dir	|	Cluster Setup	|	dir	|	OE	|	The location of the Mesos work directory on agent and public agent nodes. This defines the work_dir parameter for Mesos agents in the cluster. The default is /var/lib/mesos/slave.	|
+|	mesos_container_log_sink	|	Cluster Setup	|	<journald|logrotate|journald+logrotate>	|	"" ""	|	The log manager for containers (tasks). The options are: 'journald' - send task logs only to journald; 'logrotate' - send task logs only to the file system (i.e. a stdout/err file); 'journald+logrotate' - send logs to both journald and the file system. The default is logrotate. Due to performance issues, journald is not recommended. 	|
+|	mesos_dns_set_truncate_bit	|	Networking 	|	bool	|	"" ""	|	Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to false and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they are not and therefore will not trigger a retry over TCP. 	|
+|	mesos_master_work_dir	|	Cluster Setup	|	dir	|	OE	|	The location of the Mesos work directory on master nodes. This defines the work_dir parameter for Mesos masters in the cluster. 	|
+|	mesos_max_completed_tasks_per_framework	|	Performance and Tuning	|	int	|	"" ""	|	The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.	|
+|	network_cni_root_dir_persist	|	Networking 	|	bool	|	"" ""	|	A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is false. If you set this configuration option to true, the CNI root directory is created under work dir. Setting this option to true enables the CNI isolator to do proper cleanup after rebooting a host node. NOTE: It requires Host reboot for this flag to take effect.	|
+|	no_proxy	|	Networking 	|	YAML List - <blocked.address.com>	|	"" ""	|	A YAML nested list (-) of subdomains to exclude from forwarding to the https_proxy. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the no_proxy list can be a list of internal IP addresses.	|
+|	num_masters	|	Cluster Setup	|	<num-masters>	|	"" ""	|	The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.	|
+|	oauth_enabled	|	Security 	|	bool	|	OE*	|	Indicates whether to enable authentication for your cluster. 	|
+|	package_storage_uri	|	??	|	<permanent-path-to-file>	|	"" ""	|	Where to permanently store DC/OS packages. The value must be a file URL, for example, file:///var/lib/dcos/cosmos/packages	|
+|	platform	|	Cluster Setup	|	string	|	"" ""	|	The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: aws, azure, oneview, openstack, vsphere, vagrant-virtualbox, onprem (default).	|
+|	process_timeout	|	Performance and Tuning	|	<num-seconds>	|	"" ""	|	The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds. NOTE: For a slower network, consider changing to `process_timeout: 600`.	|
+|	public_agent_list	|	Cluster Setup	|	YAML List - <agent-private-ip>	|	"" ""	|	A YAML nested list (-) of IPv4 addresses to your public agent host names. NOTE: The public_agent_list is not required for the production installer.	|
+|	resolvers	|	Networking 	|	YAML List - <resolver-ip>	|	"" ""	|	A YAML nested list (-) of DNS resolvers for your DC/OS cluster nodes. You can specify a maximum of 3 resolvers. Set this parameter to the most authoritative nameservers that you have. If you want to resolve internal hostnames, set it to a nameserver that can resolve them. If you do not have internal hostnames to resolve, you can set this to a public nameserver like Google or AWS. For example, you can specify the Google Public DNS IP addresses (IPv4):	|
+|	rexray_config	|	Cluster Setup	|	GROUP	|	"" ""	|	The REX-Ray configuration method for enabling external persistent volumes in Marathon. You cannot specify both rexray_config and rexray_config_preset.	|
+|	rexray_config_preset	|	Cluster Setup	|	<aws>	|	"" ""	|	If you run DC/OS on AWS setting this parameter to aws, sets the rexray_config parameter to a sensible default REX-Ray configuration that is bundled with DC/OS itself. You cannot specify both rexray_config and rexray_config_preset.	|
+|	s3_bucket	|	Cluster Setup	|	<aws-bucket-name>	|	"" ""	|	 The name of your S3 bucket.	|
+|	s3_prefix	|	Cluster Setup	|	<aws-prefix>	|	"" ""	|	The S3 prefix to be used within your S3 bucket to be used by Exhibitor. Note: EC2 Classic is not supported.	|
+|	security	|	Security 	|	<disabled*|permissive|strict>	|	EE	|	The security mode: permissive, or strict. ENTERPRISE	|
+|	ssh_key_path	|	Security 	|	<path-to-ssh-key>	|	"" ""	|	The path the installer uses to log into the target nodes.	|
+|	ssh_port	|	Security 	|	<port-number>	|	"" ""	|	The port to SSH to, for example 22.	|
+|	ssh_user	|	Security 	|	<username>	|	"" ""	|	The SSH username, for example centos.	|
+|	staged_package_storage_uri	|	??	|	<temp-path-to-file>	|	"" ""	|	Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, file:///var/lib/dcos/cosmos/staged-packages.	|
+|	superuser_password_hash	|	Security 	|	<hashed-password>	|	EE	|	The hashed superuser password. The superuser_password_hash is generated by using the installer --hash-password flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added.	|
+|	superuser_username	|	Security 	|	<username>	|	EE	|	The user name of the superuser. This account uses the superuser_password_hash.	|
+|	telemetry_enabled	|	Security 	|	bool	|	"" ""	|	Indicates whether to enable sharing of anonymous data for your cluster.	|
+|	use_proxy	|	Networking 	|	bool	|	"" ""	|	Indicates whether to enable the DC/OS proxy.	|
+|	zk_agent_credentials	|	Security 	|	dcos-agent:<secret>	|	EE	|	Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS agent nodes.	|
+|	zk_master_credentials	|	Security 	|	dcos-master:<secret>	|	EE	|	Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS master nodes.	|
+|	zk_super_credentials	|	Security 	|	super:<secret>	|	EE	|	enables access to ZooKeeper’s equivalent of the root or superuser account, which has access to all resources regardless of existing ACLs. This credential allows an operator to access all the metadata stored in the ZooKeeper Quorum and is used by the DC/OS bootstrap script while initializing the cluster. Default: 'super:secret'.	|

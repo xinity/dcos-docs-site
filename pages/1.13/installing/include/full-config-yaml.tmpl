@@ -1,0 +1,119 @@
+### Configuration Parameters
+
+This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source.
+
+### Cluster Setup
+
+| Parameter                              | Description                                                                                                                                               |
+|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.13/overview/concepts/#private-agent-node) host names. |
+| aws_template_storage_access_key_id         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
+| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.13/installing/ent/cloud/aws/advanced/#create-your-templates). |
+| aws_template_storage_bucket_path           | The path to a location within the S3 bucket to store template artifacts.
+| aws_template_storage_region_name           | The region containing the S3 bucket.  |
+| aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
+| aws_template_upload                        | Whether to upload the customized advanced AWS templates to an S3 bucket. |
+| [bootstrap_url](#bootstrap-url-required)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
+| [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass. |
+| [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
+| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. |
+| [cluster_name](#cluster-name)                                         | The name of your cluster. |
+| [cosmos_config](#cosmos-config)                                       | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos). |
+| [custom_checks](#custom-checks)                                       | Custom installation checks that are added to the default check configuration process. |
+| [exhibitor_storage_backend](#exhibitor-storage-backend)               | The type of storage backend to use for Exhibitor. |
+| [enable_gpu_isolation](#enable-gpu-isolation)                         | Indicates whether to enable GPU support in DC/OS.  |
+| [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
+| [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
+| [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
+| [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
+| [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
+| [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
+| [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
+| [platform](#platform)                                                 | The infrastructure platform. |
+| [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.  |
+| [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
+| [rexray_config_preset](#rexray-config-preset)                         | If you run DC/OS on AWS setting this parameter to `aws`, sets the `rexray_config` parameter to a sensible default REX-Ray configuration that is bundled with DC/OS itself. You cannot specify both `rexray_config` and `rexray_config_preset`. |
+
+# Networking
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
+| [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
+| [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. |
+| [dns_search](#dns-search)                             | A space-separated list of domains that are tried when an unqualified domain is entered.  |
+| [master_dns_bindall](#master-dns-bindall)             | Indicates whether the master DNS port is open.  |
+| [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit)   |  Indicates whether to set the truncate bit if the response is too large to fit in a single packet. |
+| [resolvers](#resolvers)                               | A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.|
+| [use_proxy](#use-proxy)                               | Indicates whether to enable the DC/OS proxy. |
+|[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
+| [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
+|[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
+|[network_cni_root_dir_persist](#network_cni_root_dir_persist) |A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node. NOTE: It requires Host reboot for this flag to take effect.|
+
+[enterprise]
+### Storage
+[/enterprise]
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
+
+### Performance and Tuning
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [docker_remove_delay](#docker-remove-delay) | The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED. |
+| [dcos_audit_logging](#dcos-audit-logging-enterprise)  | Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs. [enterprise type="inline" size="small" /] |
+| [enable_docker_gc](#enable-docker-gc)     | Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. |
+| [gc_delay](#gc-delay)                     | The maximum amount of time to wait before cleaning up the executor directories. |
+| [log_directory](#log-directory)           | The path to the installer host logs from the SSH processes. |
+| [mesos_max_completed_tasks_per_framework](#mesos-max-completed-tasks-per-framework)  | The number of completed tasks for each framework that the Mesos master will retain in memory. |
+| [process_timeout](#process-timeout)       | The allowable amount of time, in seconds, for an action to begin after the process forks. |
+
+### Security and Authentication
+
+[enterprise type="inline" size="small" /]
+
+| Parameter                          | Description                                                                                                                                                |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise)    | Controls whether the Admin Router authorization cache is enabled. [enterprise type="inline" size="small" /] |
+| [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled)    | Indicates whether to enable TLSv1 support in Admin Router. |
+| [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled)    | Indicates whether to enable TLSv1.1 support in Admin Router. |
+| [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled)    | Indicates whether to enable TLSv1.2 support in Admin Router. |
+| [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
+| [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. [enterprise type="inline" size="small" /] |
+| [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | Sets the auth token time-to-live (TTL) for Identity and Access Management. [enterprise type="inline" size="small" /]|
+| ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.13/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.13/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.13/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [iam_ldap_sync_interval](/1.13/security/ent/ldap/ldap-sync/) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
+|[security](#security-enterprise)                               | The security mode: permissive, or strict. [enterprise type="inline" size="small" /] |
+| [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
+| [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
+| [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
+| [superuser_password_hash](#superuser-password-hash-required-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
+| [superuser_service_account_public_key](#superuser-service-account-public-key) | The public key used for authenticating the superuser service account. |
+| [superuser_service_account_uid](#superuser-service-account-uid) | The user ID of the superuser service account |
+| [superuser_username](#superuser-username-required-enterprise)           | Required - The user name of the superuser. [enterprise type="inline" size="small" /] |
+| [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
+| [zk_super_credentials](#zk-superuser)            | The ZooKeeper superuser credentials.  [enterprise type="inline" size="small" /] |
+| [zk_master_credentials](#zk-master)          | The ZooKeeper master credentials. [enterprise type="inline" size="small" /] |
+| [zk_agent_credentials](#zk-agent)           | The ZooKeeper agent credentials. [enterprise type="inline" size="small" /] |
+
+
+[oss type="inline" size="small" /]
+| Parameter                          | Description                                                                                                                                                |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [oauth_enabled](#oauth-enabled-open-source)                                | Indicates whether to enable authentication for your cluster. [oss type="inline" size="small" /] |
+| [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
+| [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
+| [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
+| [superuser_service_account_uid](#superuser-service-account-uid) | The user ID of the superuser service account |
+| [superuser_service_account_public_key](#superuser-service-account-public-key) | The public key used for authenticating the superuser service account |
+| [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
+
+### Metrics
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `true`. **NOTE:** DC/OS 1.13 supports the Mesos input plugin by default. |
