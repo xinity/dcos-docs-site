@@ -480,5 +480,3 @@ You can find information on the next steps listed below:
 [12]: /1.13/installing/production/deploying-dcos/node-cluster-health-check/
 [10]: /1.13/installing/oss/troubleshooting/
 [11]: /1.13/installing/oss/custom/uninstall/
-
-

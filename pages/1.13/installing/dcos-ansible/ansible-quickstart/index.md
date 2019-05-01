@@ -71,7 +71,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
      mv group_vars/all/dcos.yaml.example group_vars/all/dcos.yml
      ```
 
-2. Place each of your corresponding nodes, as mentioned in the prerequisites, under the desired groups in the `inventory` file for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]` groups. If you are deploying on a public cloud, those are the external IPs of the nodes.
+2. Open the `inventory` file. List each of your corresponding node IPs, as mentioned in the prerequisites, under the desired groups for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]`. If you are deploying on a public cloud, those are the external IPs of the nodes.
 
 3. In the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
 
@@ -177,10 +177,10 @@ To access the user interface, you will be asked to log in.
 
 If you installed DC/OS Enterprise, you can login with default demo credentials. [enterprise type="inline" size="small" /]
 
-```
-user: bootstrapuser
-password: deleteme
-```
+
+* `username: bootstrapuser`
+* `password: deleteme`
+
 ![enterprise-Login-Page](/1.13/img/dcos-ee-login.png)
 
 
@@ -189,38 +189,31 @@ If you installed DC/OS Open Source, select the OAuth provider of your choice. [o
 
 ![oss-login-page](/1.13/img/dcos-oe-login.png)
 
+## Upgrading and managing your cluster
+Upgrading your cluster to a newer version of DC/OS and making configuration changes is incredibly easy with Ansible. The modules have been designed to automatically detect the state of your cluster and nodes, and automatically get them to the newer declared state. It is even possible to change your agents configuration and upgrade DC/OS at the same time.
 
-## Creating test instances on AWS with terraform
-If you would like to test the above steps on AWS and are familiar with terraform, please [download and use this terraform script](https://gist.github.com/geekbass/45eb978fb420ae0da13f00fdfa0cd1c5) to deploy a sample infrastructure so that you can deploy DC/OS on it using the ansible script above. The script is not officially supported by Mesosphere and is provided only for testing purposes.
+1. For example, to upgrade: in the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
 
-To deploy the infra using the script:
+    [enterprise type="inline" size="small" /]
+    ```bash
+    # ...
+    download: “http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh”`
+    # ...
+    ```
 
-1. Create a new folder
-2. Copy the above script to a file named main.tf
-3. Initialize terraform: terraform init
-4. Deploy the infrastructure using terraform apply
+    [oss type="inline" size="small" /]
+    ```bash
+    # ...
+    download: “https://downloads.dcos.io/dcos/stable/1.13.0/dcos_generate_config.sh”
+    version: “1.13.0"
+    enterprise_dcos: false
+    # ...
+    ```
 
-Final output should be something like this:
+2. To add extra agents: First get them spun up and available. Then, open the `inventory` file. List each of your corresponding node IPs, as mentioned in the prerequisites, under the desired groups for `[agents_private]` and `[agents_public]`.
 
-```bash
-Apply complete! Resources: 32 added, 0 changed, 0 destroyed.
+3. Save all changes and run the playbook again to update your cluster. The ansible modules will automatically calculate the changes and execute them in order.
 
-Outputs:
-
-bootstrap_private_ip = 172.12.15.101
-bootstraps = 3.87.63.8
-cluster-address = dcosansible-660064571.us-east-1.elb.amazonaws.com
-masters = 100.27.19.199
-54.196.221.181
-35.168.16.40
-masters_private_ips = 172.12.6.95
-172.12.29.65
-172.12.42.160
-private_agents = 34.207.192.11
-3.80.226.211
-3.85.31.136
-public-agents-loadbalancer = ext-dcosansible-1616099901.us-east-1.elb.amazonaws.com
-public_agents = 3.86.34.141
-```
-
-
+    ```bash
+    ansible-playbook dcos.yml
+    ```
