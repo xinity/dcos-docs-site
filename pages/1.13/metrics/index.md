@@ -24,12 +24,7 @@ DC/OS collects four types of metrics as follows:
 # Operations on Metrics 
 You can perform the following operations on Metrics:
 
-1. **Adding Metrics:** You can add custom metrics to the DC/OS metrics service from your applications. DC/OS metrics listens for `StatsD` metrics from every application running with the Mesos containerizer. A `StatsD server` is exposed for each container, which allows you to tag all metrics by origin. Its address is available to the application by injecting the standard environment variables `STATSD_UDP_HOST` and `STATSD_UDP_PORT`.
-
-Alternatively, you can serve metrics in Prometheus format by exposing an endpoint which serves metrics. Notify the metrics service that your task is serving Prometheus metrics by adding a label to the port which is serving metrics. Any port with the label `DCOS_METRICS_FORMAT=prometheus` will be scraped at the rate of one per minute for the lifetime of the task. 
-A task may expose multiple ports which serve Prometheus metrics. Metrics collected in this manner will be tagged with the originating task's name and its framework name. 
-
-For more information, read the documentation on [how to add custom metrics into the DC/OS metrics API using Python](https://mesosphere.com/blog/custommetrics/).
+1. **Adding Metrics:** You can add custom metrics to the DC/OS metrics service from your applications. DC/OS metrics listens for `StatsD` metrics from every application running with the Mesos containerizer. A `StatsD server` is exposed for each container, which allows you to tag all metrics by origin. Its address is available to the application by injecting the standard environment variables `STATSD_UDP_HOST` and `STATSD_UDP_PORT`. Alternatively, you can serve metrics in Prometheus format by exposing an endpoint which serves metrics. Notify the metrics service that your task is serving Prometheus metrics by adding a label to the port which is serving metrics. Any port with the label `DCOS_METRICS_FORMAT=prometheus` will be scraped at the rate of one per minute for the lifetime of the task. A task may expose multiple ports which serve Prometheus metrics. Metrics collected in this manner will be tagged with the originating task's name and its framework name. For more information, read the documentation on [how to add custom metrics into the DC/OS metrics API using Python](https://mesosphere.com/blog/custommetrics/).
 
 2. **Tagging Metrics:** The tags are automatically added to the metrics in order to identify, support easy drill-down, filter, and group metrics data. The tags are not limited to the following list:
     - Container identification (for all container and application metrics): container_id, executor_id, framework_id, framework_name
