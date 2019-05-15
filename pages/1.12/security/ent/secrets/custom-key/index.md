@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Reinitializing the Secret Store with a custom GPG keypair
-title: Reinitializing the Secret Store with a custom GPG keypair
+navigationTitle:  Re-initializing the Secret Store with a custom GPG keypair
+title: Re-initializing the Secret Store with a custom GPG keypair
 menuWeight: -1
-excerpt: Using a custom GPG pair to reinitialize the Secret Store
+excerpt: Using a custom GPG pair to re-initialize the Secret Store
 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-In this section, you will re-initalize the secret store with a custom GPG pair.
+In this section, you will re-initialize the secret store with a custom GPG pair.
 
 **Prerequisites:**
 
@@ -70,7 +70,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
 
 
    ```bash
