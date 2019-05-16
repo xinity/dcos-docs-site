@@ -8,7 +8,7 @@ beta: true
 enterprise: true
 ---
 
-These examples provide common usage scenarios for jobs.
+
 
 **Prerequisite:**
 
@@ -32,7 +32,7 @@ This JSON file creates a simple job with no schedule.
     }
     ```
 
-1. Add the job from the DC/OS CLI.
+2. Add the job from the DC/OS CLI.
     ```bash
     dcos job add <my-job>.json
     ```
@@ -114,7 +114,7 @@ In this example, a partitioned jobs environment is created with the DC/OS web in
         ├── job2
 ```
 
-The jobs groups are then assigned permissions to users `Cory` and `Alice` to restrict access.                 
+The jobs groups are then assigned permissions to users `Cory` and `Alice` to restrict access.
 
 **Prerequisites:**
 
@@ -163,7 +163,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 1.  Assign permissions to the jobs.
 
-    1.  Select **Organization > Users** and create new users named `Cory` and `Alice`.  
+    1.  Select **Organization > Users** and create new users named `Cory` and `Alice`.
 
         ![Create user Cory](/1.13/img/GUI-Organization-Users-Create_User_Cory-1_12.png)
 
