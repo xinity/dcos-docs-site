@@ -6,7 +6,10 @@ title: Configuring DC/OS access for Couchbase
 menuWeight: 2
 model: /services/couchbase/data.yml
 render: mustache
+beta: true
 ---
+
+#include /services/include/beta-software-warning.tmpl
 
 This section is a quick guide on how to configure and use {{ model.serverName }} and {{ model.syncGatewayName }} with DC/OS.
 
@@ -165,7 +168,7 @@ We will use the PouchDB Getting Started app to demonstrate the use of the {{ mod
 
 ## Expose the {{ model.syncGatewayName }} node
 
-Before we can use it, we must expose the {{ model.syncGatewayName }} service and the `todo` app using Edge-LB. 
+Before we can use it, we must expose the {{ model.syncGatewayName }} service and the `todo` app using Edge-LB.
 
 ### Install Edge-LB.
 
