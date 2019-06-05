@@ -8,7 +8,9 @@ featureMaturity:
 enterprise: false
 model: /services/percona-server-mongodb/data.yml
 render: mustache
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of {{ model.techName }} nodes.
 

@@ -1,13 +1,15 @@
 ---
 layout: layout.pug
 navigationTitle: Minio
-title: Minio   
+title: Minio
 menuWeight: 81
 excerpt: DC/OS Minio is an automated service that makes it easy to deploy and manage Minio on Mesosphere DC/OS.
 featureMaturity:
 enterprise: false
 render: mustache
 model: /services/minio/data.yml
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 Welcome to the documentation for DC/OS {{ model.techName }}.

@@ -6,7 +6,9 @@ menuWeight: 2
 excerpt: Overview of DC/OS Prometheus 0.1.0-2.3.2
 featureMaturity:
 enterprise: false
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see the [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
 

@@ -6,10 +6,9 @@ menuWeight: 85
 excerpt: Percona Server for MongoDB is a free, enhanced, fully compatible, open source, drop-in replacement for the MongoDB® Community Server that includes enterprise-grade features and functionality.
 featureMaturity:
 enterprise: false
+beta: true
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-mongo -->
-
+#include /services/include/beta-software-warning.tmpl
 
 Welcome to the documentation for the DC/OS [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) service. For more information about new and changed features, see the [release notes](https://docs.mesosphere.com/services/percona-server-mongodb/0.4.2-3.6.10/release-notes/).
 

@@ -6,9 +6,10 @@ menuWeight: 2
 excerpt: How to use Minio with DC/OS
 model: /services/minio/data.yml
 render: mustache
+beta: true
 ---
-
-# How to use {{ model.techName }} with DC/OS 
+#include /services/include/beta-software-warning.tmpl
+# How to use {{ model.techName }} with DC/OS
 
 This section will get you up and running with a basic DC/OS {{ model.techName }} configuration in a short time.
 
@@ -18,7 +19,7 @@ This section will get you up and running with a basic DC/OS {{ model.techName }}
 
 * DC/OS {{ model.techName }} requires {{ model.install.minNodeCount}} to start in distributed mode. (DC/OS {{ model.techName }} requires that you start {{ model.install.nodeDescription }} in distributed mode.)
 
-* Your DC/OS cluster must contain {{ model.install.minPrivateAgents }}. 
+* Your DC/OS cluster must contain {{ model.install.minPrivateAgents }}.
 
 * If DC/OS Secrets are enabled to specify credentials for DC/OS {{ model.techName }}, then the following Secrets must be created:
 
@@ -29,18 +30,18 @@ This section will get you up and running with a basic DC/OS {{ model.techName }}
 
 # Install
 
-{{ model.techName }} can be installed via either the DC/OS Catalog web interface or by using the CLI. 
+{{ model.techName }} can be installed via either the DC/OS Catalog web interface or by using the CLI.
 
 ## Via CLI
 
 The following command will launch installation via the DC/OS CLI:
 
 ```bash
-dcos package install {{ model.packageName }} 
+dcos package install {{ model.packageName }}
 ```
 
 You should see a response similar to this:
-  
+
   [<img src="../img/Package_installed.png" />](../img/Package_installed.png)
 
 
@@ -50,9 +51,9 @@ Shown below are the steps to install {{ model.techName }} using the DC/OS Catalo
 
 1. Navigate to the **Catalog** screen and choose **{{ model.packageName }}** from the list.
 
-1. The **{{ model.packageName }}** package appears on the screen as shown below: 
+1. The **{{ model.packageName }}** package appears on the screen as shown below:
     [<img src="../img/Catalog_Service_View.png" />](../img/Catalog_Service_View.png)
-    Figure 1. - **{{ model.packageName }}** package  
+    Figure 1. - **{{ model.packageName }}** package
 
 1. Click on the package and edit the configuration accordingly. Then click the **Review & Run** button to run the service.
     [<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
@@ -65,7 +66,3 @@ Shown below are the steps to install {{ model.techName }} using the DC/OS Catalo
 1.  Check the output log to verify that all the nodes of the DC/OS {{ model.techName }} server are up and running.
     [<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
     Figure 4. - Service is installed successfully
-
-
-
-

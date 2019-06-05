@@ -6,7 +6,9 @@ title: Configuring DC/OS access for Spinnaker
 menuWeight: 2
 model: /services/spinnaker/data.yml
 render: mustache
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 This section is a quick guide on how to configure and use {{ model.techName }} with DC/OS.
 
@@ -25,7 +27,7 @@ DC/OS {{ model.techName }} is an automated service that makes it easy to deploy 
 
 # Installing with Defaults
 
-This section provides a quick and easy procedure for configuring and installing {{ model.techName }}. You can find different custom configurations in the [Configuration section](/services/spinnaker/0.3.0-1.9.2/configuration/) of these documents.  
+This section provides a quick and easy procedure for configuring and installing {{ model.techName }}. You can find different custom configurations in the [Configuration section](/services/spinnaker/0.3.0-1.9.2/configuration/) of these documents.
 
 ## From the CLI
 The `DC/OS {{ model.techName }} service` uses `minio`, an s3-compatible backing store for the {{ model.techName }} `front50` service.

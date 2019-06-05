@@ -1,17 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Mesosphere Jupyter Service 
+navigationTitle: Beta Mesosphere Jupyter Service
 title: Beta Mesosphere Jupyter Service
 menuWeight: 155
 excerpt:
 featureMaturity:
 enterprise: false
+beta: true
 ---
-Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive and reproducible computing on the DC/OS platform. 
-
-
-
 #include /services/include/beta-software-warning.tmpl
+
+Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive and reproducible computing on the DC/OS platform.
 
 ### Further Information
 

@@ -8,7 +8,9 @@ featureMaturity:
 enterprise: false
 model: /services/pxc/data.yml
 render: mustache
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://www.percona.com/software/mysql-database/percona-xtradb-cluster/).
 

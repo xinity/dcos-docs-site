@@ -6,7 +6,9 @@ menuWeight: 4
 excerpt: Configuring DC/OS access for NiFi
 featureMaturity:
 enterprise: false
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 This topic describes how to configure DC/OS access for NiFi. Depending on your [security mode](/1.12/security/ent/#security-modes/), NiFi requires [service authentication](/1.12/security/ent/service-auth/) for access to DC/OS.
 
@@ -77,5 +79,3 @@ dcos security secrets list /
 ```bash
 dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser"
 ```
-
-

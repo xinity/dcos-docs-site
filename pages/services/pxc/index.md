@@ -8,6 +8,8 @@ featureMaturity:
 enterprise: false
 model: /services/pxc/data.yml
 render: mustache
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
-Welcome to the documentation for DC/OS {{ model.techName }}. 
+Welcome to the documentation for DC/OS {{ model.techName }}.

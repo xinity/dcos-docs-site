@@ -8,7 +8,9 @@ featureMaturity:
 enterprise: false
 model: /services/percona-server-mongodb/data.yml
 render: mustache
+beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 # Prerequisites
 
