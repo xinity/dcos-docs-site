@@ -34,3 +34,5 @@ some other [regex redirect](/service-docs/cassandra/) text something [plaintext 
 
 [1]: /1.12/installing/oss/
 [2]: /1.12/installing/something.png
+
+<!-- comment -->
