@@ -1,5 +1,5 @@
 ## Jira Ticket
-Before creating this pull request, please make sure you have a separate ticket for the docs team to track their work to review and merge, even for minor edits. If you need assistance, ask in the #doc-team channel on slack.
+Before creating this pull request, please make sure you have a separate ticket for the docs team to track their work to review and merge, even for minor edits. If you need assistance, ask in the #doc-team channel on Slack.
 
 <!-- Link to DOCS work ticket for reviewing and merging this PR -->
 
@@ -7,7 +7,7 @@ Before creating this pull request, please make sure you have a separate ticket f
 
 
 ## Checklist
-- [ ] Make sure you change all affected versions (e.g. 1.10, 1.11, 1.12, 1.13).
+- [ ] Make sure you change all affected versions (for example, 1.10, 1.11, 1.12, 1.13).
 - [ ] Test all commands and procedures where applicable.
 - [ ] Add [redirects](https://github.com/mesosphere/dcos-docs-site/wiki/Redirects) if you are moving a page.
 
