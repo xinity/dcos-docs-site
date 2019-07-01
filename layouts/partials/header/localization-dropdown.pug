@@ -5,11 +5,10 @@ nav(class='localization')
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul(class='localization-list')
     - var enPath = `/${paths.slice(2).join('/')}`
-    - console.log(enPath)
     if isChinese
       li(class='localization-list-item')
         - var fullPath = "/dcos" + enPath
-        a(href=fullPath) English Local
+        a(href=fullPath)
     else
       - function findLongestCnPath(enPath)
         if enPath.length == 0

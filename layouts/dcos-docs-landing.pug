@@ -84,10 +84,9 @@ html(lang='en')
               path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
           ul(class='localization-list')
             - var enPath = `/${paths.slice(2).join('/')}`
-            - console.log(enPath)
             if isChinese
               li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=enPath) English DD
+                a(href=enPath) English
             else
               - function findLongestCnPath(enPath)
                 if enPath.length == 0
