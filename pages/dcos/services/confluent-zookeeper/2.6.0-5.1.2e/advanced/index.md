@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Advanced
 menuWeight: 13
-model: /services/confluent-zookeeper/data.yml
+model: /dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

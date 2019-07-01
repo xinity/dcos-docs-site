@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 title: Troubleshooting User Account Management
 excerpt: Troubleshooting user account management issues
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 50
 ---
 

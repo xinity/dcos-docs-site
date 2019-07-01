@@ -5,7 +5,7 @@ title: Health Checks
 menuWeight: 200
 excerpt: Defining health checks for your DC/OS services
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

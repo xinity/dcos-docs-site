@@ -4,7 +4,7 @@ navigationTitle:  NFS Server
 excerpt: Mounting a shared network drive
 title: NFS Server
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 1
 ---
 

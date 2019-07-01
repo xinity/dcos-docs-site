@@ -5,7 +5,7 @@ title: Logging API Examples
 menuWeight: 4
 excerpt: Examples for the Logging API
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 beta: false
 enterprise: false
 ---

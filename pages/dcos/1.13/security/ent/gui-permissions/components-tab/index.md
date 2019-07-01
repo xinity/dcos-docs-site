@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: Granting access to the Components Tab
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

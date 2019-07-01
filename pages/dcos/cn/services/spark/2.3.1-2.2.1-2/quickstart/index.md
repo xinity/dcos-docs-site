@@ -5,7 +5,7 @@ excerpt: Spark 入门
 title: 快速入门
 menuWeight: 1
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

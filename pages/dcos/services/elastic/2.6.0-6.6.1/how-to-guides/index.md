@@ -4,7 +4,7 @@ navigationTitle: How-To Guides
 excerpt: Optional operations
 title: How-To Guides
 menuWeight: 120
-model: /services/elastic/data.yml
+model: /dcos/services/elastic/data.yml
 render: mustache
 ---
 

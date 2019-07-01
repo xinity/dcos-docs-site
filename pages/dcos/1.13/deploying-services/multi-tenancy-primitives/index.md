@@ -5,7 +5,7 @@ title: Multi-Tenancy Primitives
 menuWeight: 90
 excerpt: A primer to Multi-Tenancy in DC/OS
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Overview

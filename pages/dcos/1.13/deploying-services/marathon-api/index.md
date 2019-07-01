@@ -5,7 +5,7 @@ title: Marathon API
 menuWeight: 40
 excerpt: Using the Marathon API to manage long-running containerized services
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

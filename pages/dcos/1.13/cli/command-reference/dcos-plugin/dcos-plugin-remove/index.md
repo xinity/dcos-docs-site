@@ -5,7 +5,7 @@ title: dcos plugin remove
 menuWeight: 7
 excerpt: Uninstalling a plugin
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

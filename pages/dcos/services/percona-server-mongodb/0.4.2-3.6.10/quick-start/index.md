@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Getting Started with Percona Server for MongoDB
 featureMaturity:
 enterprise: false
-model: /services/percona-server-mongodb/data.yml
+model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

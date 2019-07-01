@@ -5,7 +5,7 @@ title: Cluster
 menuWeight: 8
 excerpt: Using the Cluster menu
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 The Cluster menu has two tabs:

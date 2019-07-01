@@ -5,7 +5,7 @@ navigationTitle: Running Stateful Services on DC/OS
 menuWeight: 2
 excerpt: Tutorial - Running stateful services on DC/OS
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 #include /include/tutorial-disclaimer.tmpl

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Backup, restore and recover operations
 title: Operations
 menuWeight: 30
-model: /services/minio/data.yml
+model: /dcos/services/minio/data.yml
 render: mustache
 ---
 

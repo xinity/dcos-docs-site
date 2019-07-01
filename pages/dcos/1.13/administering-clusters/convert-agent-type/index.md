@@ -6,7 +6,7 @@ menuWeight: 700
 excerpt: Converting agent nodes to public or private agent nodes.
 enterprise: false
 render: mustache
-model: ../../data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 You can convert agent nodes to public or private for an existing DC/OS cluster.

@@ -5,7 +5,7 @@ title: Frequently Asked Questions
 menuWeight: 120
 excerpt: Frequently asked questions about deploying Marathon services
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

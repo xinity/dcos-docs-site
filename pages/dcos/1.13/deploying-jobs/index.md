@@ -5,7 +5,7 @@ title: Deploying Jobs
 menuWeight: 120
 excerpt: Creating a job without installing a separate service
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 beta: true
 enterprise: false
 ---

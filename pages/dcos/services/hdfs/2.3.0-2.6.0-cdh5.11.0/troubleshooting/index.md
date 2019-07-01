@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 70
-model: /services/hdfs/data.yml
+model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 

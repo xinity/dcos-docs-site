@@ -5,7 +5,7 @@ title: Monitoring Services
 menuWeight: 3
 excerpt: Monitoring deployed DC/OS services from the CLI and UI
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

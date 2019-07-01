@@ -4,7 +4,7 @@ navigationTitle: Advanced
 excerpt: Advanced features of Apache Cassandra service
 title: Advanced features
 menuWeight: 25
-model: /services/cassandra/data.yml
+model: /dcos/services/cassandra/data.yml
 render: mustache
 ---
 

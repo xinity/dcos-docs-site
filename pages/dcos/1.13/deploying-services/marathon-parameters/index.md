@@ -5,7 +5,7 @@ title: Marathon Configuration Reference
 menuWeight: 0
 excerpt: Understanding Marathon application definitions
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

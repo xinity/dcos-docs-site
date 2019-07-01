@@ -6,7 +6,7 @@ menuWeight: 21
 excerpt: Display a list of groups
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 

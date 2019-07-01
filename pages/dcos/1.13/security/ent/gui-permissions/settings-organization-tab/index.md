@@ -5,7 +5,7 @@ title: Granting Access to the Settings and Organization tabs
 menuWeight: 70
 excerpt: Granting access to the Settings and Organization tabs using the DC/OS UI or the API
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

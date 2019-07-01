@@ -4,7 +4,7 @@ navigationTitle: DC/OS Authentication Token
 title: DC/OS Authentication Token
 excerpt: Getting familiar with DC/OS Authentication tokens
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 10
 ---
 

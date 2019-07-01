@@ -4,7 +4,7 @@ navigationTitle:  Installing the First Package
 excerpt: Part 2 of the DC/OS 101 tutorial
 title: Tutorial - Installing the First Package
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 2
 ---
 

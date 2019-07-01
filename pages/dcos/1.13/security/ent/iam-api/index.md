@@ -5,7 +5,7 @@ title: Identity and Access Management API
 menuWeight: 110
 excerpt: Managing users and permissions with the IAM API
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

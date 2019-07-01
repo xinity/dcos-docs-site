@@ -4,7 +4,7 @@ navigationTitle:
 title: Support Policy
 menuWeight: 110
 excerpt:
-model: /services/hdfs/data.yml
+model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 

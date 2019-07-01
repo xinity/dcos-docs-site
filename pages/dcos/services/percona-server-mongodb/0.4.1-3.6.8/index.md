@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Percona-Server-MongoDB 0.4.1-3.6.8
 featureMaturity:
 community: true
-model: /services/percona-server-mongodb/data.yml
+model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

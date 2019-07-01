@@ -5,7 +5,7 @@ title: dcos security org service-accounts show
 menuWeight: 180
 excerpt: Showing service account details
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

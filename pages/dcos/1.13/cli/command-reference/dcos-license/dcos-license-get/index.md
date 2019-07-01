@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Displaying the cluster licenses
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

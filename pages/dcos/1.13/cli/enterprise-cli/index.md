@@ -4,7 +4,7 @@ title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: Configuring the DC/OS Enterprise command line interface
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

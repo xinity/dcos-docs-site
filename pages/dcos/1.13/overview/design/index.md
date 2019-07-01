@@ -4,7 +4,7 @@ excerpt: Understanding DC/OS design
 title: Design
 navigationTitle: Design
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 10
 ---
 

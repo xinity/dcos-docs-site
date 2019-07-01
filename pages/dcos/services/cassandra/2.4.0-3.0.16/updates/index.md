@@ -4,7 +4,7 @@ navigationTitle: Update
 excerpt: Updates and patches
 title: Updating DC/OS Apache Cassandra
 menuWeight: 47
-model: /services/cassandra/data.yml
+model: /dcos/services/cassandra/data.yml
 render: mustache
 ---
 

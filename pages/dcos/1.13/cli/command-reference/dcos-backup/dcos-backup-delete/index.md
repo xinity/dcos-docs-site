@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Deleting backups
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

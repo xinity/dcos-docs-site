@@ -4,7 +4,7 @@ excerpt: Part 4 of the DC/OS 101 tutorial
 title: Tutorial - Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 4
 ---
 

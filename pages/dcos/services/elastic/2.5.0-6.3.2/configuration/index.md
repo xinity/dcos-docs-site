@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/elastic/data.yml
+model: /dcos/services/elastic/data.yml
 render: mustache
 ---
 

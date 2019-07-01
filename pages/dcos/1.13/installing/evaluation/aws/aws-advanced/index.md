@@ -4,7 +4,7 @@ title: Configuration Reference - AWS
 excerpt: Configuring your DC/OS installation on AWS using the Universal Installer
 navigationTitle: Configuration Reference
 menuWeight: 3
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 #include /install-include/aws-extended-example.tmpl

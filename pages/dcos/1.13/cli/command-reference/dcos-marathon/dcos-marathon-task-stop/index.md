@@ -5,7 +5,7 @@ title: dcos marathon task stop
 menuWeight: 31
 excerpt: Stopping a task
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

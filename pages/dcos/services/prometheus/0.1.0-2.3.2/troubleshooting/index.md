@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 70
-model: /services/prometheus/data.yml
+model: /dcos/services/prometheus/data.yml
 render: mustache
 ---
 

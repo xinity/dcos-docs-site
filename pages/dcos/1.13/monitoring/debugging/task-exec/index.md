@@ -7,7 +7,7 @@ excerpt: Using the dcos task exec command inside a task container
 beta: true
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

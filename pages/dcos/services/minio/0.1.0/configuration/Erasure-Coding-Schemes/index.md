@@ -6,7 +6,7 @@ menuWeight: 45
 excerpt: Defining two Erasure Coding Schemes in Minio
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /dcos/services/minio/data.yml
 render: mustache
 ---
 

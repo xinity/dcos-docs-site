@@ -4,7 +4,7 @@ navigationTitle: Updates
 excerpt: Updating your DC/OS Confluent ZooKeeper service
 title: Updates
 menuWeight: 40
-model: /services/confluent-zookeeper/data.yml
+model: /dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

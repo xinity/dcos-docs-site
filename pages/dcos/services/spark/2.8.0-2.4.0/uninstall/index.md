@@ -6,7 +6,7 @@ title: Uninstalling Spark
 menuWeight: 60
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /dcos/services/spark/data.yml
 ---
 To  uninstall DC/OS {{ model.techName }}, run the following command:
 

@@ -5,7 +5,7 @@ navigationTitle: Mesos Metrics
 menuWeight: 3
 excerpt: Monitoring Mesos with Telegraf
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Security
 excerpt: Security for Confluent Kafka
 title: Security 
 menuWeight: 50
-model: /services/confluent-kafka/data.yml
+model: /dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

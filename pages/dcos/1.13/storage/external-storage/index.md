@@ -5,7 +5,7 @@ title: External Persistent Volumes
 menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 beta: true
 enterprise: false
 ---

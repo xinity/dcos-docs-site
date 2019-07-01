@@ -5,7 +5,7 @@ title: dcos plugin add
 menuWeight: 1
 excerpt: Adding a CLI plugin
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

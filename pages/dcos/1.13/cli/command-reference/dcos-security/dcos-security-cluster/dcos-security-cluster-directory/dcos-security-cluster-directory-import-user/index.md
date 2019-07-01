@@ -5,7 +5,7 @@ title: dcos security cluster directory import_user
 menuWeight: 35
 excerpt: Importing a user from an LDAP backend
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 # Description

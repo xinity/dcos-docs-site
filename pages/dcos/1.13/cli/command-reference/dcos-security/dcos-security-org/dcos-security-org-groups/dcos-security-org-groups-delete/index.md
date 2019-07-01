@@ -5,7 +5,7 @@ title: dcos security org groups delete
 menuWeight: 140
 excerpt: Deleting a group
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 # Description

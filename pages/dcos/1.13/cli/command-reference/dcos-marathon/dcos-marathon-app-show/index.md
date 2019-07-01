@@ -5,7 +5,7 @@ title: dcos marathon app show
 menuWeight: 6
 excerpt: Viewing the json file for an app
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

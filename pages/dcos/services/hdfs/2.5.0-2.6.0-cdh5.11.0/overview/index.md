@@ -4,7 +4,7 @@ navigationTitle: Overview
 excerpt: Advanced features of the DC/OS Apache HDFS service
 title: Overview 
 menuWeight: 10
-model: /services/hdfs/data.yml
+model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 

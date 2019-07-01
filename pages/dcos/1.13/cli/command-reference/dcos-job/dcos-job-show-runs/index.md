@@ -5,7 +5,7 @@ title: dcos job show runs
 menuWeight: 11
 excerpt: Displaying the status of job runs
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

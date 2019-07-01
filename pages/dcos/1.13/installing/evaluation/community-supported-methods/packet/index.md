@@ -5,7 +5,7 @@ title: Running DC/OS on Packet
 navigationTitle: Packet
 menuWeight: 50
 oss: true
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Log-in to your DC/OS cluster
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

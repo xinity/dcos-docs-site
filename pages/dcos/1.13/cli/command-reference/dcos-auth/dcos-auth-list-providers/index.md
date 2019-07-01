@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Listing login providers for a cluster
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

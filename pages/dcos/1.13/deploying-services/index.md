@@ -5,7 +5,7 @@ title: Deploying Services and Pods
 menuWeight: 130
 excerpt: Using Marathon to manage your processes and services
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

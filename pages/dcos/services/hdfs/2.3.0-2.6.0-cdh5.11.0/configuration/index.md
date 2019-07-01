@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/hdfs/data.yml
+model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 excerpt: Diagnosing service problems
 title: Troubleshooting DC/OS Apache Cassandra
 menuWeight: 70
-model: /services/cassandra/data.yml
+model: /dcos/services/cassandra/data.yml
 render: mustache
 ---
 

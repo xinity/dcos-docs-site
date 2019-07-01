@@ -4,7 +4,7 @@ navigationTitle:  Authentication
 title: Authentication
 excerpt: Authenticating users against DC/OS
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 30
 ---
 

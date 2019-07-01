@@ -4,7 +4,7 @@ navigationTitle: Uninstall
 excerpt: Uninstalling Apache Cassandra
 title: Uninstalling Apache Cassandra
 menuWeight: 55
-model: /services/cassandra/data.yml
+model: /dcos/services/cassandra/data.yml
 render: mustache
 ---
 

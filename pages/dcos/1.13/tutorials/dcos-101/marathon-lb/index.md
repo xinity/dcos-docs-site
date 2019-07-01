@@ -4,7 +4,7 @@ excerpt: Part 6 of the DC/OS 101 tutorial
 title: Tutorial -  Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 6
 ---
 

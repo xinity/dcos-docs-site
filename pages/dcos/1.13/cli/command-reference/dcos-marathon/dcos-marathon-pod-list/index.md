@@ -6,7 +6,7 @@ menuWeight: 25
 excerpt: Viewing the deployed pods
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

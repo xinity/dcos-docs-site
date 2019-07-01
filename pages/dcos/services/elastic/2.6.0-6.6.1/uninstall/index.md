@@ -4,7 +4,7 @@ navigationTitle: Uninstall
 excerpt: Uninstalling DC/OS Elastic
 title: Uninstall
 menuWeight: 60
-model: /services/elastic/data.yml
+model: /dcos/services/elastic/data.yml
 render: mustache
 ---
 

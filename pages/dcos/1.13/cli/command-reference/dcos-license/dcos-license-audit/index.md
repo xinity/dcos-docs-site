@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Getting the cluster license audit records
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

@@ -5,7 +5,7 @@ title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 3
 excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 #include /include/tutorial-disclaimer.tmpl

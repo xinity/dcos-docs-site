@@ -5,7 +5,7 @@ title: dcos security org groups revoke
 menuWeight: 155
 excerpt: Revoke permission for a group to act on a resource
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 # Description

@@ -5,7 +5,7 @@ title: Granting Access to dcos task exec
 menuWeight: 4
 excerpt: Granting access for debugging
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 beta: true
 enterprise: true
 ---

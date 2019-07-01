@@ -4,7 +4,7 @@ navigationTitle: API Reference
 excerpt: REST API
 title: API Reference
 menuWeight: 90
-model: /services/confluent-zookeeper/data.yml
+model: /dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

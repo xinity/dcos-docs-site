@@ -4,7 +4,7 @@ navigationTitle: Uninstall
 excerpt: Uninstalling Percona Server for MongoDB
 title: Uninstall
 menuWeight: 95
-model: /services/percona-server-mongodb/data.yml
+model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

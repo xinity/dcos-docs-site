@@ -5,7 +5,7 @@ title: dcos security org users grant
 menuWeight: 205
 excerpt: Grant user permissions
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

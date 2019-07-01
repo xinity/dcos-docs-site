@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Security
 menuWeight: 50
-model: /services/confluent-zookeeper/data.yml
+model: /dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

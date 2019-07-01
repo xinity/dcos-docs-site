@@ -6,7 +6,7 @@ menuWeight: 25
 excerpt: Enable Notification Services to monitor events
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /dcos/services/minio/data.yml
 render: mustache
 ---
 

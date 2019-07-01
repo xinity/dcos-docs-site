@@ -5,7 +5,7 @@ title: dcos security org users
 menuWeight: 185
 excerpt: Managing users
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 

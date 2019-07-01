@@ -4,7 +4,7 @@ title: Uninstalling DC/OS on AWS EC2
 navigationTitle: Uninstalling
 menuWeight: 15
 excerpt: Uninstalling DC/OS running on AWS EC2
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 

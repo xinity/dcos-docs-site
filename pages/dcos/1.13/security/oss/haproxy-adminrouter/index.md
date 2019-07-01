@@ -4,7 +4,7 @@ excerpt: Configuring HAProxy in front of an Admin Router
 title: HAProxy and Admin Router
 navigationTitle: HAProxy and Admin Router
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 50
 ---
 

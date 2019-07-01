@@ -4,7 +4,7 @@ title: Developing DC/OS Services
 menuWeight: 160
 excerpt: Developing your own DC/OS components
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 

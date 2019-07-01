@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Restoring from a backup
 enterprise: true
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Description

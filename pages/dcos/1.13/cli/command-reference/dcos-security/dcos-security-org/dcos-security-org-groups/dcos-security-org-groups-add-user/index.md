@@ -5,7 +5,7 @@ title: dcos security org groups add_user
 menuWeight: 125
 excerpt: Adding a user to a group
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 enterprise: true
 ---
 # Description

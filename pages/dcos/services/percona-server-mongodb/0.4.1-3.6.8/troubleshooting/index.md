@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 excerpt: Diagnosing issues
 title: Troubleshooting
 menuWeight: 100
-model: /services/percona-server-mongodb/data.yml
+model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

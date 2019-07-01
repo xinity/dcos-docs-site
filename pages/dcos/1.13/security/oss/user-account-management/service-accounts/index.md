@@ -4,7 +4,7 @@ navigationTitle: Service Accounts
 title: Service Account Management
 excerpt: Managing service accounts
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 30
 ---
 

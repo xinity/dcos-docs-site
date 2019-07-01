@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Displaying all installed applications
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 

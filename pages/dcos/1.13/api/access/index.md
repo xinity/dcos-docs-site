@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Gaining access to a cluster URL
 enterprise: false
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 ---
 
 # Gaining access to a cluster URL

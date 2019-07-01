@@ -6,7 +6,7 @@ menuWeight: 35
 excerpt: Encrypt your data using SSE-C keys
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /dcos/services/minio/data.yml
 render: mustache
 ---
 

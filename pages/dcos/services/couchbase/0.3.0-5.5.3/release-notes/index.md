@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Discover the new features, updates, and known limitations in this release of the Couchbase Service
 featureMaturity:
 enterprise: false
-model: /services/couchbase/data.yml
+model: /dcos/services/couchbase/data.yml
 render: mustache
 ---
 

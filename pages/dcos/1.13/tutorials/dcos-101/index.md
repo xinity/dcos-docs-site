@@ -4,7 +4,7 @@ navigationTitle:  DC/OS 101
 excerpt: Understanding the basics of DC/OS
 title: Tutorial - DC/OS 101
 render: mustache
-model: /data.yml
+model: /dcos/1.13/113-data.yml
 menuWeight: 0
 ---
 

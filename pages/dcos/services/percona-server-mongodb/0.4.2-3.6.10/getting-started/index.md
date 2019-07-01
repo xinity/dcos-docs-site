@@ -4,7 +4,7 @@ navigationTitle: Getting Started
 excerpt: Getting Started with Percona Server for MongoDB
 title: Getting Started
 menuWeight: 15
-model: /services/percona-server-mongodb/data.yml
+model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 
