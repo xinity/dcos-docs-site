@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Backup and Restore
 title: Backing Up and Restoring Clusters
-menuWeight: 1
+menuWeight: 6
 excerpt: 
 enterprise: false
 

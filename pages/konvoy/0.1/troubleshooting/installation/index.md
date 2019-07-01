@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Failed Installations
 title: Failed Installations
-menuWeight: 1
+menuWeight: 4
 excerpt: 
 enterprise: false
 

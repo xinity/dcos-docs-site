@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting
-menuWeight: 1
+menuWeight: 60
 excerpt: 
 enterprise: false
 

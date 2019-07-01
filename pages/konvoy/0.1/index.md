@@ -1,5 +1,5 @@
 ---
-layout: product-docs-landing.pug
+layout: konvoy-docs-landing.pug
 title: Konvoy Docs
 navigationTitle: Documentation for Konvoy 0.1
 menuWeight: 0

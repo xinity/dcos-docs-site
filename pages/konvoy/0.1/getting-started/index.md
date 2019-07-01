@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Konvoy Quickstart
 title: Getting Started with Konvoy
-menuWeight: 1
+menuWeight: 20
 excerpt: A quick install method to experience Konvoy
 enterprise: false
 

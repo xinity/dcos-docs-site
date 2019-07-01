@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  
 title: Basic Networking and Storage
-menuWeight: 1
+menuWeight: 40
 excerpt: 
 enterprise: false
 

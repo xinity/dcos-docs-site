@@ -1,10 +1,13 @@
 - var paths = path.split('/')
 - var isChinese = paths[1] == 'cn'
 - var currentPath = '/' + path
-- var servicePage = hierarchy.children.find(child => child.id === paths[1])
+- var dcosDocs = hierarchy.children.filter(child => child.id === 'dcos')[0]
+- var servicePage = dcosDocs.children.filter(child => child.id === 'services')[0]
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
 - var isChinese = paths[1] == 'cn'
+
+
 - 
   var categories = [
     "View All",

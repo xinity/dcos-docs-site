@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Installation
 title: Installation and Upgrading
-menuWeight: 1
+menuWeight: 30
 excerpt: 
 enterprise: false
 
