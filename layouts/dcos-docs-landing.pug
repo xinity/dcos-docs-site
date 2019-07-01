@@ -83,18 +83,19 @@ html(lang='en')
             svg(class="localization-svg")
               path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
           ul(class='localization-list')
+            - var enPath = `/${paths.slice(2).join('/')}`
+            - console.log(enPath)
             if isChinese
-              - var enPath = `/${paths.slice(1).join('/')}`
               li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=enPath) English
+                a(href=enPath) English DD
             else
-              - function findLongestCnPath(enPaths)
-                if enPaths.length == 0
-                  - return '/cn/'
-                - var currPath = `/cn/${enPaths.join('/')}`
+              - function findLongestCnPath(enPath)
+                if enPath.length == 0
+                  - return '/dcos/cn/'
+                - var currPath = `/dcos/cn/${enPath.join('/')}`
                 if hierarchy.checkIfPathExists(currPath)
                   - return currPath
-                - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
+                - return findLongestCnPath(enPath.slice(0, enPath.length - 1))
               li(class='localization-list-item')
                 a(href=findLongestCnPath(paths)) 中文 (简体)
         section(class='header__search', role='search')

@@ -4,11 +4,11 @@
 - var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
 - function isItemActive(itemPath)
-  if itemPath == '/cn'
-    if path == '/cn'
+  if itemPath == '/dcos/cn'
+    if path == '/dcos/cn'
       - return true
-    - return semanticVersion.test(paths[1])
-  if itemPath == '/cn/services'
+    - return semanticVersion.test(paths[2])
+  if itemPath == '/dcos/cn/services'
     if `/${path}`.startsWith(itemPath)
       - return !`/${path}`.startsWith(`${itemPath}/kubernetes`)
     - return false
