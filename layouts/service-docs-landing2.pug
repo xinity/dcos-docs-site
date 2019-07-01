@@ -1,24 +1,36 @@
 - var paths = path.split('/')
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[0] == 'cn'
 - var currentPath = '/' + path
-- var servicePage = hierarchy.children.find(child => child.id === paths[1])
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var servicePage = hierarchy.children.find(child => child.id === paths[0])
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[0] == 'cn'
 - 
-  var categories = [
-    "View All",
-    "Cluster Management",
-    "Container Orchestration",
-    "Continuous Delivery",
-    "Data Processing",
-    "Data Services",
-    "Databases",
-    "Messaging Queues",
-    "Monitoring",
-    "Networking",
-    "Storage"
-  ]
+    //- var categories = [
+    //-   "View All",
+    //-   "Kubernetes",
+    //-   "Database",
+    //-   "Data Services",
+    //-   "Analytics",
+    //-   "Monitoring",
+    //-   "Networking",
+    //-   "Storage",
+    //-   "Zookeeper",
+    //-   "CI/CD"
+    //- ]
+    var categories = [
+      "View All",
+      "Cluster Management",
+      "Container Orchestration",
+      "Continuous Delivery",
+      "Data Processing",
+      "Data Services",
+      "Databases",
+      "Messaging Queues",
+      "Monitoring",
+      "Networking",
+      "Storage"
+    ]
 
 mixin renderGridInputs()
   div(class='grid-filters')

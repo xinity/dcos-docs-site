@@ -1,5 +1,5 @@
 ---
-layout: product-docs-landing.pug
+layout: konvoy-docs-landing.pug
 title: Konvoy
 navigationTitle: Konvoy
 menus: ['landing-header']
