@@ -8,7 +8,7 @@ model: /dcos/services/elastic/data.yml
 render: mustache
 ---
 
-#include /services/include/operations.tmpl
+#include /dcos/services/include/operations.tmpl
 
 ## Back up and Restore
 

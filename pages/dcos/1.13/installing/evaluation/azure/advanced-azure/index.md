@@ -8,12 +8,12 @@ model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 
-#include /install-include/azure-extended-example.tmpl
+#include /dcos/install-include/azure-extended-example.tmpl
 
-#include /install-include/all-dcos-versions.tmpl
+#include /dcos/install-include/all-dcos-versions.tmpl
 
-#include /install-include/all-node-os-versions.tmpl
+#include /dcos/install-include/all-node-os-versions.tmpl
 
-#include /install-include/azure-inputs-table.tmpl
+#include /dcos/install-include/azure-inputs-table.tmpl
 
-#include /install-include/all-outputs-table.tmpl
+#include /dcos/install-include/all-outputs-table.tmpl

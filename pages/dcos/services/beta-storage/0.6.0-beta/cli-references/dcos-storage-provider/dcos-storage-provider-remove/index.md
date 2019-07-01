@@ -9,7 +9,7 @@ beta: true
 origin: github.com/mesosphere/dcos-storage/cli/pkg/cmd/cmd_provider_remove.go
 excerpt: Remove an existing volume provider.
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 ## dcos storage provider remove
 

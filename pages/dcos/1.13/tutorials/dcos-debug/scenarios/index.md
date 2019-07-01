@@ -7,7 +7,7 @@ render: mustache
 model: /dcos/1.13/113-data.yml
 menuWeight: 31
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 <!-- IV. Hands On Examples Section -->
 

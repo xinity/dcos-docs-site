@@ -9,7 +9,7 @@ model: /dcos/1.13/113-data.yml
 enterprise: false
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.

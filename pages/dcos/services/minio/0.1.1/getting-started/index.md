@@ -9,4 +9,4 @@ render: mustache
 ---
 
 
-#include /services/include/getting-started.tmpl
+#include /dcos/services/include/getting-started.tmpl

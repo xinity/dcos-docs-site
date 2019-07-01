@@ -8,7 +8,7 @@ model: /dcos/services/pxc/data.yml
 render: mustache
 ---
 
-#include /services/include/operations.tmpl
+#include /dcos/services/include/operations.tmpl
 
 # External Client Access (ProxySQL and Edge-LB configuration)
 

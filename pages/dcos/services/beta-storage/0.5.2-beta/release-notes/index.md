@@ -7,7 +7,7 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 
 # Release notes for Beta DC/OS Storage Service version 0.5.2

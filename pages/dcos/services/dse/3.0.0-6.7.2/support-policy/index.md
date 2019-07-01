@@ -8,7 +8,7 @@ model: /dcos/services/dse/data.yml
 render: mustache
 ---
 
-#include /services/include/support-policy.tmpl
+#include /dcos/services/include/support-policy.tmpl
 
 
 ## Contacting DataStax Technical Support

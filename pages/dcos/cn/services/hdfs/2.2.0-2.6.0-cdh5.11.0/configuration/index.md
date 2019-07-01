@@ -8,10 +8,10 @@ model: /dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/configuration-install-with-options.tmpl
-#include /cn/services/include/configuration-create-json-file.tmpl
-#include /cn/services/include/configuration-service-settings.tmpl
-#include /cn/services/include/configuration-regions.tmpl
+#include /dcos/cn/services/include/configuration-install-with-options.tmpl
+#include /dcos/cn/services/include/configuration-create-json-file.tmpl
+#include /dcos/cn/services/include/configuration-service-settings.tmpl
+#include /dcos/cn/services/include/configuration-regions.tmpl
 
 ## 节点配置
 

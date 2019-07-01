@@ -8,7 +8,7 @@ excerpt: Instructions for upgrading the DC/OS Storage Service on a DC/OS Enterpr
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 # Manually upgrade the DSS package to 0.6.x from 0.5.x
 

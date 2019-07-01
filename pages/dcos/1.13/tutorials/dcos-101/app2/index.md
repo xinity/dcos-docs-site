@@ -8,7 +8,7 @@ model: /dcos/1.13/113-data.yml
 menuWeight: 5
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 Welcome to part 5 of the DC/OS 101 Tutorial
 

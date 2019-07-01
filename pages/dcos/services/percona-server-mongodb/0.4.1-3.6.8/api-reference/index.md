@@ -8,4 +8,4 @@ model: /dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 
-#include /services/include/api-reference.tmpl
+#include /dcos/services/include/api-reference.tmpl

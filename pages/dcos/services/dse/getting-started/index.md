@@ -8,4 +8,4 @@ model: /dcos/services/dse/data.yml
 render: mustache
 ---
 
-#include /services/include/getting-started.tmpl
+#include /dcos/services/include/getting-started.tmpl

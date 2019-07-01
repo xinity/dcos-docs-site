@@ -8,7 +8,7 @@ excerpt: Architectural overview of storage support in DC/OS
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 The following figure shows the high level architecture of the storage support in DC/OS.
 

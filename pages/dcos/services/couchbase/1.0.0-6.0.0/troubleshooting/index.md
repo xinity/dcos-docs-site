@@ -8,7 +8,7 @@ model: /dcos/services/couchbase/data.yml
 render: mustache
 ---
 
-#include /services/include/troubleshooting.tmpl
+#include /dcos/services/include/troubleshooting.tmpl
 
 ## {{ model.techName }} diagnostic information
 

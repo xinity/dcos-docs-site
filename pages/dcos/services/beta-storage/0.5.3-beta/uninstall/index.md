@@ -7,7 +7,7 @@ excerpt: Instructions for removing the DC/OS Storage Service from a DC/OS cluste
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 # Uninstall the DSS package
 

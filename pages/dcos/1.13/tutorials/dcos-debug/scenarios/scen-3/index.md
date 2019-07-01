@@ -7,7 +7,7 @@ render: mustache
 model: /dcos/1.13/113-data.yml
 menuWeight: 21
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 # Scenario 3: Docker Images
 

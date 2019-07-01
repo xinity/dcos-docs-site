@@ -7,7 +7,7 @@ excerpt: Common definitions and terms used throughout DC/OS Storage Service docu
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 
 We use the following terminology throughout the documentation.

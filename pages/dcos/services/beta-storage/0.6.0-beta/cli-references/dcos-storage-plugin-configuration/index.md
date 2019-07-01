@@ -9,7 +9,7 @@ beta: true
 origin: github.com/mesosphere/dcos-storage/cli/pkg/cmd/cmd_pluginconfiguration.go
 excerpt: Manage plugin configurations.
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 ## dcos storage plugin-configuration
 

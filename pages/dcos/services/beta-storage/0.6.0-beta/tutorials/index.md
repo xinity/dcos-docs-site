@@ -8,6 +8,6 @@ excerpt: Step by step walkthroughs of using DC/OS Storage Service.
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 Click on a section below for step by step walktroughs of using the DC/OS Storage Service.

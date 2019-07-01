@@ -8,9 +8,9 @@ model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /services/include/configuration-install-with-options.tmpl
-#include /services/include/configuration-service-settings.tmpl
-#include /services/include/configuration-regions.tmpl
+#include /dcos/services/include/configuration-install-with-options.tmpl
+#include /dcos/services/include/configuration-service-settings.tmpl
+#include /dcos/services/include/configuration-regions.tmpl
 
 ## Node Configuration
 

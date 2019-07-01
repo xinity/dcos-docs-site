@@ -8,7 +8,7 @@ render: mustache
 model: /dcos/1.13/113-data.yml
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
 

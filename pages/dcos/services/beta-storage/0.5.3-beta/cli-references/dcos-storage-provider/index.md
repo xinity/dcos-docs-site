@@ -9,7 +9,7 @@ beta: true
 origin: github.com/mesosphere/dcos-storage/cli/pkg/cmd/cmd_provider.go
 excerpt: Manage volume providers.
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 ## dcos storage provider
 

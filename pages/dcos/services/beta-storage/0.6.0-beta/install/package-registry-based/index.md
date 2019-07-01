@@ -8,7 +8,7 @@ excerpt: Installing the DC/OS Storage Service using the package registry
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 # Prerequisites
 

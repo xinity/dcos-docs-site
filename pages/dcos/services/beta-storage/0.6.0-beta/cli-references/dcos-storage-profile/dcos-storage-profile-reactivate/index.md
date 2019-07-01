@@ -9,7 +9,7 @@ beta: true
 origin: github.com/mesosphere/dcos-storage/cli/pkg/cmd/cmd_profile_reactivate.go
 excerpt: Activate a profile that has been deactivated.
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 ## dcos storage profile reactivate
 

@@ -9,4 +9,4 @@ model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 
-#include /install-include/aws-remote-region-all.tmpl
+#include /dcos/install-include/aws-remote-region-all.tmpl

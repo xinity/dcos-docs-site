@@ -8,4 +8,4 @@ model: /dcos/1.13/113-data.yml
 render: mustache
 ---
 
-#include /install-include/aws-replaceable-masters-all.tmpl
+#include /dcos/install-include/aws-replaceable-masters-all.tmpl

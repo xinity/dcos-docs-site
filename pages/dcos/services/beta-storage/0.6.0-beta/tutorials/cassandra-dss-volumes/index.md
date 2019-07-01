@@ -8,7 +8,7 @@ excerpt: Step by step walkthrough of using DC/OS Storage Service to provide volu
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 # Deploy Cassandra with DSS volumes
 

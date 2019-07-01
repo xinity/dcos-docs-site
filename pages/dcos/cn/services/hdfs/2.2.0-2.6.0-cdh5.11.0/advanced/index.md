@@ -8,4 +8,4 @@ model: /dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/advanced.tmpl
+#include /dcos/cn/services/include/advanced.tmpl

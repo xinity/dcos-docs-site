@@ -8,7 +8,7 @@ enterprise: true
 beta: true
 ---
 
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 <p class="message--note"><strong>NOTE: </strong> This install method is <strong>deprecated</strong>.
 Please consider switching to the <a href="../package-registry-based/">package registry based install</a> method.</p>

@@ -8,4 +8,4 @@ model: /dcos/services/pxc/data.yml
 render: mustache
 ---
 
-#include /services/include/service-account.tmpl
+#include /dcos/services/include/service-account.tmpl

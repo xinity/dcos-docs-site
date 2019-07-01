@@ -8,8 +8,8 @@ model: /dcos/services/dse/data.yml
 render: mustache
 ---
 
-#include /services/include/limitations.tmpl
-#include /services/include/limitations-zones.tmpl
+#include /dcos/services/include/limitations.tmpl
+#include /dcos/services/include/limitations-zones.tmpl
 
 ## Service Limits
 - Multiple {{ model.shortTechName }} instances on a host is not supported in production.

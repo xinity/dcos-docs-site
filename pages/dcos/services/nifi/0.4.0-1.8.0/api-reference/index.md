@@ -9,7 +9,7 @@ enterprise: false
 model: ../../data.yml
 render: mustache
 ---
-#include /services/include/api-reference.tmpl
+#include /dcos/services/include/api-reference.tmpl
 
 
 # Service Status Info

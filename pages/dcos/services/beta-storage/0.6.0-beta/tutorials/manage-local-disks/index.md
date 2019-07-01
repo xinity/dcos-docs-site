@@ -8,7 +8,7 @@ excerpt: Step by step walkthrough of using DC/OS Storage Service to discover dev
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 The tutorials in this section cover a use case for using DSS to manage local
 disks using the [CSI plugin for LVM](https://github.com/mesosphere/csilvm).

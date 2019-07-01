@@ -8,4 +8,4 @@ model: /dcos/services/elastic/data.yml
 render: mustache
 ---
 
-#include /services/include/advanced.tmpl
+#include /dcos/services/include/advanced.tmpl

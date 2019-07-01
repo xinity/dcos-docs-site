@@ -8,4 +8,4 @@ model: /dcos/cn/services/prometheus/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/troubleshooting.tmpl
+#include /dcos/cn/services/include/troubleshooting.tmpl

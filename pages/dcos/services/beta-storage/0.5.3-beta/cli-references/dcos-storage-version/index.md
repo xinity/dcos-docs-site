@@ -9,7 +9,7 @@ beta: true
 origin: github.com/mesosphere/dcos-storage/cli/pkg/cmd/cmd_version.go
 excerpt: Display version information.
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 ## dcos storage version
 

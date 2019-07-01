@@ -8,7 +8,7 @@ model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /services/include/troubleshooting.tmpl
+#include /dcos/services/include/troubleshooting.tmpl
 
 # Troubleshooting a Replaced Journal Node
 

@@ -8,7 +8,7 @@ enterprise: true
 beta: true
 ---
 
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 
 DC/OS Storage Service (DSS) can leverage additional raw volumes mounted on an agent to provide additional services.

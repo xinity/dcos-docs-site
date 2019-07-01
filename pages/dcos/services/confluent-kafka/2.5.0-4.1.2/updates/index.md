@@ -8,4 +8,4 @@ model: /dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/update.tmpl
+#include /dcos/services/include/update.tmpl

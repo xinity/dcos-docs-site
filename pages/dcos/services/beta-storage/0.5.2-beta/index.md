@@ -7,7 +7,7 @@ excerpt: DC/OS Beta Storage Service (DSS) is a service that manages volumes, vol
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 
 DC/OS Beta Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in the DC/OS cluster.

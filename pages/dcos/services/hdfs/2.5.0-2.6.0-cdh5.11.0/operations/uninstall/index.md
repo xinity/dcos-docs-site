@@ -8,4 +8,4 @@ model: /dcos/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /services/include/uninstall.tmpl
+#include /dcos/services/include/uninstall.tmpl

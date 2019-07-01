@@ -9,7 +9,7 @@ menuWeight: 1
 ---
 
 <!-- I. Problems Section -->
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 <a name="problems"></a>
 

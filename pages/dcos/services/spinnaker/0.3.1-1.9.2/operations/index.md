@@ -8,4 +8,4 @@ model: /dcos/services/spinnaker/data.yml
 render: mustache
 ---
 
-#include /services/include/operations.tmpl
+#include /dcos/services/include/operations.tmpl

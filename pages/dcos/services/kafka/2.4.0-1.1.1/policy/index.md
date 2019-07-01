@@ -8,4 +8,4 @@ model: /dcos/services/kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/support-policy.tmpl
+#include /dcos/services/include/support-policy.tmpl

@@ -9,10 +9,10 @@ render: mustache
 ---
 
 
-#include /services/include/configuration-install-with-options.tmpl
-#include /services/include/configuration-create-json-file.tmpl
-#include /services/include/configuration-service-settings.tmpl
-#include /services/include/configuration-regions.tmpl
+#include /dcos/services/include/configuration-install-with-options.tmpl
+#include /dcos/services/include/configuration-create-json-file.tmpl
+#include /dcos/services/include/configuration-service-settings.tmpl
+#include /dcos/services/include/configuration-regions.tmpl
 
 
 ## {{ model.techShortName }} Node Settings

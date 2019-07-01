@@ -8,7 +8,7 @@ model: /dcos/services/dse/data.yml
 render: mustache
 ---
 
-#include /services/include/operations.tmpl
+#include /dcos/services/include/operations.tmpl
 
 ## DSE OpsCenter Backup Service
 

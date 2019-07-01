@@ -8,5 +8,5 @@ model: /dcos/cn/services/prometheus/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/configuration-install-with-options.tmpl
-#include /cn/services/include/configuration-service-settings.tmpl
+#include /dcos/cn/services/include/configuration-install-with-options.tmpl
+#include /dcos/cn/services/include/configuration-service-settings.tmpl

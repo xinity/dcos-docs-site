@@ -6,7 +6,7 @@ menuWeight: 11
 ---
 <!-- II. Tools Section -->
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 
 <a name="tools"></a>

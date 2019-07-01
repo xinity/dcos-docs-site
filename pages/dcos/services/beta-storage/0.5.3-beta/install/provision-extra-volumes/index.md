@@ -7,7 +7,7 @@ excerpt: Provision extra agent volumes using Universal Installer
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 DC/OS Storage Service (DSS) can leverage additional raw volumes mounted on an agent to provide additional services.
 [DC/OS Universal Installer](/latest/installing/evaluation/) supports provisioning a cluster with extra volumes created for each agent node.

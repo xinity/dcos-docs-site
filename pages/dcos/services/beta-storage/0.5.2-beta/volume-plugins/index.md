@@ -7,7 +7,7 @@ excerpt: Learn how the DC/OS Storage Service integrates with CSI plugins in orde
 enterprise: true
 beta: true
 ---
-#include /services/include/beta-software-warning.tmpl
+#include /dcos/services/include/beta-software-warning.tmpl
 
 
 The Container Storage Interface (CSI) is an open specification developed by multiple container orchestrators through interaction with the open source community and storage vendors.

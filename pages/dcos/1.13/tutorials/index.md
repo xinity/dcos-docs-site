@@ -11,5 +11,5 @@ enterprise: false
 
 Learn how to run services and operate services in production with this collection of tutorials about using DC/OS.
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 

@@ -8,9 +8,9 @@ model: /dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/limitations.tmpl
-#include /cn/services/include/limitations-zones.tmpl
-#include /cn/services/include/limitations-regions.tmpl
+#include /dcos/cn/services/include/limitations.tmpl
+#include /dcos/cn/services/include/limitations-zones.tmpl
+#include /dcos/cn/services/include/limitations-regions.tmpl
 
 ## 安全
 

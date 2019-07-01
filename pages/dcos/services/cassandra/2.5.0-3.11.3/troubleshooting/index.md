@@ -8,4 +8,4 @@ model: /dcos/services/cassandra/data.yml
 render: mustache
 ---
 
-#include /services/include/troubleshooting.tmpl
+#include /dcos/services/include/troubleshooting.tmpl

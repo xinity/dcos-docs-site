@@ -8,7 +8,7 @@ model: /dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/support-policy.tmpl
+#include /dcos/services/include/support-policy.tmpl
 
 ## Confluent Support
 
