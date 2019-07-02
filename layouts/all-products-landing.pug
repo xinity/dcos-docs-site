@@ -49,7 +49,14 @@ html(lang='en')
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
       include partials/header/header-dropdown.pug
-      div(class='landing__hero')
+      div(class='landing__main-hero')
+        div(class='landing__hero-tile-container')
+          a(href="/dcos/1.13", class='landing__hero-tile')
+            div(class='landing__tile-logo')
+            h3(class='landing__tile-title') DC/OS
+          a(href="/dcos/1.13", class='landing__hero-tile')
+            div(class='landing__tile-logo')
+            h3(class='landing__tile-title') Konvoy
 
 
       div(class='landing__container')
