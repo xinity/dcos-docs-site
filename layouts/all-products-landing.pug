@@ -7,19 +7,23 @@
 
 
 mixin renderProductBlurbs()
-  div(class='blurbs-container')
-    a(href="/dcos/1.13", class='grid-item')
-      h3(class='grid__header') DC/OS
-      div(class='grid__desc__wrapper')
-        p(class='grid__desc') DCOS Excerpt
-      div(class="grid__link")
-        i(data-feather='arrow-right')
-    a(href='/konvoy/0.1', class='grid__item')
-      h3(class='grid__header') Konvoy
-      div(class='grid__desc__wrapper')
-        p(class='grid__desc') Konvoy blurb
-      div(class="grid__link")
-        i(data-feather='arrow-right')
+  div(class='blurb__container')
+    div(href="/dcos/1.13", class='blurb__item')
+      h3(class='blurb__header') Mesosphere DC/OS
+      div(class='blurb__desc__wrapper')
+        p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
+      ul(class="blurb__links")
+        li(class="blurb__link") Release Notes
+        li(class="blurb__link") Getting Started
+        li(class="blurb__link") What is DC/OS?
+    div(href='/konvoy/0.1', class='blurb__item')
+      h3(class='blurb__header') Konvoy
+      div(class='blurb__desc__wrapper')
+        p(class='blurb__desc') Konvoy DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
+      ul(class="blurb__links")
+        li(class="blurb__link") Release Notes
+        li(class="blurb__link") Getting Started
+        li(class="blurb__link") What is Konvoy?
 
 doctype html
 html(lang='en')
@@ -27,12 +31,12 @@ html(lang='en')
     include partials/head.pug
   body(class='landing landing--dcos')
     div(class='layout')
-      header(class='header')
+      header(class='header' style="position: fixed;")
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/header--mesosphere-dcos-logo--monochromatic.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/header--mesosphere-dcos-logo--monochromatic.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
             img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
@@ -53,7 +57,7 @@ html(lang='en')
         div(class='landing__hero-tile-container')
           a(href="/dcos/1.13", class='landing__hero-tile')
             div(class='landing__tile-logo')
-            h3(class='landing__tile-title') DC/OS
+            h3(class='landing__tile-title') Mesosphere DC/OS
           a(href="/dcos/1.13", class='landing__hero-tile')
             div(class='landing__tile-logo')
             h3(class='landing__tile-title') Konvoy
