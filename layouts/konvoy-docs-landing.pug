@@ -56,8 +56,8 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/header--mesosphere-dcos-logo--monochromatic.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/header--mesosphere-dcos-logo--monochromatic.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
             img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
@@ -68,7 +68,7 @@ html(lang='en')
               each val, index in headerItems
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/'
+                - itemClass['header__menu-item--active'] = val.path == '/konvoy'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')

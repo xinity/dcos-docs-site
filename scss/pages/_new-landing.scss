@@ -5,26 +5,32 @@
     &__main-hero {
         display: flex;
         justify-content: center;
-        height: 500px;
+        height: 450px;
         background: white;
-        border-bottom: 1px solid rgba(0, 0, 0, .35);
     }
     &__hero-tile-container {
         display: flex;
-        width: 850px;
+        max-width: 1025px;
         align-items: center;
         justify-content: space-around;
         background-color: white;
+        width: 100%;
+        margin-top: 80px;
+        padding-left: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, .23);
     }
     &__hero-tile {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         border: 1px solid rgba(0, 0, 0, .08);
         border-radius: 4px;
-        box-shadow: 0 0 18px 0 rgba(45, 45, 45, .02);
-        width: 400px;
-        height: 200px;
+        box-shadow: 0 0 18px 0 rgba(45, 45, 45, .10);
+        height: 45%;
+        width: 45%;
+        min-width: 300px;
+        min-height: 300px;
         z-index: 10;
         transition: all 250ms ease-out;
     }
@@ -33,17 +39,16 @@
         transform: translateY(-5px);
     }
     &__tile-logo {
-        background-image: url(/assets/mesosphere-dcos-reduced--vertical--color--dark.svg);
         border-radius: 2px;
-        height: 120px;
-        width: 120px;
         background-repeat: no-repeat;
         margin-top: 20px;
+        height: 160px;
+        width: 160px;
     }
     &__tile-title {
         font-size: 22px;
         font-weight: bold;
-        color: $color-kaleb-purp;
+        color: $color-v2-purple;
         text-decoration: none;
     }
 }
@@ -57,6 +62,11 @@
     &__header {
         color: rgba(0, 0, 0, .35);
         font-size: 22px;
+        h3 {
+            margin: 0;
+            padding: 0;
+            line-height: 1em;
+        }
     }
     &__desc-wrapper {}
     &__desc {
@@ -65,9 +75,11 @@
     &__links {
         list-style: none;
         display: flex;
+        margin: 0;
+        padding: 0;
     }
     &__link {
-        color: $color-purple-base;
-        padding: 4px;
+        color: $color-v2-purple;
+        margin: 4px 20px 2px 0px;
     }
 }
