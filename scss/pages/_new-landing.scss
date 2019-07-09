@@ -46,7 +46,7 @@
         width: 160px;
     }
     &__tile-title {
-        font-size: 22px;
+        font-size: 26px;
         font-weight: bold;
         color: $color-v2-purple;
         text-decoration: none;
@@ -56,12 +56,12 @@
 .blurb {
     &__container {}
     &__item {
-        border-bottom: 1px solid rgba(0, 0, 0, .35);
+        border-bottom: 1px solid $color-light-grey-l2;
         min-height: 100px;
     }
     &__header {
-        color: rgba(0, 0, 0, .35);
-        font-size: 22px;
+        color: $color-v2-purple;
+        font-size: 26px;
         h3 {
             margin: 0;
             padding: 0;
@@ -70,16 +70,17 @@
     }
     &__desc-wrapper {}
     &__desc {
-        color: rgba(0, 0, 0, .35);
+        color: $color-v2-grey;
     }
     &__links {
         list-style: none;
         display: flex;
         margin: 0;
         padding: 0;
+        margin-bottom: 1em;
     }
     &__link {
         color: $color-v2-purple;
-        margin: 4px 20px 2px 0px;
+        margin: 10px 20px 2px 0px;
     }
 }
