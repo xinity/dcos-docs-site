@@ -3,7 +3,9 @@
 - var dcosDocs = hierarchy.children.filter(child => child.id == 'dcos')[0]
 - var latestDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
+- var serviceItem = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var allItems = headerItemsUnsorted.concat(serviceItem)
+- var headerItems = allItems.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'DC/OS Docs'
 
 - var isChinese = paths[1] == 'cn'
@@ -58,11 +60,11 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/placeholder-logo.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/placeholder-logo.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/sm-placeholder-logo.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -73,8 +75,6 @@ html(lang='en')
                 - itemClass['header__menu-item--active'] = val.path == '/dcos'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
-              li(class='header__menu-item')
-                a(href='/dcos/services/') Service Docs
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')
@@ -132,7 +132,7 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-            img(class='landing__footer__logo', src='/assets/sm-placeholder-logo.svg')
+            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy

@@ -1,4 +1,9 @@
 .landing {
+    .header__menu {
+        a:hover {
+            color: $color-dark;
+        }
+    }
     a {
         text-decoration: none;
     }
@@ -7,6 +12,7 @@
         justify-content: center;
         height: 450px;
         background: white;
+        border-bottom: 1px solid rgba(0, 0, 0, .23);
     }
     &__hero-tile-container {
         display: flex;
@@ -17,7 +23,6 @@
         width: 100%;
         margin-top: 80px;
         padding-left: 1rem;
-        border-bottom: 1px solid rgba(0, 0, 0, .23);
     }
     &__hero-tile {
         display: flex;
