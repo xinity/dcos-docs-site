@@ -13,7 +13,7 @@ HDFS is available in the Universe and can be installed by using either the web i
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/dcos/services/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
@@ -236,7 +236,7 @@ The HDFS scheduler runs as a Marathon process and can be reconfigured by changin
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.png)
+	![HFDS in DC/OS GUI](/dcos/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.png)
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
@@ -244,7 +244,7 @@ The HDFS scheduler runs as a Marathon process and can be reconfigured by changin
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui3.png)
+	![Edit environment](/dcos/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui3.png)
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 

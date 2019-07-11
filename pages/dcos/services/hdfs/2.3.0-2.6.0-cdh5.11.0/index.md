@@ -32,4 +32,4 @@ DC/OS HDFS provides the following features:
 
 ## Related Services
 
-- [DC/OS Spark](/services/spark/)
+- [DC/OS Spark](/dcos/services/spark/)

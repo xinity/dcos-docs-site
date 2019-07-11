@@ -37,4 +37,4 @@ In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from 
 
 ## Connecting clients to endpoints
 
-Refer to [the "Connecting Clients" documentation](/services/), if available, for the DC/OS service you are running.
+Refer to [the "Connecting Clients" documentation](/dcos/services/), if available, for the DC/OS service you are running.

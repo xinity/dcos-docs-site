@@ -30,7 +30,7 @@ dcos license renew [OPTIONS] PATH
 | `PATH`  | Specify the path to the file containing the license you want to renew. |
 
 # Examples
-For examples, see [Licenses](/1.12/administering-clusters/licenses/).
+For examples, see [Licenses](/dcos/1.12/administering-clusters/licenses/).
 
 # Parent command
 

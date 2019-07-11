@@ -66,5 +66,5 @@ See the documentation for [`dcos backup list`](/../dcos-backup/dcos-backup-list/
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/dcos/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

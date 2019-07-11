@@ -62,5 +62,5 @@ dcos backup show <backup id> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/dcos/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

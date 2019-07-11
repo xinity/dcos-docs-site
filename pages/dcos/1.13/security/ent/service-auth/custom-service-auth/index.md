@@ -117,7 +117,7 @@ Using the [permissions reference](/1.13/security/ent/perms-reference/) and the l
 
 ### Using the CLI
 
-You can assign permissions using the CLI. For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
+You can assign permissions using the CLI. For example, to authorize the [Cassandra service](/dcos/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
 
 Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 

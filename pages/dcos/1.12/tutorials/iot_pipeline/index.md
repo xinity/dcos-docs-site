@@ -61,7 +61,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.12/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/dcos/services/marathon-lb/1.12/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -69,7 +69,7 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/1.12/img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/dcos/1.12/img/tweeter-services6-ee.png)
 
     Figure 1. Services tab showing Tweeter services
 
@@ -126,7 +126,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/1.12/img/tweeter-services7.png)
+    ![Tweeter deployed](/dcos/1.12/img/tweeter-services7.png)
 
     Figure 2. Tweeter deployed
 
@@ -150,7 +150,7 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    ![Shakespeare tweets](/1.12/img/tweeter-shakespeare.png)
+    ![Shakespeare tweets](/dcos/1.12/img/tweeter-shakespeare.png)
 
     Figure 4. Shakespeare tweets
 
@@ -181,7 +181,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS GUI and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
-![Tweeter scaled](/1.12/img/tweeter-services8-ee.png)
+![Tweeter scaled](/dcos/1.12/img/tweeter-services8-ee.png)
 
 Figure 5. Scaled tweets
 

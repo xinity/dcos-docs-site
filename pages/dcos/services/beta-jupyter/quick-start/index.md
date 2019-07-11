@@ -16,7 +16,7 @@ Required:
 
 - A running DC/OS 1.11 (or later) cluster with {{ model.install.minNodeCount }} ({{ model.install.nodeDescription }})
 - [DC/OS CLI](/latest/cli/install/) installed
-- [Marathon-LB](/services/marathon-lb/)
+- [Marathon-LB](/dcos/services/marathon-lb/)
 
 # Installing {{ model.techName }}
 
@@ -50,4 +50,4 @@ You can authenticate with AD FS 4.0 (Windows Server 2016). The OpenID Connect fl
 
 You can choose to enable OpenID Connect authentication. For (optional) authorization you can specify either an email adress: `OIDC_EMAIL` or User Principal Name (UPN) on Windows: `OIDC_UPN`
 
-See the [installation](/services/beta-jupyter/installing/) documentation for more in-depth instructions and configuration options.
+See the [installation](/dcos/services/beta-jupyter/installing/) documentation for more in-depth instructions and configuration options.

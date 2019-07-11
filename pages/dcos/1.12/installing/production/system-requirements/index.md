@@ -109,7 +109,7 @@ The table below shows the agent node hardware requirements.
 In planning memory requirements for agent nodes, you should ensure that agents are configured minimize the use of swap space. The recommended best practice is optimize cluster performance and reduce potential resource consumption issues to disable memory swapping for all agents in the cluster, if possible.
 
 In addition to the requirements described in [All master and agent nodes in the cluster](#CommonReqs), the agent nodes must have:
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.12/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/dcos/1.12/deploying-services/containerizers/).
 
 -   Do not use `noexec` to mount the `/tmp` directory on any system where you intend to use the DC/OS CLI unless a TMPDIR environment variable is set to something other than `/tmp/`. Mounting the `/tmp` directory using the `noexec` option could break CLI functionality. 
 

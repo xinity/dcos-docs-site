@@ -189,7 +189,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 With the following curl commands you can rapidly provision the Jenkins service account with the permissions required in `strict` mode. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/dcos/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Issue the following commands to create the necessary permissions.
 
@@ -268,7 +268,7 @@ To install the service, complete the following steps.
 
 1. In the **Password** field, type any value.
 
-   ![Adding Jenkins credentials](/services/jenkins/img/add-jenkins-credential.png)
+   ![Adding Jenkins credentials](/dcos/services/jenkins/img/add-jenkins-credential.png)
 
 1. Once you have completed your entries, click **Add**.
 
@@ -294,4 +294,4 @@ To install the service, complete the following steps.
 
 1. After some time, the job should turn green in the **Build history** box. Congratulations! You have succeeded in setting Jenkins up with a service account.
 
-You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](/services/jenkins/quickstart/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](/dcos/services/jenkins/quickstart/) for more information about how to use the JSON file to install the service.

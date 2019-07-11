@@ -67,7 +67,7 @@ For more information on port configuration, see the [Marathon ports documentatio
 
 ## Using VIPs with DC/OS Services
 
-Some DC/OS services, for example [Kafka](/services/kafka/), automatically create VIPs when you install them. The naming convention is: `broker.<service.name>.l4lb.thisdcos.directory:9092`.
+Some DC/OS services, for example [Kafka](/dcos/services/kafka/), automatically create VIPs when you install them. The naming convention is: `broker.<service.name>.l4lb.thisdcos.directory:9092`.
 
 Follow these steps to view the VIP for Kafka.
 
@@ -82,7 +82,7 @@ Follow these steps to view the VIP for Kafka.
 
 ### Via the CLI
 
-**Prerequisite:** The Kafka service and CLI must be [installed](/services/kafka/).
+**Prerequisite:** The Kafka service and CLI must be [installed](/dcos/services/kafka/).
 
 1.  Run this command:
 

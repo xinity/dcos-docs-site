@@ -35,7 +35,7 @@ To determine the address of your cluster, see [Cluster Access](/1.13/api/access/
 
 All Edge-LB API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.12/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/dcos/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/dcos/1.12/security/ent/iam-api/#passing-an-authentication-token).
 
 The Edge-LB API also requires authorization via the following permissions:
 
@@ -45,7 +45,7 @@ The Edge-LB API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.12/security/ent/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/dcos/1.12/security/ent/perms-reference/).
 
 # API specification
 

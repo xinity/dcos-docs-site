@@ -36,10 +36,10 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 
 # Examples
 
-For examples, see the [documentation](/1.12/deploying-services/update-user-service/).
+For examples, see the [documentation](/dcos/1.12/deploying-services/update-user-service/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/dcos/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

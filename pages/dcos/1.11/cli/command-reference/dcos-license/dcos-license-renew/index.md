@@ -30,4 +30,4 @@ dcos license renew [OPTIONS] PATH
 | [dcos license](../../dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/dcos/1.11/administering-clusters/licenses/).

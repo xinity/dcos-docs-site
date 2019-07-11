@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-You can access DC/OS CLI configuration with the [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) and [dcos config](/1.11/cli/command-reference/dcos-config/) command groups.
+You can access DC/OS CLI configuration with the [dcos cluster](/dcos/1.11/cli/command-reference/dcos-cluster/) and [dcos config](/dcos/1.11/cli/command-reference/dcos-config/) command groups.
 
 
 # Configuring HTTP proxy
