@@ -5,7 +5,7 @@ title: 策略
 excerpt: 教程 - 应用故障排除策略
 menuWeight: 21
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 <a name=strategy></a>
 
