@@ -113,7 +113,7 @@ MS.metadata({
     env: process.env.NODE_ENV,
     gitBranch: GIT_BRANCH,
     dcosDocsLatest: '1.13',
-    dcosCNDocsLatest: '1.11',
+    dcosCNDocsLatest: '1.12',
     konvoyDocsLatest: '0.1',
 });
 

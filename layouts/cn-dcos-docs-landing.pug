@@ -79,12 +79,12 @@ html(lang='en')
           div(id="landing-localization-current" class='localization-current')
             strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
             svg(class="localization-svg")
-              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
+              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
           ul(class='localization-list')
-            - var enPath = `/${paths.slice(1).join('/')}`
+            - var enPath = `/${paths.slice(2).join('/')}`
             if isChinese
               li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=enPath) English
+                a(href=`/dcos${enPath}`) English
             else
               - function findLongestCnPath(enPath)
                 if enPath.length == 0
