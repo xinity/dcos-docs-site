@@ -11,13 +11,13 @@ enterprise: false
 
 **先决条件：**
 
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
+- [已安装 DC/OS CLI](/dcos/cn/1.11/cli/install/)
 - 您以超级用户身份登录。
--  [已安装 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/)。
+-  [已安装 DC/OS Enterprise CLI](/dcos/cn/1.11/cli/enterprise-cli/)。
 - 您有权限访问 [远程 Edge-LB 软件库](https://support.mesosphere.com/hc/en-us/articles/213198586)。
 
 **限制**
-- 目前，在 DC/OS 1.11 中，Edge-LB 仅适用于宽容模式的 DC/OS Enterprise，而在 DC/OS 1.11 [安全模式](/cn/1.11/security/ent/#security-modes)中，适用于宽容或严格模式的 DC/OS Enterprise。它不适用于禁用模式。
+- 目前，在 DC/OS 1.11 中，Edge-LB 仅适用于宽容模式的 DC/OS Enterprise，而在 DC/OS 1.11 [安全模式](/dcos/cn/1.11/security/ent/#security-modes)中，适用于宽容或严格模式的 DC/OS Enterprise。它不适用于禁用模式。
 
 # 添加 Edge-LB 包软件库
 Edge-LB 包括两个组件：
@@ -46,7 +46,7 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ## <a name="build"></a>部署包含 Edge-LB 的本地 Universe
 [/企业]
 
-如果您需要部署包含您自己软件包组合的本地 Universe，您必须构建一个自定义的本地 Universe Docker 镜像。以下指令基于 [DC/OS universe 部署指令](/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified)。
+如果您需要部署包含您自己软件包组合的本地 Universe，您必须构建一个自定义的本地 Universe Docker 镜像。以下指令基于 [DC/OS universe 部署指令](/dcos/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified)。
 
 **先决条件：** [Git](https://git-scm.com/)。在 Unix/Linux 中，参阅这些 [入门指令](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
@@ -94,7 +94,7 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 # 创建服务帐户
 Edge-LB API 服务器必须与服务帐户关联，以便它可以根据用户请求在公用节点和专用节点上启动 Edge-LB 池。
 
-[服务账户](/cn/1.11/security/ent/service-auth/) 与公私密钥对、密码、权限和身份认证令牌结合使用，为 DC/OS 服务提供访问 DC/OS 的权限。服务帐户控制服务被允许进行的通信和 DC/OS API 操作。
+[服务账户](/dcos/cn/1.11/security/ent/service-auth/) 与公私密钥对、密码、权限和身份认证令牌结合使用，为 DC/OS 服务提供访问 DC/OS 的权限。服务帐户控制服务被允许进行的通信和 DC/OS API 操作。
 
 按照以下步骤创建服务帐户、与服务帐户相关联的主体，为该主体分配权限，并将密钥存储库与该服务帐户关联。Edge-LB 使用密钥存储库在 Edge-LB 池上检索和安装 TLS 证书，以便为客户端和服务后端之间的所有 HTTP 流量启用 TLS。
 
@@ -139,7 +139,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>创建和分配权限
 
-使用以下 CLI 命令，为 Edge-LB 服务帐户配置所需权限。所有 CLI 命令也可通过 [IAM API 执行](/cn/1.11/security/ent/iam-api/)。
+使用以下 CLI 命令，为 Edge-LB 服务帐户配置所需权限。所有 CLI 命令也可通过 [IAM API 执行](/dcos/cn/1.11/security/ent/iam-api/)。
 
 可以使用两种方法中的一种为 Edge-LB 服务帐户安全地配置所需权限：
 

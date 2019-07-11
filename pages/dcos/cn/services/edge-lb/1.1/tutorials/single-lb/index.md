@@ -100,4 +100,4 @@ enterprise: false
    dcos edgelb endpoints sample-minimal
    ```
 
- 然后，您可以使用此信息来确定您想用来访问负载均衡器的公用 IP。您还可以使用此技术来发现集群的公用 IP 地址：[查找公用代理 IP](/cn/1.11/administering-clusters/locate-public-agent/)。
+ 然后，您可以使用此信息来确定您想用来访问负载均衡器的公用 IP。您还可以使用此技术来发现集群的公用 IP 地址：[查找公用代理 IP](/dcos/cn/1.11/administering-clusters/locate-public-agent/)。

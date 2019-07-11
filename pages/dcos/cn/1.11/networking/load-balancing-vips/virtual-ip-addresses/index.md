@@ -35,7 +35,7 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/cn/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
+1. 从 DC/OS [GUI](/dcos/cn/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
     1. 在**Networking**选项卡上，选择**Network Type > Virtual Network：dcos**。
     2. 展开**ADD SERVICE ENDPOINT**，为以下内容提供回复：
 
@@ -46,7 +46,7 @@ VIP 遵循以下命名约定：
 
       在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**ADD SERVICE ENDPOINT**，将多个 VIP 分配到您的应用程序。
 
-      ![VIP 服务定义](/cn/1.11/img/vip-service-definition.png)
+      ![VIP 服务定义](/dcos/cn/1.11/img/vip-service-definition.png)
 
       图 1. VIP 服务定义屏幕
 
@@ -56,11 +56,11 @@ VIP 遵循以下命名约定：
 
 您可以单击**网络**选项卡，查看服务的网络详情。
 
-![VIP 输出](/cn/1.11/img/vip-service-definition-output.png)
+![VIP 输出](/dcos/cn/1.11/img/vip-service-definition-output.png)
  
 图 2. 服务定义输出
 
-有关端口配置的更多信息，请参阅 [Marathon 端口文档](/cn/1.11/deploying-services/service-ports/)。
+有关端口配置的更多信息，请参阅 [Marathon 端口文档](/dcos/cn/1.11/deploying-services/service-ports/)。
 
 ## 通过 DC/OS 服务使用 VIP
 
@@ -73,7 +73,7 @@ VIP 遵循以下命名约定：
 1. 单击**网络** > **网络**，然后选择**dcos**。
 1. 选择任务以查看详情。
 
-  ![VIP service details](/cn/1.11/img/vip-service-details.png)
+  ![VIP service details](/dcos/cn/1.11/img/vip-service-details.png)
 
  图 3. VIP 服务详情
 

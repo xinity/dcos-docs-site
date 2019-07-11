@@ -90,7 +90,7 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
 <a name="secret-store-instructions"></a>
 # 引用密钥存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
 
-按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/cn/1.11/security/ent/secrets/)，然后在服务定义中引用该密钥。
+按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/dcos/cn/1.11/security/ent/secrets/)，然后在服务定义中引用该密钥。
 
 <p class="message--note"><strong>注意：</strong> 此功能仅适用于 <a href="/cn/1.11/deploying-services/containerizers/ucr/">通用 Containerizer 运行时间</a>。如果需要使用 Docker Engine，请遵循上述 <a href="#uri-instructions">URI 说明</a>。
 
@@ -127,7 +127,7 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
 
   <p class="message--note"><strong>注意：</strong> 如果使用的是 Mac OSX，就需要手动编码 `username:password` 字符串并修改您的 `config.json` ，以便与上面的片段匹配。</p>
 
-2. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/cn/1.11/security/ent/secrets/create-secrets/)。
+2. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/dcos/cn/1.11/security/ent/secrets/create-secrets/)。
 
  <p class="message--note"><strong>注意：</strong> 自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到密钥存储库。</p>
 

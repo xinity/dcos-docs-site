@@ -13,8 +13,8 @@ render: mustache
 
 **前提条件：**
 
-- [安装 DC/OS 和 DC/OS CLI](/cn/1.11//installing/) ，每个代理有最低限度的 {{ model.install.nodeDescription }} 可用。
-- 根据您的 [安全模式](/cn/1.11/security/)，{{ model.techShortName }} 需要服务认证才能访问 DC/OS。参见 [配置服务帐户](/dcos/cn/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) 了解更多信息。
+- [安装 DC/OS 和 DC/OS CLI](/dcos/cn/1.11//installing/) ，每个代理有最低限度的 {{ model.install.nodeDescription }} 可用。
+- 根据您的 [安全模式](/dcos/cn/1.11/security/)，{{ model.techShortName }} 需要服务认证才能访问 DC/OS。参见 [配置服务帐户](/dcos/cn/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) 了解更多信息。
 
 | 安全模式 | 服务帐户 |
 |-----------|-----------|

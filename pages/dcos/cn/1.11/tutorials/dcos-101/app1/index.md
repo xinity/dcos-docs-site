@@ -12,8 +12,8 @@ menuWeight: 3
 
 
 # 先决条件
-* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [Redis](/cn/1.11/tutorials/dcos-101/redis-package/) 已部署并在您的集群中运行。
+* [正在运行的 DC/OS 集群](/dcos/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/dcos/cn/1.11/tutorials/dcos-101/cli/)。
+* [Redis](/dcos/cn/1.11/tutorials/dcos-101/redis-package/) 已部署并在您的集群中运行。
 
 
 # 目的

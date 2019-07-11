@@ -104,11 +104,11 @@ dcos package install kubernetes --options=options.json
 
 **建议：** 将自定义配置存储在源控件中。
 
-有关创建 `options.json` 文件的更多信息，请参阅 [DC/OS 文档](/cn/1.11/deploying-services/config-universe-service/)。
+有关创建 `options.json` 文件的更多信息，请参阅 [DC/OS 文档](/dcos/cn/1.11/deploying-services/config-universe-service/)。
 
 # 从 DC/OS Web 界面安装
 
-您可以 [从 DC/OS Web 界面安装 Kubernetes](/cn/1.11/deploying-services/install/)。如果您从 Web 界面安装 Kubernetes，那么您必须单独安装 DC/OS Kubernetes CLI 子命令。
+您可以 [从 DC/OS Web 界面安装 Kubernetes](/dcos/cn/1.11/deploying-services/install/)。如果您从 Web 界面安装 Kubernetes，那么您必须单独安装 DC/OS Kubernetes CLI 子命令。
 
 从 DC/OS CLI 输入：
 

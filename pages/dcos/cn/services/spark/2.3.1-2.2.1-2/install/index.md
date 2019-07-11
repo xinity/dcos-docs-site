@@ -33,7 +33,7 @@ dcos package install {{ model.serviceName }}
 转到 DC/OS GUI 的 **服务** > **部署** 选项卡，以监控部署。完成部署后
 ，访问 {{ model.techShortName }}：`http：//<dcos-url>/service/{{ model.serviceName }}/`. 
 
-您也可以 [通过 DC/OS GUI 安装 {{ model.techShortName }} ](/cn/1.11/gui/#universe)。
+您也可以 [通过 DC/OS GUI 安装 {{ model.techShortName }} ](/dcos/cn/1.11/gui/#universe)。
 
 
 ## {{ model.techShortName }} CLI
