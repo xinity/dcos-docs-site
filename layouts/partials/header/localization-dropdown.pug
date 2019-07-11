@@ -1,21 +1,25 @@
+
+- var enPaths = paths.slice(1)
+ 
 nav(class='localization')
   div(class='localization-current')
     strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
     svg(class="localization-svg")
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul(class='localization-list')
-    - var enPath = `/${paths.slice(2).join('/')}`
     if isChinese
+      - var enPath = `/${paths.slice(2).join('/')}`
       li(class='localization-list-item')
-        - var fullPath = "/dcos" + enPath
-        a(href=fullPath) English
+        - var fullPath = "/dcos".concat(enPath)
+        a(href=fullPath)!= English
     else
-      - function findLongestCnPath(enPath)
-        if enPath.length == 0
+      - function findLongestCnPath(inPath)
+        if inPath.length == 0
           - return '/dcos/cn/'
-        - var currPath = `/dcos/cn/${enPath.join('/')}`
+        - var currPath = `/dcos/cn/${inPath.join('/')}`
         if hierarchy.checkIfPathExists(currPath)
           - return currPath
-        - return findLongestCnPath(enPath.slice(0, enPath.length - 1))
+        - return findLongestCnPath(inPath.slice(0, inPath.length - 1))
       li(class='localization-list-item')
-        a(href=findLongestCnPath(paths)) 中文 (简体)
+        - var longest = findLongestCnPath(enPaths)
+        a(href=longest) 中文 (简体)
