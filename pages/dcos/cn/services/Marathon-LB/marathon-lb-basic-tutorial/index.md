@@ -12,7 +12,7 @@ enterprise: false
 ## 先决条件
 - [DC/OS 集群](/cn/1.11/installing/oss/) 至少有一个 [私有](/cn/1.11/overview/concepts/#private-agent-node) 代理和一个 [公共](/cn/1.11/overview/concepts/#public-agent-node) 代理。
 - [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
-- Marathon-LB [已安装](/cn/services/marathon-lb/usage-ee/)。
+- Marathon-LB [已安装](/dcos/cn/services/marathon-lb/usage-ee/)。
 
 ## 在公共节点上配置和运行容器化服务
 

@@ -76,7 +76,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
 - 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。
 - 新的 API 端点用于暂停 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
-- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/cn/services/beta-kafka-zookeeper/)。
+- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/dcos/cn/services/beta-kafka-zookeeper/)。
 - 现在，您可以从 DC/OS UI 的下拉菜单中选择 DC/OS 数据服务版本。
 - 提高了所有 DC/OS 数据服务的可扩展性。
 

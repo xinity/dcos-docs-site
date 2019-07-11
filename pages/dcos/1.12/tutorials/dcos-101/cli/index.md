@@ -6,7 +6,7 @@ navigationTitle: First Steps
 menuWeight: 1
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 Welcome to part 1 of the DC/OS 101 Tutorial.
 

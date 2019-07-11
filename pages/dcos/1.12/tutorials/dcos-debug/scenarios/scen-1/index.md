@@ -5,7 +5,7 @@ navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
 menuWeight: 1
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /dcos/include/tutorial-disclaimer.tmpl
 
 <a name=c1></a>
 

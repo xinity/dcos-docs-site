@@ -83,4 +83,4 @@ For more information, see the [dcos package](/dcos/1.12/cli/command-reference/dc
 This section describes how to use the DC/OS GUI to configure services. 
 
 
-#include /include/config-gui-services.tmpl
+#include /dcos/include/config-gui-services.tmpl
