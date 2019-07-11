@@ -12,4 +12,4 @@ For more detail about how API routing works, see [DC/OS API Reference](/dcos/1.1
 
 
 
-[ngindox api='/1.11/api/nginx.master.yaml']
+[ngindox api='/dcos/1.11/api/nginx.master.yaml']

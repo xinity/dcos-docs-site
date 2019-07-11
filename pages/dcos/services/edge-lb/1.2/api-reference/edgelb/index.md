@@ -52,4 +52,4 @@ To assign permissions to your account, see [Assigning permissions](/dcos/1.12/se
 
 The following resources are available:
 
-[swagger api='/services/api/edge-lb.swagger-1.2.yaml']
+[swagger api='/dcos/services/api/edge-lb.swagger-1.2.yaml']

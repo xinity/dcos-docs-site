@@ -48,7 +48,7 @@ See [Out-of-band token verification](/1.13/security/oss/authentication/out-of-ba
 
 # API reference
 
-[swagger api='/1.13/api/oss-iam.yaml']
+[swagger api='/dcos/1.13/api/oss-iam.yaml']
 
 # Logging
 

@@ -73,4 +73,4 @@ To assign permissions to your account, see the [permissions reference](/dcos/1.1
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.11/api/metrics.yaml']
+[swagger api='/dcos/1.11/api/metrics.yaml']
