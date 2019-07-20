@@ -1,0 +1,136 @@
+The `cluster.yaml` file is composed of two different configuration `kinds`.
+In Kubernetes, a `kind` identifies the name of a specific Kubernetes resource.
+For Konvoy, the `cluster.yaml` file defines the following configuration resource `kinds`:
+
+- `ClusterConfiguration` - This section is **required** because it contains cluster-specific details that must be provided to create a cluster.
+- `ClusterProvisioner` - This section is **optional** because it is contains provider-specific details that are dependent on your deployment infrastructure. For example, this section is not required if you are installing on an internal (on-prem) network.
+
+In addition to the `cluster.yaml` file, Konvoy clusters require you to have an `inventory.yaml` file. For information about the format and settings in an `inventory.yaml` file, see [Working with inventory files](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
+
+# Sample cluster configuration file
+The following example illustrates the contents of a `cluster.yaml` file with both the `ClusterProvisioner` and `ClusterConfiguration` sections defined. In this example, the `cluster.yaml` file specifies `AWS` as the public cloud provisioner:
+
+```yaml
+
+---
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy-cluster
+  creationTimestamp: "2019-07-09T16:10:20.244749-04:00"
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    availabilityZones:
+    - us-west-2c
+    tags:
+      owner: konvoy-owner
+  adminCIDRBlocks:
+  - 0.0.0.0/0
+  nodePools:
+  - name: worker
+    count: 4
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      type: t3.xlarge
+  - name: control-plane
+    controlPlane: true
+    count: 3
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      type: t3.large
+  - name: bastion
+    bastion: true
+    count: 0
+    machine:
+      rootVolumeSize: 10
+      rootVolumeType: gp2
+      type: t3.small
+  sshCredentials:
+    user: centos
+    publicKeyFile: konvoy-ssh.pub
+    privateKeyFile: konvoy-ssh.pem
+  version: v0.3.0
+
+---
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+  creationTimestamp: "2019-07-09T16:10:19.932534-04:00"
+spec:
+  kubernetes:
+    version: 1.15.0
+    controlPlane:
+      controlPlaneEndpointOverride: ""
+      keepalived:
+        enabled: false
+    networking:
+      podSubnet: 192.168.0.0/16
+      serviceSubnet: 10.0.0.0/18
+      httpProxy: ""
+      httpsProxy: ""
+    cloudProvider:
+      provider: aws
+    podSecurityPolicy:
+      enabled: false
+    preflightChecks:
+      errorsToIgnore: ""
+  containerNetworking:
+    calico:
+      version: v3.8.0
+  containerRuntime:
+    containerd:
+      version: 1.2.5
+      configData:
+        data: ""
+        replace: false
+  nodePools:
+  - name: worker
+  addons:
+    configVersion: v0.0.23
+    addonsList:
+    - name: awsebscsiprovisioner
+      enabled: true
+    - name: awsebsprovisioner
+      enabled: false
+    - name: elasticsearchexporter
+      enabled: true
+    - name: helm
+      enabled: true
+    - name: opsportal
+      enabled: true
+    - name: prometheusadapter
+      enabled: true
+    - name: velero
+      enabled: true
+    - name: kommander
+      enabled: true
+    - name: dashboard
+      enabled: true
+    - name: elasticsearch
+      enabled: true
+    - name: fluentbit
+      enabled: true
+    - name: kibana
+      enabled: true
+    - name: prometheus
+      enabled: true
+    - name: traefik
+      enabled: true
+    - name: dex
+      enabled: false
+    - name: dex-k8s-authenticator
+      enabled: false
+  version: v0.3.0
+
+```
