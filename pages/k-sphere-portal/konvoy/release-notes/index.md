@@ -10,7 +10,6 @@ Version 1.0 - Released 3 August 2019
 
 [Download](https://support.mesosphere.com/s/downloads/konvoy/1.0)
 
-# Release summary
 Konvoy is a complete, standalone distribution of Kubernetes that enables you to provision native Kubernetes clusters with a suite of [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for platform service add-ons. It includes updates for ongoing improvements to logging, diagnostics, documentation, security, and scalability.
