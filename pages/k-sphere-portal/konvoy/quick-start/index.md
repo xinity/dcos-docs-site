@@ -14,17 +14,21 @@ This quick start guide provides simplified instructions to get your Konvoy clust
 This guide covers the following tasks and topics:
 
 * [Prepare for installation](#prepare-for-installation)
-* [Download and install the Konvoy package](#download-and-install-the-konvoy-package)
-* [Provision and deploy the cluster and addons](#provision-and-deploy-the-cluster-and-addons)
+  * [Before you begin](#before-you-begin)
+  * [Download and extract the Konvoy package](#download)
+* [Provision and deploy the cluster and addons](#provision-and-deploy)
 * [Review deployment output and login information](#review-deployment-output-and-login-information)
 * [Connect to the operations portal](#connect-to-the-operations-portal)
 * [Merge the kubeconfig](#merge-the-kubeconfig)
   * [Specify the kubeconfig location](#specify-the-kubeconfig-location)
   * [Validate a merged configuration](#validate-a-merged-configuration)
-* [Deploy a sample application](#deploy-a-sample-application)
-* [Provision a customized cluster](#provision-a-customized-cluster)
-* [Generate cluster diagnostics](#generate-cluster-diagnostics)
-* [Troubleshooting](#troubleshooting)
+* [Next steps](#next-steps)
+  * [Deploy a sample application](#deploy-a-sample-application)
+  * [Provision a customized cluster](#provision-a-customized-cluster)
+  * [Generate cluster diagnostics](#generate-cluster-diagnostics)
+  * [Additional troubleshooting](#additional-troubleshooting)
+
+<a name="prepare-for-installation"></a>
 
 ## Prepare for installation
 
@@ -36,6 +40,8 @@ The Konvoy runtime dependencies include:
 * Helm
 
 Each release of Konvoy is accompanied by a wrapper that executes the container and manages these dependencies.
+
+<a name="before-you-begin"></a>
 
 ### Before you begin
 
@@ -62,8 +68,9 @@ You can verify the version of `kubectl` you have installed is supported by runni
 ```bash
 kubectl version --short=true`
 ```
+<a name="download"></a>
 
-### Download and install the Konvoy package
+### Download and extract the Konvoy package
 
 You start the installation process by downloading the Konvoy package tarball.
 
@@ -95,13 +102,14 @@ To download the package, follow these steps:
     ```bash
     source <(konvoy completion bash)
     ```
+<a name="provision-and-deploy"></a>
 
-### Provision and deploy the cluster and addons
+## Provision and deploy the cluster and addons
 
 1. Verify you have valid **AWS security credentials** to deploy the cluster on AWS.
 
-    This step is not required if you are installing Konvoy on an internal network.
-    For information about installing onsite, see [Basic on-premise install]((./install-uninstall-upgrade/basic_onprem.md)).
+    This step is not required if you are installing Konvoy on an internal (on-prem) network.
+    For information about installing onsite, see [Install on an internal network](../install-upgrade/install_onprem/).
 
 1. Create a directory for storing state information for your cluster by running the following commands:
 
@@ -137,7 +145,7 @@ The `konvoy up` command performs the following tasks:
   * [Traefik](https://traefik.io/) to route network traffic as a reverse proxy and load balancer.
   * [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) to provide a general-purpose web-based user interface for Kubernetes clusters.
 
-### Review deployment output and login information
+## Review deployment output and login information
 The `konvoy up` command produces **a verbose stream of output** from Terraform and Ansible operations.
 
 You will see the following when the deployment succeeds:
@@ -148,7 +156,7 @@ Kubernetes cluster and addons deployed successfully!
 Run `konvoy apply kubeconfig` to update kubectl credentials.
 
 Navigate to the URL below to access various services running in the cluster.
-  https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/portal
+  https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing
 And login using the credentials below.
   Username: AUTO_GENERATED_USERNAME
   Password: SOME_AUTO_GENERATED_PASSWORD_12345
@@ -158,7 +166,7 @@ The dashboard and services may take a few minutes to be accessible.
 
 You should copy the cluster URL and login information and paste it into a text file, then save the file in a secured, shared location on your network. You can then use this information to access the operations portal and associated dashboards.
 
-### Connect to the operations portal
+## Connect to the operations portal
 Unless you manually disable it, the default deployment includes an _operations portal_ that links to several dashboards of the installed services, including:
 * Grafana dashboards for metrics
 * Kibana dashboardsfor logs
@@ -166,18 +174,18 @@ Unless you manually disable it, the default deployment includes an _operations p
 * Kubernetes dashboard for cluster activity
 
 Use the link provided in the deployment output to access the cluster's dashboards using the **operations portal**.
-For example, navigate to the URL you copied from the deployment output (`https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/portal`) and log in using the automatically-generated credentials.
+For example, navigate to the URL you copied from the deployment output (`https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing`) and log in using the automatically-generated credentials.
 
 By default, the login credentials use self-signed SSL/TLS certificates.
 It is possible to override Traefik [chart values](https://github.com/helm/charts/tree/master/stable/traefik#configuration) to use your own certificates or to use the ACME protocol to use certificates issued by Let's Encrypt if you provide your own domain.
 
-After you log in to the operations portal, you can collect[diagnostic information](#cluster-diagnostics) about the cluster performance.
+After you log in to the operations portal, you can view [diagnostic information](#generate-cluster-diagnostics) and [dashboards](../operations/accessing-the-cluster/#ops-portal-dashboards) about the cluster performance.
 Although these are the most common next steps, you don't need to log in to the operations portal or run basic diagnostics to verify a successful installation.
 If there were issues with installing or bringing the Kubernetes cluster online, the addons installation would fail.
 
-For more information, see [Provision a customized cluster](#provision-a-customized-cluster).
+For more information, see [Next steps](#next-steps).
 
-### Merge the kubeconfig
+## Merge the kubeconfig
 
 Once the cluster is provisioned and functional, you should store its access configuration information in your main `kubeconfig` file before using `kubectl` to interact with the cluster.
 
@@ -190,7 +198,7 @@ To merge the access configuration, use the following command:
 konvoy apply kubeconfig
 ```
 
-#### Specify the kubeconfig location
+### Specify the kubeconfig location
 
 By default, the `konvoy apply kubeconfig` command uses the value of the `KUBECONFIG` environment variable to declare the path to the correct configuration file.
 If the `KUBECONFIG` environment variable is not defined, the default path of `~/.kube/config` is used.
@@ -210,7 +218,7 @@ You can override the default Kubernetes configuration path in one of two ways:
   export KUBECONFIG="${PWD}/admin.conf"
   ```
 
-#### Validate a merged configuration
+### Validate a merged configuration
 
 To validate the merged configuration, you should be able to list nodes in the Kubernetes cluster by running the following command:
 
@@ -231,228 +239,37 @@ ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.0
 ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.0
 ```
 
+## Next steps
+Now that you have a basic Konvoy cluster installed and ready to use, you might want to test operations by deploying a simple, sample application, customizing the cluster configuration, or checking the status of cluster components.
+
 ### Deploy a sample application
-Now that you have a basic Konvoy cluster installed and ready to use, you might want to test operations by deploying a simple, sample application.
-This task is **optional** and is only intended to demonstrate the basic steps for deploying applications in a production environment.
-If you are configuring the Konvoy cluster for a production deployment, you can use this section to learn the deployment process.
-However, deploying applications on a production cluster typically involves more planning and custom configuration than covered in this example.
-
-The sample application used in this section is a condensed form of the Kubernetes sample [guestbook][guestbook] application.
-
-To deploy the sample application:
-
-1. Deploy the Redis master pods and service by running the following commands:
-
-    ```bash
-    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
-    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-service.yaml
-    ```
-
-1. Deploy the Redis agents by running the following commands:
-
-    ```bash
-    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-slave-deployment.yaml
-    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-slave-service.yaml
-    ```
-
-1. Deploy the webapp frontend by running the following command:
-
-    ```bash
-    kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-deployment.yaml
-    ```
-
-1. Deploy the load balancer for the sample application using a cloud `LoadBalancer` service type instead of a `NodePort` service type by running the following command:
-
-    ```bash
-    curl -L https://k8s.io/examples/application/guestbook/frontend-service.yaml | sed "s@NodePort@LoadBalancer@" | kubectl apply -f -
-    ```
-
-    This step has been specifically modified to optimize load balancing for a default Konvoy cluster.
-
-1. Check the availability of the deployed service by running the following command:
-
-    ```bash
-    kubectl get pods -l app=guestbook -l tier=frontend  # check the app pods
-    kubectl get service frontend                        # check the load balancer
-    ```
-
-    The service properties provide the name of the load balancer. You can connect to the application by accessing that load balancer address in your web browser.
-
-    Because this sample deployment creates a **cloud load balancer**,  you should keep in mind that creating the load balancer can up to a few minutes.
-    You also might experience a slight delay before it is running properly due to DNS propagation and synchronization.
-
-1. Remove the sample application by running the following commands:
-
-    ```bash
-    kubectl delete service frontend
-    kubectl delete service redis-master
-    kubectl delete service redis-slave
-    kubectl delete deployment frontend
-    kubectl delete deployment redis-master
-    kubectl delete deployment redis-slave
-    ```
-
-    You should note that this step is **required** because the sample deployment attaches a **cloud provider load balancer** to the Konvoy cluster.
-    Therefore, you **must delete** the sample application before tearing down the cluster.
-
-1. Tear down the cluster by running the following command:
-
-    ```bash
-    konvoy down
-    ```
-
-    This command destroys the Kubernetes cluster and the infrastructure it runs on.
+Deploying a sample application is an **optional** task.
+It is only intended to demonstrate the most basic steps for deploying applications in a production environment.
+For an introduction to deploying applications, see the [Deploy a sample application](../tutorials/deploy-sample-app/) tutorial.
 
 ### Provision a customized cluster
+Provisioning a customized cluster is an **optional** task.
+However, it is one of the most common tasks you perform when deploying in a production environment.
 
-1. Generate the configuration files by running the following command:
+Provisioning a customized cluster involves editing the cluster configuration settings in the `cluster.yaml` file to suit your needs.
+For example, you can change the node count or addons enabled by modifying the appropriate settings in the `cluster.yaml` file.
 
-    ```bash
-    konvoy init --provisioner=aws
-    ```
+For an introduction to modifying the cluster configuration and provisioning settings in the `cluster.yaml` file, see the [Provision a customized cluster](../tutorials/provision-a-custom-cluster/) tutorial.
 
-1. Edit the provisioner configuration settings in the `cluster.yaml` cluster configuration file.
-
-    You can edit the cluster configuration settings to suit your needs.
-    For example, you can change the node count or add custom tags to all resources created by the installer by modifying the corresponding settings in the `cluster.yaml` file under the `ClusterProvisioner` section.
-
-    The following example illustrates the `ClusterProvisioner` settings defined in the `cluster.yaml` cluster configuration file:
-
-    ```yaml
-    kind: ClusterProvisioner
-    apiVersion: konvoy.mesosphere.io/v1alpha1
-    metadata:
-      name: konvoy
-      creationTimestamp: "2019-05-31T18:00:01.482791-04:00"
-    spec:
-      provider: aws
-      providerOptions:
-        region: us-west-2
-        availabilityZones:
-        - us-west-2c
-        tags:
-          owner: hector
-      adminCIDRBlocks:
-      - 0.0.0.0/0
-      nodePools:
-      - name: node
-        count: 4
-        machine:
-          rootVolumeSize: 80
-          rootVolumeType: gp2
-          imagefsVolumeEnabled: true
-          imagefsVolumeType: gp2
-          imagefsVolumeSize: 160
-          type: t3.xlarge
-      - name: control-plane
-        controlPlane: true
-        count: 3
-        machine:
-          rootVolumeSize: 80
-          rootVolumeType: gp2
-          imagefsVolumeEnabled: true
-          imagefsVolumeType: gp2
-          imagefsVolumeSize: 160
-          type: t3.large
-      sshCredentials:
-        user: centos
-        publicKeyFile: konvoy-ssh.pub
-        privateKeyFile: konvoy-ssh.pem
-      version: v0.0.15-10-g57dff48
-    ```
-
-    As illustrated in this example, you can modify the `nodePools` section to configure the nodes of your cluster by changing the `nodePools.count` from `4` to `5` or the node type by changing the `nodePools.machine.type` from `t3.xlarge` to `t3.large`.
-
-    You can also modify the `tags` section to extend the lifetime of your cluster.
-    This change might be useful, for example, if your AWS administrator has created a job to remove cloud resources based on AWS resource tags.
-    For example:
-
-    ```yaml
-    ### needs both tags
-    tags:
-      owner: luxi
-      expiration: 24h
-    ```
-
-1. Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which addons you want to enable or disable.
-
-    The following example illustrates the `ClusterConfiguration` settings defined in the `cluster.yaml` cluster configuration file:
-
-    ```yaml
-    kind: ClusterConfiguration
-    apiVersion: konvoy.mesosphere.io/v1alpha1
-    metadata:
-      name: konvoy
-      creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
-    spec:
-      kubernetes:
-        version: 1.15.0
-        networking:
-          podSubnet: 192.168.0.0/16
-          serviceSubnet: 10.0.0.0/18
-        cloudProvider:
-          provider: aws
-        podSecurityPolicy:
-          enabled: false
-      containerRuntime:
-        containerd:
-          version: 1.2.5
-      addons:
-        configVersion: v0.0.11
-        addonList:
-        - name: velero
-          enabled: true
-        - name: helm
-          enabled: true
-        - name: awsebsprovisioner
-          enabled: false
-        - name: awsebscsiprovisioner
-          enabled: true
-        - name: opsportal
-          enabled: true
-        - name: elasticsearch
-          enabled: true
-        - name: fluentbit
-          enabled: true
-        - name: kibana
-          enabled: true
-        - name: prometheus
-          enabled: true
-        - name: traefik
-          enabled: true
-        - name: dashboard
-          enabled: true
-      version: v0.0.15-10-g57dff48
-    ```
-
-    In this example, you can disable the `fluentbit` addon by changing the `enabled` from `true` to `false`.
-
-1. Provision the cluster with your customized settings by running the following command:
-
-    ```bash
-    konvoy up
-    ```
-
-The `konvoy up` command provisions the cluster similar to how it is provisioned using the default settings as described in [Provision and deploy the cluster and addons](#provision-and-deploy-the-cluster-and-addons).
-
-However, customized provisioning creates a `cluster.tmp.yaml` file that contains the default values merged with any your user-provided overrides.
-The `cluster.tmp.yaml` file is the file that Ansible uses during its execution.
-You can delete this file after the cluster is created because it will be regenerated on every execution of the `konvoy up` command.
-
-## Generate cluster diagnostics
+### Generate cluster diagnostics
 
 After your cluster is running, you can generate diagnostic information for the Kubernetes cluster, nodes, and addons.
-Checking cluster components is optional, but can help you quickly verify the state of the cluster and ensure it is operating correctly.
-For more information about checking cluster components, see [Checking component integrity](./troubleshooting/check.md).
+Checking cluster components is **optional**, but can help you quickly verify the state of the cluster and ensure it is operating correctly.
+For more information about checking cluster components, see [Checking component integrity](../troubleshooting/check-components/).
 
-## Troubleshooting
+### Additional troubleshooting
 
 In general, Konvoy is designed to be _idempotent_, which means you can run the tools multiple times to achieve the same desired configuration under most conditions.
 This capability enables Konvoy to be resilient in recovering from transient errors.
 
 To see other commands available in `konvoy`, you can run `konvoy` (with no commands) or `konvoy <command> --help`.
 
-For more information about troubleshooting common issues and specific errors, see [Troubleshooting](./troubleshooting/failed_installations.md).
+For more information about troubleshooting common issues and specific errors, see [Troubleshooting](../troubleshooting/).
 
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html

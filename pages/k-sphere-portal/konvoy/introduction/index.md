@@ -33,7 +33,7 @@ Konvoy provides the following features and functionalities:
 - Core addons for collecting metrics and logging
 
     Install and enable a default set of core addons for monitoring, metrics, and logging, including the following:
-    - Monitoring and metrics using Prometheus,AlertManager, Grafana, and Telegraf
+    - Monitoring and metrics using Prometheus, AlertManager, Grafana, and Telegraf
     - Logging using Fluent Bit, Elasticsearch, and Kibana
 
 - Operational infrastructure addons
