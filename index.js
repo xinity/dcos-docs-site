@@ -111,7 +111,7 @@ MS.metadata({
     copyright: `&copy; ${currentYear} Manhattan, Inc. All rights reserved.`,
     env: process.env.NODE_ENV,
     gitBranch: GIT_BRANCH,
-    dcosDocsLatest: '1.13',
+    dcosDocsLatest: '1.14',
     dcosCNDocsLatest: '1.12',
     konvoyDocsLatest: '0.1',
     kommanderDocsLatest: '0.1',

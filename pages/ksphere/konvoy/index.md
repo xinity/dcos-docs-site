@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: konvoy-docs-landing.pug
 navigationTitle: Welcome to Konvoy
 title: Welcome to Konvoy
 featureMaturity:

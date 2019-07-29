@@ -1,10 +1,10 @@
 - var paths = path.split('/')
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[2] == 'cn'
 - var currentPath = '/' + path
-- var servicePage = hierarchy.children.find(child => child.id === paths[1])
+- var servicePage = hierarchy.children.find(child => child.id === paths[0])
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[2] == 'cn'
 - 
   var categories = [
     "View All",

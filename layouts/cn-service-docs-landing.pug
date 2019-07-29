@@ -1,6 +1,7 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var dcosDocs = hierarchy.children.filter(child => child.id == 'dcos')[0]
+- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var items = cnDocs.children.filter(child => child.id == 'services')[0]
 //- - var items = svDocs.children
