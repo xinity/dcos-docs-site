@@ -3,6 +3,7 @@ layout: konvoy-docs-landing.pug
 navigationTitle: Konvoy
 title: Konvoy
 menuWeight: 0
+menus: ['konvoy-header']
 ---
 
 Konvoy is a complete, standalone distribution of Kubernetes that enables you to provision native Kubernetes clusters with a suite of [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.
