@@ -45,11 +45,11 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ').header__logo--mobile
+          img(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -61,15 +61,15 @@ html(lang='en')
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
-                a(href='https://support.mesosphere.com') Support
+                a(href='https://support.d2iq.com') Support
       include partials/header/header-dropdown.pug
       div(class='landing__main-hero')
         div(class='landing__hero-tile-container')
-          a(href="/dcos", class='landing__hero-tile')
+          a(href="/mesosphere/dcos", class='landing__hero-tile')
             div(class='landing__tile-logo-container')
               img(class='landing__tile-logo' src='/assets/mesosphere-icon--color.svg')
             h3(class='landing__tile-title') Mesosphere DC/OS
-          a(href="/konvoy", class='landing__hero-tile')
+          a(href="/ksphere/konvoy", class='landing__hero-tile')
             div(class='landing__tile-logo-container')
               img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
             h3(class='landing__tile-title') Ksphere: Konvoy
@@ -81,8 +81,8 @@ html(lang='en')
           div(class='landing__external-item')
             i(data-feather='book', class='landing__external-icon')
             h3(class='landing__external-title')
-              a(class='landing__external-link', href='https://mesosphere.com/training/') Get Training
-            p(class='landing__external-description') Learn to use and administer Kubernetes in real-time training courses, in person or online, offered by D2IQ.
+              a(class='landing__external-link', href='https://d2iq.com/training/') Get Training
+            p(class='landing__external-description') Learn to use and administer Konvoy and other products in real-time training courses, in person or online, offered by D2IQ.
           div(class='landing__external-item')
             i(data-feather='users', class='landing__external-icon')
             h3(class='landing__external-title')
@@ -97,11 +97,11 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://d2iq.com/')
-            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
+            img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy
-          a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
+          a(class='landing__footer__copyright', href='https://d2iq.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
