@@ -3,11 +3,13 @@
 - var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
 - var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
 - var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
+
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var serviceItem = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
-- var allItems = headerItemsUnsorted.concat(serviceItem)
-- var headerItems = allItems.sort((a, b) => a.menuWeight - b.menuWeight)
-- var sectionTitle = 'DC/OS Docs'
+- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
+
+- var dcosHeaderItems = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
+
+- var sectionTitle = 'Mesosphere DC/OS Docs'
 
 - var isChinese = paths[2] == 'cn'
 
@@ -63,23 +65,28 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ').header__logo--mobile
+          img(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
-              each val, index in headerItems
+              each val, index in dcosHeaderItems
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/dcos'
+                - itemClass['header__menu-item--active'] = val.path == '/mesosphere/dcos'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.d2iq.com') Support
+              each val in headerSphereItems
+                - var itemClass = {}
+                - itemClass['header__menu-item'] = true
+                li(class=itemClass)
+                  a(href=val.path)!= val.title
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
             strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
@@ -135,7 +142,7 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://d2iq.com/')
-            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
+            img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
           div(class='landing__footer__menu')
             a(href='https://d2iq.com/terms/') Terms of Service
             a(href='https://d2iq.com/privacy/') Privacy Policy

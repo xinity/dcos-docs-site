@@ -2,7 +2,7 @@
 layout: dcos-docs-landing.pug
 title: DC/OS
 navigationTitle: DC/OS
-menus: ['header']
+menus: ['dcos-header']
 menuWeight: -2
 ---
 
