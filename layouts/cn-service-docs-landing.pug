@@ -1,7 +1,7 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
+- var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesosDocs.children.filter(child => child.id == 'dcos')[0]
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var items = cnDocs.children.filter(child => child.id == 'services')[0]
 //- - var items = svDocs.children
@@ -9,7 +9,7 @@
 //- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[2] == 'cn'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -52,7 +52,7 @@ html(lang='en')
         footer(class='landing__footer')
           div(class='landing__footer__container')
             a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-              img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+              img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy

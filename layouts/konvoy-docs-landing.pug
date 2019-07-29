@@ -60,11 +60,11 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -72,31 +72,11 @@ html(lang='en')
               each val, index in headerItems
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/'
+                - itemClass['header__menu-item--active'] = val.path == '/konvoy'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
-        nav(id="landing-localization" class='localization')
-          div(id="landing-localization-current" class='localization-current')
-            strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
-            svg(class="localization-svg")
-              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
-          ul(class='localization-list')
-            if isChinese
-              - var enPath = `/${paths.slice(1).join('/')}`
-              li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=enPath) English
-            else
-              - function findLongestCnPath(enPaths)
-                if enPaths.length == 0
-                  - return '/cn/'
-                - var currPath = `/cn/${enPaths.join('/')}`
-                if hierarchy.checkIfPathExists(currPath)
-                  - return currPath
-                - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
-              li(class='localization-list-item')
-                a(href=findLongestCnPath(paths)) 中文 (简体)
         section(class='header__search', role='search')
           form(class='header__search-form', action='/search/', method='GET')
             label(class='header__search-label', for='header-search-input')
@@ -131,7 +111,7 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-            img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy

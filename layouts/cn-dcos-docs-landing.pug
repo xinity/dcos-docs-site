@@ -1,7 +1,7 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
-- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
+- var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesosDocs.children.filter(child => child.id == 'dcos')[0]
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var latestDocs = cnDocs.children.filter(child => child.id == dcosCNDocsLatest )[0]
 //- - var latestDocs = hierarchy.children.find(el => el.path === `/dcos`).children.find(el => el.path === `/cn/1.11`)
@@ -61,11 +61,11 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -80,20 +80,20 @@ html(lang='en')
           div(id="landing-localization-current" class='localization-current')
             strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
             svg(class="localization-svg")
-              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
+              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
           ul(class='localization-list')
+            - var enPath = `/${paths.slice(3).join('/')}`
             if isChinese
-              - var enPath = `/${paths.slice(1).join('/')}`
               li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=enPath) English
+                a(href=`/dcos${enPath}`) English
             else
-              - function findLongestCnPath(enPaths)
-                if enPaths.length == 0
-                  - return '/cn/'
-                - var currPath = `/cn/${enPaths.join('/')}`
+              - function findLongestCnPath(enPath)
+                if enPath.length == 0
+                  - return '/mesosphere/dcos/cn/'
+                - var currPath = `/mesosphere/dcos/cn/${enPath.join('/')}`
                 if hierarchy.checkIfPathExists(currPath)
                   - return currPath
-                - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
+                - return findLongestCnPath(enPath.slice(0, enPath.length - 1))
               li(class='localization-list-item')
                 a(href=findLongestCnPath(paths)) 中文 (简体)
         section(class='header__search', role='search')
@@ -130,7 +130,7 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-            img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy

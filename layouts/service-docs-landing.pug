@@ -1,10 +1,14 @@
 - var paths = path.split('/')
 - var isChinese = paths[2] == 'cn'
 - var currentPath = '/' + path
-- var servicePage = hierarchy.children.find(child => child.id === paths[0])
+- var mesosDocs = hierarchy.children.filter(child => child.id === 'mesosphere')[0]
+- var dcosDocs = mesosDocs.children.filter(child => child.id === 'dcos')[0]
+- var servicePage = dcosDocs.children.filter(child => child.id === 'services')[0]
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
 - var isChinese = paths[2] == 'cn'
+
+
 - 
   var categories = [
     "View All",
@@ -101,7 +105,7 @@ html(lang='en')
         footer(class='landing__footer')
           div(class='landing__footer__container')
             a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-              img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+              img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
             div(class='landing__footer__menu')
               a(href='https://mesosphere.com/terms/') Terms of Service
               a(href='https://mesosphere.com/privacy/') Privacy Policy

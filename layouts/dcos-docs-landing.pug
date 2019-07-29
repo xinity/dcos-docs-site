@@ -2,19 +2,21 @@
 - var semanticVersion = /^[0-9]\.[0-9].*$/
 - var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
 - var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
-- var latestDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
+- var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
+- var serviceItem = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var allItems = headerItemsUnsorted.concat(serviceItem)
+- var headerItems = allItems.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'DC/OS Docs'
 
-- var isChinese = paths[1] == 'cn'
+- var isChinese = paths[2] == 'cn'
 
 //- if paths[1] === 'services'
 //-   - sectionTitle = 'Service Docs'
 
 mixin renderGridToc()
   div(class='grid-toc')
-    each val, index in latestDocs.children
+    each val, index in latestDcosDocs.children
       if val.menuWeight != -1
         div(class='grid-toc__item')
           h2(class='grid-toc__title')
@@ -36,7 +38,7 @@ mixin renderGridToc()
 
 mixin renderGrid()
   div(class='grid')
-    a(href=latestDocs.path + '/installing', class='grid__item')
+    a(href=latestDcosDocs.path + '/installing', class='grid__item')
       h3(class='grid__header') Install DC/OS
       div(class='grid__desc__wrapper')
         p(class='grid__desc') Installation involves configuring your infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method. Select from development, cloud, and on-premises.
@@ -61,11 +63,11 @@ html(lang='en')
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -73,31 +75,29 @@ html(lang='en')
               each val, index in headerItems
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/'
+                - itemClass['header__menu-item--active'] = val.path == '/dcos'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
-              li(class='header__menu-item')
-                a(href='/dcos/services/') Service Docs
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
             strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
             svg(class="localization-svg")
-              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
+              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
           ul(class='localization-list')
+            - var enPath = `/${paths.slice(3).join('/')}`
             if isChinese
-              - var enPath = `/${paths.slice(1).join('/')}`
               li(id="landing-localization-list-item" class='localization-list-item')
                 a(href=enPath) English
             else
-              - function findLongestCnPath(enPaths)
-                if enPaths.length == 0
-                  - return '/cn/'
-                - var currPath = `/cn/${enPaths.join('/')}`
+              - function findLongestCnPath(enPath)
+                if enPath.length == 0
+                  - return '/mesosphere/dcos/cn/'
+                - var currPath = `/mesosphere/dcos/cn/${enPath.join('/')}`
                 if hierarchy.checkIfPathExists(currPath)
                   - return currPath
-                - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
+                - return findLongestCnPath(enPath.slice(0, enPath.length - 1))
               li(class='localization-list-item')
                 a(href=findLongestCnPath(paths)) 中文 (简体)
         section(class='header__search', role='search')
@@ -135,7 +135,7 @@ html(lang='en')
       footer(class='landing__footer')
         div(class='landing__footer__container')
           a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-            img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy

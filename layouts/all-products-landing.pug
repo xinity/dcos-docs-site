@@ -1,32 +1,39 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
-//- - var latestDocs = hierarchy.children.filter(child => child.id == dcosDocsLatest )[0]
+
+- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
+- var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
+
+- var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
+- var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
+- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
+
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'D2IQ Documentation'
 
 
-
 mixin renderProductBlurbs()
-  div(class='blurbs-container')
-    a(href="/dcos/1.13", class='grid-item')
-      h3(class='grid__header') DC/OS
-      div(class='grid__desc__wrapper')
-        p(class='grid__desc') DCOS Excerpt
-      div(class="grid__link")
-        i(data-feather='arrow-right')
-    a(href='/konvoy/0.1', class='grid__item')
-      h3(class='grid__header') Konvoy
-      div(class='grid__desc__wrapper')
-        p(class='grid__desc') Konvoy blurb
-      div(class="grid__link")
-        i(data-feather='arrow-right')
-    a(href='/kommander/0.1', class='grid__item')
-      h3(class='grid__header') Kommander
-      div(class='grid__desc__wrapper')
-        p(class='grid__desc') Kommander blurb
-      div(class="grid__link")
-        i(data-feather='arrow-right')
+  div(class='blurb__container')
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/dcos')
+        h3(class='blurb__header') Mesosphere DC/OS
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
+      ul(class="blurb__links")
+        for folder in latestDcosDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/konvoy')
+        h3(class='blurb__header') Konvoy
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Konvoy is a tool for provisioning pure Kubernetes clusters without an underpinning DC/OS cluster. The Konvoy cluster includes a suite of Cloud Native Computing Foundation (CNCF) and community-contributed tools that, deployed together, provide a complete out-of-the-box experience of production-ready Kubernetes.
+      ul(class="blurb__links")
+        for folder in latestKonvoyDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
 
 doctype html
 html(lang='en')
@@ -34,15 +41,15 @@ html(lang='en')
     include partials/head.pug
   body(class='landing landing--dcos')
     div(class='layout')
-      header(class='header')
+      header(class='header' style="position: fixed;")
         a(class='header__drawer')
           i(class='header__icon', data-feather='menu')
         a(href='/', class='header__logo')
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
-          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/placeholder-logo-80.svg', alt='Mesosphere').header__logo--desktop
         div(class='header__main')
           div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
+            img(class='header__dropdown-icon', src='/assets/placeholder-logo-80.svg', alt='Mesosphere')
             strong!= sectionTitle
             i(data-feather='chevron-down')
           nav(class='header__menu')
@@ -56,7 +63,16 @@ html(lang='en')
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
       include partials/header/header-dropdown.pug
-      div(class='landing__hero')
+      div(class='landing__main-hero')
+        div(class='landing__hero-tile-container')
+          a(href="/dcos", class='landing__hero-tile')
+            div(class='landing__tile-logo-container')
+              img(class='landing__tile-logo' src='/assets/mesosphere-icon--color.svg')
+            h3(class='landing__tile-title') Mesosphere DC/OS
+          a(href="/konvoy", class='landing__hero-tile')
+            div(class='landing__tile-logo-container')
+              img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
+            h3(class='landing__tile-title') Ksphere: Konvoy
 
 
       div(class='landing__container')
@@ -65,8 +81,8 @@ html(lang='en')
           div(class='landing__external-item')
             i(data-feather='book', class='landing__external-icon')
             h3(class='landing__external-title')
-              a(class='landing__external-link', href='https://mesosphere.com/training/') Get DC/OS Training
-            p(class='landing__external-description') Learn to use and administer DC/OS in real-time training courses, in person or online, offered by Mesosphere.
+              a(class='landing__external-link', href='https://mesosphere.com/training/') Get Training
+            p(class='landing__external-description') Learn to use and administer Kubernetes in real-time training courses, in person or online, offered by D2IQ.
           div(class='landing__external-item')
             i(data-feather='users', class='landing__external-icon')
             h3(class='landing__external-title')
@@ -80,8 +96,8 @@ html(lang='en')
 
       footer(class='landing__footer')
         div(class='landing__footer__container')
-          a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-            img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+          a(class='landing__footer__logo__link', href='https://d2iq.com/')
+            img(class='landing__footer__logo', src='/assets/placeholder-logo-80.svg')
           div(class='landing__footer__menu')
             a(href='https://mesosphere.com/terms/') Terms of Service
             a(href='https://mesosphere.com/privacy/') Privacy Policy

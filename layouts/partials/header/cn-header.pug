@@ -4,18 +4,18 @@
 - var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
 - function isItemActive(itemPath)
-  if itemPath == '/cn'
-    if path == '/cn'
+  if itemPath == '/mesosphere/dcos/cn'
+    if path == '/mesosphere/dcos/cn'
       - return true
-    - return semanticVersion.test(paths[1])
-  if itemPath == '/cn/services'
+    - return semanticVersion.test(paths[2])
+  if itemPath == '/mesosphere/dcos/cn/services'
     if `/${path}`.startsWith(itemPath)
       - return !`/${path}`.startsWith(`${itemPath}/kubernetes`)
     - return false
-  - return `/${path}`.startsWith('/cn/services/kubernetes')
+  - return `/${path}`.startsWith('/mesosphere/dcos/cn/services/kubernetes')
 
 - var sectionTitle = 'DC/OS文档'
-if paths[1] === 'services'
+if paths[3] === 'services'
   - sectionTitle = '服务文档'
 
 include header.pug
