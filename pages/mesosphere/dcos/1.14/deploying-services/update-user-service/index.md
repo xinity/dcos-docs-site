@@ -10,9 +10,9 @@ enterprise: false
 ---
 
 
-You can easily view and update the configuration of a deployed app by using the [`dcos marathon`](/1.14/cli/command-reference/dcos-marathon/) CLI commands.
+You can easily view and update the configuration of a deployed app by using the [`dcos marathon`](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) CLI commands.
 
-The process for updating packages from the UI is different. For more information, see the [documentation](/1.14/deploying-services/config-universe-service/).
+The process for updating packages from the UI is different. For more information, see the [documentation](/mesosphere/dcos/1.14/deploying-services/config-universe-service/).
 
 # Update all Environment Variables
 

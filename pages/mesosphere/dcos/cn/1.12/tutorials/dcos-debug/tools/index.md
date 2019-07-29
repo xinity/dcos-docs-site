@@ -197,7 +197,7 @@ Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务�
 
 ### 系统日志
 
-我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/1.12/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
+我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/1.12/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/cn/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
 
 例如，考虑 Mesos 代理节点`ffc913d8-4012-4953-b693-1acc33b400ce-S0`上 docker 守护程序的系统单元（重新调用 `dcos node` 命令检索 Mesos ID）。
 
