@@ -1,9 +1,14 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var items = hierarchy.children.find(el => el.path === `/cn`).children.find(el => el.path === `/cn/services`)
+- var dcosDocs = hierarchy.children.filter(child => child.id == 'dcos')[0]
+- var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
+- var items = cnDocs.children.filter(child => child.id == 'services')[0]
+//- - var items = svDocs.children
+
+//- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[0] == 'cn'
+- var isChinese = paths[1] == 'cn'
 
 mixin renderGridToc()
   div(class='grid-toc')

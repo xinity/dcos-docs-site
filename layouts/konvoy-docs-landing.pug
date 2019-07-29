@@ -1,15 +1,20 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
-- var dcosDocs = hierarchy.children.filter(child => child.id == 'dcos')[0]
-- var latestDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
+- var currentProduct = paths[0]
+- var prodDocs = hierarchy.children.filter(child => child.id == currentProduct)[0]
+if currentProduct = 'konvoy'
+  - var latestDocs = prodDocs.children.filter(child => child.id == konvoyDocsLatest)[0]
+else if currentProduct = 'kommander'
+  - var latestDocs = prodDocs.children.filter(child => child.id == kommanderDocsLatest)[0]
+
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
-- var sectionTitle = 'DC/OS Docs'
+- var sectionTitle = 'Product Docs Page'
 
-- var isChinese = paths[1] == 'cn'
 
-//- if paths[1] === 'services'
-//-   - sectionTitle = 'Service Docs'
+
+- console.log(currentProduct)
+
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -23,9 +28,7 @@ mixin renderGridToc()
             p(class='grid-toc__desc')!= displayExcerpt
           if val.children
             ul(class='grid-toc__list')
-              - var getFive = val.children.slice(0,5)
-              - filteredFive = getFive.filter(item => typeof item.menuWeight === 'number')
-              for item in filteredFive
+              for item in val.children.slice(0, 5)
                 li(class='grid-toc__list-item')
                   a(href=item.path, class='grid-toc__link')!= item.title
               if val.children.length > 5
@@ -76,8 +79,6 @@ html(lang='en')
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
-                a(href='/dcos/services/') Service Docs
-              li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
@@ -113,7 +114,6 @@ html(lang='en')
 
       div(class='landing__container')
         +renderGridToc()
-        +renderGrid()
         div(class='landing__external')
           div(class='landing__external-item')
             i(data-feather='book', class='landing__external-icon')
@@ -142,3 +142,4 @@ html(lang='en')
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
+
