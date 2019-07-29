@@ -104,11 +104,11 @@ const currentYear = (new Date()).getFullYear();
 // Metadata
 // These are available in the layouts as js variables
 MS.metadata({
-    url: 'https://docs.mesosphere.com',
-    siteTitle: 'Manhattan Products Documentation',
-    siteDescription: 'Welcome to the documentation pages for Manhattan Products. Visit one of the product ' +
+    url: 'https://docs.d2iq.com',
+    siteTitle: 'Documentation for D2IQ Products',
+    siteDescription: 'Welcome to the documentation pages for D2IQ. Visit one of the product ' +
         'pages to get started.',
-    copyright: `&copy; ${currentYear} Manhattan, Inc. All rights reserved.`,
+    copyright: `&copy; ${currentYear} D2IQ, Inc. All rights reserved.`,
     env: process.env.NODE_ENV,
     gitBranch: GIT_BRANCH,
     dcosDocsLatest: '1.14',
@@ -249,7 +249,7 @@ CB.use(headings());
 CB.use(timer('CB: Headings'));
 
 CB.use(redirect({
-    '/support': 'https://support.mesosphere.com',
+    '/support': 'https://support.d2iq.com',
 }));
 CB.use(timer('CB: Redirects'));
 

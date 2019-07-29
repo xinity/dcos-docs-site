@@ -60,8 +60,6 @@ html(lang='en')
                 - itemClass['header__menu-item--active'] = val.path == '/'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
-              li(class='header__menu-item')
-                a(href='https://support.d2iq.com') Support
       include partials/header/header-dropdown.pug
       div(class='landing__main-hero')
         div(class='landing__hero-tile-container')
@@ -87,7 +85,7 @@ html(lang='en')
             i(data-feather='users', class='landing__external-icon')
             h3(class='landing__external-title')
               a(class='landing__external-link', href='https://dcos.io/community/') Join the Community
-            p(class='landing__external-description') Join the DC/OS community to get help via mailing list or Slack.
+            p(class='landing__external-description') Join the community to get help via mailing list or Slack.
           div(class='landing__external-item')
             i(data-feather='slack', class='landing__external-icon')
             h3(class='landing__external-title')
@@ -99,8 +97,8 @@ html(lang='en')
           a(class='landing__footer__logo__link', href='https://d2iq.com/')
             img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
           div(class='landing__footer__menu')
-            a(href='https://mesosphere.com/terms/') Terms of Service
-            a(href='https://mesosphere.com/privacy/') Privacy Policy
+            a(href='https://d2iq.com/terms/') Terms of Service
+            a(href='https://d2iq.com/privacy/') Privacy Policy
           a(class='landing__footer__copyright', href='https://d2iq.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')

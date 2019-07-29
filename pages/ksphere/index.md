@@ -1,9 +1,9 @@
 ---
 layout: konvoy-docs-landing.pug
-navigationTitle: Welcome to Ksphere
-title: Welcome to Ksphere
+navigationTitle: Ksphere
+title: Ksphere
 featureMaturity:
-enterprise: false
+menus: ['landing-header']
 menuWeight: 5
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: dcos-docs-landing.pug
-title: Welcome to Mesosphere
-navigationTitle: Welcome to Mesosphere
-menus: ['header']
+title: Mesosphere
+navigationTitle: Mesosphere
+menus: ['landing-header']
 menuWeight: 0
 ---
 

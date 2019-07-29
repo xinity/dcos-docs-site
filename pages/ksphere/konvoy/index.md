@@ -1,9 +1,7 @@
 ---
 layout: konvoy-docs-landing.pug
-navigationTitle: Welcome to Konvoy
-title: Welcome to Konvoy
-featureMaturity:
-enterprise: false
+navigationTitle: Konvoy
+title: Konvoy
 menuWeight: 0
 ---
 
