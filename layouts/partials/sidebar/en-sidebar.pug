@@ -32,12 +32,12 @@ if paths[1] === 'dcos' && semver.test(paths[2])
   - versionTitle = paths[2]
   
 // Konvoy Docs
-if paths[1] === 'konvoy' && semver.test(paths[1])
+if paths[1] === 'konvoy'
   - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
   - type = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
   - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
-  - versionTitle = paths[1]
+  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
+  - versionTitle = ""
 
 
 - dropdown = dropdown.filter(item => item.menuWeight != -1)

@@ -6,12 +6,10 @@
 - var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
-- var sectionTitle = 'Product Docs Page'
+- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
 
-
-
-- console.log(currentProduct)
+- var konvoyHeaderItems = hierarchy.find('menus').filter(page => page.menus.indexOf('konvoy-header') != -1)
+- var sectionTitle = 'Konvoy Documentation'
 
 
 mixin renderGridToc()
@@ -70,14 +68,19 @@ html(lang='en')
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
-              each val, index in headerItems
+              each val, index in konvoyHeaderItems
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/konvoy'
+                - itemClass['header__menu-item--active'] = val.path == '/ksphere/konvoy'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.d2iq.com') Support
+              each val in headerSphereItems
+                - var itemClass = {}
+                - itemClass['header__menu-item'] = true
+                li(class=itemClass)
+                  a(href=val.path)!= val.title
         section(class='header__search', role='search')
           form(class='header__search-form', action='/search/', method='GET')
             label(class='header__search-label', for='header-search-input')

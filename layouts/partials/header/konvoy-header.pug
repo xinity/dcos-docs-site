@@ -10,10 +10,12 @@
 
 //TODO:: refactor konvoy itemActive
 - function isItemActive(itemPath)
+  - var itemPaths = itemPath.split('/')
   if itemPath == '/ksphere/konvoy/latest'
-    if path == '/ksphere/konvoy/latest'
+    if paths[2] == 'latest'
       - return true
-    - return paths[2] == 'latest'
-
+  if itemPath == '/ksphere/konvoy/partner-solutions'
+    if paths[2] == 'partner-solutions'
+      - return true
 
 include header.pug

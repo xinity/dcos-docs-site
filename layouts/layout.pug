@@ -1,6 +1,8 @@
-- var isChinese = path.split('/')[2] == 'cn'
-- var isDCOS = path.split('/')[1] == 'dcos'
+
 - var paths = path.split('/')
+- var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
+- var isKonvoy = paths[1] == 'konvoy'
 doctype html
 html(lang='en')
   head
@@ -9,6 +11,8 @@ html(lang='en')
     div(class='layout')
       if isChinese
         include partials/header/cn-header.pug
+      else if isKonvoy
+        include partials/header/konvoy-header.pug
       else
         include partials/header/en-header.pug
       if isChinese

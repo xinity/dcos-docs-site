@@ -2,7 +2,7 @@
 layout: konvoy-docs-landing.pug
 navigationTitle: Konvoy
 title: Konvoy
-menuWeight: 0
+menuWeight: 1
 menus: ['konvoy-header']
 ---
 
