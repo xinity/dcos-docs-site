@@ -13,9 +13,9 @@ html(lang='en')
         include partials/sidebar/en-sidebar.pug
       div(role='main', class='layout__content')
         if isChinese
-          include partials/header/cn-header.pug
+          include partials/header/dcos-cn-header.pug
         else
-          include partials/header/en-header.pug
+          include partials/header/dcos-en-header.pug
         main(class='content content__404')
           div(class=containerClass)
             div(class='content__header')

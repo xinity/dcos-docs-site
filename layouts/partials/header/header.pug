@@ -14,12 +14,14 @@ header(class='header')
         each val, index in pages
           - var itemClass = {}
           - itemClass['header__menu-item'] = true
-          - console.log(val.path)
           - itemClass['header__menu-item--active'] = isItemActive(val.path)
           li(class=itemClass)
             a(href=val.path)!= val.title
         li(class='header__menu-item')
           a(href='https://support.d2iq.com') Support
+        each sphere in headerSphereItems
+          li(class='header__menu-item')
+            a(href=sphere.path)!= sphere.title
   section(class='header__search', role='search')
       form(class='header__search-form', action='/search/', method='GET')
         input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')

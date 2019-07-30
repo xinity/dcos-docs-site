@@ -5,7 +5,7 @@
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var latestDocs = cnDocs.children.filter(child => child.id == dcosCNDocsLatest )[0]
 //- - var latestDocs = hierarchy.children.find(el => el.path === `/dcos`).children.find(el => el.path === `/cn/1.11`)
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
+- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'DC/OS Docs'
 

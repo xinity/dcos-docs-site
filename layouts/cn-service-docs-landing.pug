@@ -7,7 +7,7 @@
 //- - var items = svDocs.children
 
 //- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
 - var isChinese = paths[2] == 'cn'
 
@@ -44,7 +44,7 @@ html(lang='en')
   body(class='landing landing--services')
     div(class='layout')
       div(role='main', class='layout__content')
-        include partials/header/cn-header.pug
+        include partials/header/dcos-cn-header.pug
         div(class='landing__hero')
           h1(class='landing__title') DC/OS 服务文档
         div(class='landing__container')

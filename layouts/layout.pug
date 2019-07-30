@@ -10,11 +10,11 @@ html(lang='en')
   body
     div(class='layout')
       if isChinese
-        include partials/header/cn-header.pug
+        include partials/header/dcos-cn-header.pug
       else if isKonvoy
         include partials/header/konvoy-header.pug
       else
-        include partials/header/en-header.pug
+        include partials/header/dcos-en-header.pug
       if isChinese
         include partials/sidebar/cn-sidebar.pug
       else
