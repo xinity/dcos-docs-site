@@ -14,9 +14,9 @@
 - var isChinese = paths[2] == 'cn'
 - var isDCOS = paths[1] == 'dcos'
 
-- var sectionTitle = 'DC/OS文档'
-if paths[3] === 'services'
-  - sectionTitle = '服务文档'
+- var sectionTitle = 'DC/OS 文档'
+//- if paths[3] === 'services'
+//-   - sectionTitle = '服务文档'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -109,6 +109,7 @@ html(lang='en')
               i(class='header__icon', data-feather='search')
             input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       div(class='landing__hero')
+        h1(class='landing__title')!= sectionTitle
         form(class='landing__search', action='/search/', method='GET')
           input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
           button(class='landing__search-button')
