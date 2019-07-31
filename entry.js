@@ -21,3 +21,4 @@ require('./js/tabs.js');
 require('./js/ellipsis.js');
 require('./js/localization.js');
 require('./js/services-landing.js');
+require('./js/sphere.js');
