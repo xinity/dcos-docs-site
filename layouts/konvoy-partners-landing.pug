@@ -11,8 +11,8 @@
 
 - 
   var categories = [
-    "Networking",
-    "Security",
+    "View All",
+    "Networking and Security",
     "Storage",
     "Workload"
   ]
@@ -28,6 +28,16 @@ mixin renderGridInputs()
           each category, _ in categories
             - var categoryString = category.toLowerCase().split(' ').join('-')
             option(class='grid-filters__category__option' value=categoryString)!= category
+    div(class='grid-filters__labels' id="konvoy-labels")
+      div(class='grid-filters__label')
+        input(class='grid-filters__enterprise' type="checkbox" name="enterprise" value="enterprise")
+        label!= 'Include Enterprise'
+      div(class='grid-filters__label')
+        input(class='grid-filters__community' type="checkbox" name="community" value="community")
+        label!= 'Include Community'
+      div(class='grid-filters__label')
+        input(class='grid-filters__beta' type="checkbox" name="beta" value="beta")
+        label!= 'Include Beta'
 
 mixin renderGridToc()
   div(class='grid-toc' data-categories=categories.join(','))

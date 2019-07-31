@@ -4,7 +4,7 @@ navigationTitle: Cloudflare
 title: Cloudflare
 excerpt: Cloudflare Argo Tunnel
 menuWeight: 20
-category: Networking,Security
+category: Networking and Security
 image: img/cloudflare.png
 ---
 

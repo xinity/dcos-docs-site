@@ -20,17 +20,7 @@ header(class='header')
         li(class='header__menu-item')
           a(href='https://support.d2iq.com') Support
   if headerSphereItems
-    each sphere in headerSphereItems
-      - console.log(sphere)
-      div(class='chooser' id='spherer')
-        div(class='chooser-current')
-          a(class='chooser-title')!=sphere.title
-          svg(class="chooser-svg" id='spherer-svg')
-            path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
-        ul(class='chooser-list' id='spherer-list')
-          each section in sphere.children
-            li(class='chooser-list-item')
-              a(href=section.path)!= section.title
+    include sphere-dropdown.pug
   if (isDCOS)    
     include localization-dropdown.pug
   section(class='header__search', role='search')

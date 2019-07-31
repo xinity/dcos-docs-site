@@ -4,7 +4,7 @@ navigationTitle: Wallarm
 title: Wallarm
 excerpt: Wallarm the Next Generation Web Applicaton Firewall
 menuWeight: 150
-category: Networking,Security
+category: Networking and Security
 image: img/wallarm.png
 ---
 

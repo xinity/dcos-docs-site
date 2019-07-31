@@ -3,7 +3,8 @@
     position: relative;
     cursor: pointer;
     margin-right: 20px;
-    width: 120px;
+    // need 140 width to accodomate Mesosphere
+    width: 150px;
     ul {
         margin: 0;
         padding: 0;
@@ -36,7 +37,7 @@
         // left: 0px;
         // top: 8px;
         height: 0px;
-        width: 120px;
+        width: inherit;
         // width: 100%;
         border-radius: 3px;
         box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
