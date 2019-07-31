@@ -5,14 +5,18 @@
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var latestDocs = cnDocs.children.filter(child => child.id == dcosCNDocsLatest )[0]
 //- - var latestDocs = hierarchy.children.find(el => el.path === `/dcos`).children.find(el => el.path === `/cn/1.11`)
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
-- var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
-- var sectionTitle = 'DC/OS Docs'
+- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
 
+
+- var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
+- var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 - var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
 
+- var sectionTitle = 'DC/OS文档'
 if paths[3] === 'services'
-  - sectionTitle = 'Service Docs'
+  - sectionTitle = '服务文档'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -70,11 +74,14 @@ html(lang='en')
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
-              each val, index in headerItems
+              each val, index in pages
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/cn'
+                - itemClass['header__menu-item--active'] = val.path == '/mesosphere/dcos/cn'
                 li(class=itemClass)
+                  a(href=val.path)!= val.title
+              each val in headerSphereItems
+                li(class='header__menu-item')
                   a(href=val.path)!= val.title
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
@@ -85,7 +92,7 @@ html(lang='en')
             - var enPath = `/${paths.slice(3).join('/')}`
             if isChinese
               li(id="landing-localization-list-item" class='localization-list-item')
-                a(href=`/dcos${enPath}`) English
+                a(href=`/mesosphere/dcos${enPath}`) English
             else
               - function findLongestCnPath(enPath)
                 if enPath.length == 0

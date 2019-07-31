@@ -7,12 +7,13 @@
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
 
-- var dcosHeaderItems = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
+- var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
+- var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
 - var sectionTitle = 'Mesosphere DC/OS Docs'
 
 - var isChinese = paths[2] == 'cn'
-
+- var isDCOS = paths[1] == 'dcos'
 //- if paths[1] === 'services'
 //-   - sectionTitle = 'Service Docs'
 
@@ -74,7 +75,7 @@ html(lang='en')
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
-              each val, index in dcosHeaderItems
+              each val, index in pages
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
                 - itemClass['header__menu-item--active'] = val.path == '/mesosphere/dcos'

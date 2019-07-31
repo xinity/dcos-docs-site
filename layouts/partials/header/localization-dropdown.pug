@@ -1,5 +1,5 @@
 
-- var enPaths = paths.slice(3)
+- var enPaths = paths.slice(2)
  
 nav(class='localization')
   div(class='localization-current')
@@ -8,7 +8,7 @@ nav(class='localization')
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul(class='localization-list')
     if isChinese
-      - var enPath = `/${paths.slice(2).join('/')}`
+      - var enPath = `/${paths.slice(3).join('/')}`
       li(class='localization-list-item')
         - var fullPath = "/mesosphere/dcos".concat(enPath)
         a(href=fullPath) English
