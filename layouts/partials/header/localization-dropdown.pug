@@ -1,15 +1,15 @@
 
 - var enPaths = paths.slice(2)
  
-nav(class='localization')
-  div(class='localization-current')
-    strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
-    svg(class="localization-svg")
+nav(class='chooser' id="localizer")
+  div(class='chooser-current')
+    strong(class='chooser-language')!= isChinese ? '中文 (简体)' : 'English'
+    svg(class="chooser-svg" id="localizer-svg")
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
-  ul(class='localization-list')
+  ul(class='chooser-list' id="localizer-list")
     if isChinese
       - var enPath = `/${paths.slice(3).join('/')}`
-      li(class='localization-list-item')
+      li(class='chooser-list-item')
         - var fullPath = "/mesosphere/dcos".concat(enPath)
         a(href=fullPath) English
     else
@@ -20,6 +20,6 @@ nav(class='localization')
         if hierarchy.checkIfPathExists(currPath)
           - return currPath
         - return findLongestCnPath(inPath.slice(0, inPath.length - 1))
-      li(class='localization-list-item')
+      li(class='chooser-list-item')
         - var longest = findLongestCnPath(enPaths)
         a(href=longest) 中文 (简体)

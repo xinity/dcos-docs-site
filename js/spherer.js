@@ -1,8 +1,8 @@
 class Spherer {
     constructor(el) {
         this.el = el;
-        this.list = this.el.querySelector('.sphere-list');
-        this.svg = this.el.querySelector('.sphere-svg');
+        this.list = this.el.querySelector('#spherer-list');
+        this.svg = this.el.querySelector('#spherer-svg');
 
         this.listShown = false;
 
@@ -54,6 +54,6 @@ class Spherer {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sphereNav = document.querySelector('.sphere');
+    const sphereNav = document.querySelector('#spherer');
     new Spherer(sphereNav);
 });

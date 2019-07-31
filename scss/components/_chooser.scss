@@ -1,4 +1,4 @@
-.sphere {
+.chooser {
     border: 1px solid deeppink !important;
     position: relative;
     cursor: pointer;
@@ -41,7 +41,7 @@
         background: $color-light;
         list-style: none;
         // padding: 0;
-        padding: 5px;
+        // padding: 5px;
         transition: height .4s ease;
         overflow: hidden;
         display: flex;
