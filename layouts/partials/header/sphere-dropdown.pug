@@ -1,0 +1,9 @@
+nav(class='sphere')
+  div(class='sphere-current')
+    strong(class='shere-title')!=sphere.title
+    svg(class="sphere-svg")
+      path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
+  ul(class='sphere-list')
+    each section in sphere
+      li(class='sphere-list-item')
+        a(href=section.path)!= section.title

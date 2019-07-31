@@ -1,11 +1,12 @@
 .chooser {
-    border: 1px solid deeppink !important;
+    // border: 1px solid deeppink !important;
     position: relative;
     cursor: pointer;
     margin-right: 20px;
     width: 120px;
     ul {
         margin: 0;
+        padding: 0;
     }
     &-current {
         position: relative;
@@ -21,13 +22,14 @@
             color: $color-v2-grey;
             font-size: 16px;
         }
+        padding: 0 15px;
     }
     &-transition {
         transition-duration: 0.4s;
         transition-timing-function: ease-in-out;
     }
     &-list {
-        border: 1px solid deeppink !important;
+        // border: 1px solid deeppink !important;
         z-index: 5;
         display: block;
         position: absolute;
@@ -70,13 +72,14 @@
             /* Internet Explorer/Edge */
             user-select: none;
             /* Non-prefixed version, Chrome/Opera */
+            padding-left: 15px;
         }
     }
     &-language {
-        font-weight: 400;
-        color: $color-grey;
+        // font-weight: 400;
+        // color: $color-grey;
         text-decoration: none;
-        margin-right: 13px;
+        // margin-right: 13px;
         -webkit-touch-callout: none;
         /* iOS Safari */
         -webkit-user-select: none;
@@ -101,6 +104,18 @@
     }
     .flipped {
         transform: rotate(180deg);
+    }
+    @include md {
+        &-current {
+            a {
+                font-size: 18px;
+            }
+        }
+        &-list {
+            &-item a {
+                font-size: 18px;
+            }
+        }
     }
 }
 

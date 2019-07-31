@@ -21,6 +21,7 @@ header(class='header')
           a(href='https://support.d2iq.com') Support
   if headerSphereItems
     each sphere in headerSphereItems
+      - console.log(sphere)
       div(class='chooser' id='spherer')
         div(class='chooser-current')
           a(class='chooser-title')!=sphere.title

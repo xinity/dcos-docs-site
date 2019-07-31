@@ -1,9 +1,9 @@
 
 - var enPaths = paths.slice(2)
  
-nav(class='chooser' id="localizer")
+div(class='chooser' id="localizer")
   div(class='chooser-current')
-    strong(class='chooser-language')!= isChinese ? '中文 (简体)' : 'English'
+    a(class='chooser-title')!= isChinese ? '中文 (简体)' : 'English'
     svg(class="chooser-svg" id="localizer-svg")
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul(class='chooser-list' id="localizer-list")

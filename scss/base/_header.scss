@@ -16,18 +16,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 22px;
+        font-size: 18px;
         line-height: 1;
         &-icon {
-            height: 22px;
+            height: 18px;
         }
         strong {
             margin: 0 0.5rem;
         }
         svg {
             display: block;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             transition: all 0.3s $ease-in-out-cubic;
         }
     }
@@ -64,7 +64,7 @@
             line-height: 1;
             a {
                 font-weight: 500;
-                font-size: 18px;
+                font-size: 16px;
                 color: $color-v2-grey; //may want to make the dark purple??
                 text-decoration: none;
             }
@@ -145,6 +145,9 @@
             align-items: flex-start;
             flex: 1;
             height: 20px;
+            &-item {
+                font-size: 18px;
+            }
         }
         &__logo {
             display: block;
