@@ -7,7 +7,7 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        height: 275px;
+        height: 300px;
         padding: 0rem 1rem;
         // background: #131626 url('/assets/k8-hero.png') no-repeat;
         // background-position: 80px bottom;
@@ -30,7 +30,7 @@
         max-width: 600px;
         min-width: 285px;
         width: 75%;
-        margin-top: 1rem;
+        margin-top: 2rem;
         border-bottom: 2px $color-purple-d3 solid;
         &-button {
             position: absolute;

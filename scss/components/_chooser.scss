@@ -36,11 +36,11 @@
         position: absolute;
         // left: 0px;
         top: 50px;
-        height: 0px;
+        // height: 0px;
         width: 170px;
         // width: 100%;
         border-radius: 3px;
-        box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 8px 10px rgba(0, 0, 0, 0.1);
         background: $color-light;
         list-style: none;
         // padding: 0;
@@ -51,6 +51,7 @@
         // align-items: center;
         flex-direction: column;
         padding: 0px 15px;
+        display: none;
         &-item {
             line-height: 1;
         }
@@ -75,8 +76,7 @@
             /* Internet Explorer/Edge */
             user-select: none;
             /* Non-prefixed version, Chrome/Opera */
-            padding-left: 15px;
-            padding-top: 15px;
+            padding: 15px;
         }
     }
     &-language {
@@ -104,7 +104,8 @@
     }
     .show {
         transition: height .4s ease;
-        height: 90px;
+        // height: 90px;
+        display: initial;
     }
     .flipped {
         transform: rotate(180deg);
