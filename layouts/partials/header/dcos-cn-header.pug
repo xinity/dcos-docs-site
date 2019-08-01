@@ -1,6 +1,6 @@
 - var semanticVersion = /^[0-9]+\.[0-9]+/
 - var menuPages = hierarchy.find('menus')
-- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-header') != -1)
+- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
