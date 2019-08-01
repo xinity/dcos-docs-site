@@ -11,7 +11,7 @@ model: /1.14/data.yml
 # Overview
 Groups provide the foundation for supporting multi-tenant clusters using DC/OS. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
 
-The topics in this section discuss how you can use **service groups** to manage resources by setting quota restrictions to support multi-tenancy.
+The topics in this section discuss how you can use **groups** to manage resources by setting quota restrictions to support multi-tenancy.
 
 
 ## Quotas
@@ -107,7 +107,7 @@ dcos kafka --name=/<group>/kafka pod replace <pod-name>
 
 ### Limitations
 
-* You can only set quota on top level groups (doe example, "/dev") but not on nested groups ("/dev/foo").
+* You can only set quota on top level groups (for example, "/dev") but not on nested groups ("/dev/foo").
 * Services running in the root group (for example, /app) are not enforced by quota.
 * Not all the Catalog services are enforced by quota. Refer to the specific service documentation for details.
 * Jobs are not enforced by quota.
