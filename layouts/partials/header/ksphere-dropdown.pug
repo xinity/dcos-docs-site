@@ -11,6 +11,7 @@
       }
     ]
   }]
+
 each sphere in ksphereMenu
   div(class='chooser' id='ks')
     div(class='chooser-current')
@@ -21,4 +22,3 @@ each sphere in ksphereMenu
       each section in sphere.children
         li(class='chooser-list-item')
           a(href=section.path)!= section.title
-          
