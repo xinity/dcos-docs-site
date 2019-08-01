@@ -19,9 +19,10 @@ header(class='header')
             a(href=val.path)!= val.title
         li(class='header__menu-item')
           a(href='https://support.d2iq.com') Support
-  if headerSphereItems
-    include sphere-dropdown.pug
-  if (isDCOS)    
+  if isKonvoy
+    include mesosphere-dropdown.pug
+  if (isDCOS)
+    include ksphere-dropdown.pug
     include localization-dropdown.pug
   section(class='header__search', role='search')
       form(class='header__search-form', action='/search/', method='GET')

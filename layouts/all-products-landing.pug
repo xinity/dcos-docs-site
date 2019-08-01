@@ -10,15 +10,15 @@
 - var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
-- var pages = headerItems
+- var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
+- var pages = headerSphereItems
 - var sectionTitle = 'D2IQ Documentation'
 
 
 mixin renderProductBlurbs()
   div(class='blurb__container')
     div(class='blurb__item')
-      a(class='blurb__link-group' href='/dcos')
+      a(class='blurb__link-group' href='/mesosphere/dcos')
         h3(class='blurb__header') Mesosphere DC/OS
         div(class='blurb__desc__wrapper')
           p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
@@ -27,7 +27,7 @@ mixin renderProductBlurbs()
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
     div(class='blurb__item')
-      a(class='blurb__link-group' href='/konvoy')
+      a(class='blurb__link-group' href='/ksphere/konvoy')
         h3(class='blurb__header') Konvoy
         div(class='blurb__desc__wrapper')
           p(class='blurb__desc') Konvoy is a tool for provisioning pure Kubernetes clusters without an underpinning DC/OS cluster. The Konvoy cluster includes a suite of Cloud Native Computing Foundation (CNCF) and community-contributed tools that, deployed together, provide a complete out-of-the-box experience of production-ready Kubernetes.
@@ -53,14 +53,16 @@ html(lang='en')
             img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
             strong!= sectionTitle
             i(data-feather='chevron-down')
-          nav(class='header__menu')
-            ul(class='header__menu-list')
-              each val, index in headerItems
-                - var itemClass = {}
-                - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/'
-                li(class=itemClass)
-                  a(href=val.path)!= val.title
+        include partials/header/mesosphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
+          //- nav(class='header__menu')
+          //-   ul(class='header__menu-list')
+          //-     each val, index in headerItems
+          //-       - var itemClass = {}
+          //-       - itemClass['header__menu-item'] = true
+          //-       - itemClass['header__menu-item--active'] = val.path == '/'
+          //-       li(class=itemClass)
+          //-         a(href=val.path)!= val.title
       include partials/header/header-dropdown.pug
       div(class='landing__main-hero')
         div(class='landing__hero-tile-container')
@@ -71,7 +73,7 @@ html(lang='en')
           a(href="/ksphere/konvoy", class='landing__hero-tile')
             div(class='landing__tile-logo-container')
               img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
-            h3(class='landing__tile-title') Ksphere: Konvoy
+            h3(class='landing__tile-title') Konvoy
 
 
       div(class='landing__container')

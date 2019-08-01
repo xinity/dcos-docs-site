@@ -1,4 +1,17 @@
-each sphere in headerSphereItems
+- 
+  var mesosphereMenu = [{
+    "title": "Mesosphere",
+    "children": [
+      {
+        "title": "DC/OS", 
+        "path":"/mesosphere/dcos"
+      }, {
+        "title": "DC/OS Services", 
+        "path":"/mesosphere/dcos/services"
+      }
+    ]
+  }]
+each sphere in mesosphereMenu
   div(class='chooser' id='spherer')
     div(class='chooser-current')
       a(class='chooser-title')!=sphere.title
@@ -8,3 +21,4 @@ each sphere in headerSphereItems
       each section in sphere.children
         li(class='chooser-list-item')
           a(href=section.path)!= section.title
+          
