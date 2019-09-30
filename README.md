@@ -1,6 +1,6 @@
 # DC/OS Documentation
 
-## Environments
+## Environments.
 
 | Branch | Site Build | PDF Build | Link Checker | URL |
 | ------ | ---------- | --------- | ------------ | --- |
