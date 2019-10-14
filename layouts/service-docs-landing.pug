@@ -59,7 +59,8 @@ mixin renderGridToc()
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices
-          - latestPath = service.path + '/latest/'
+          - var latestServiceVersion = service.children.slice(0,1)
+          - var serPath = latestServiceVersion[0].path + "/"
           - var categoryString = category.split(' ').join('-')
           - var serviceItemClasses = `grid-toc__service-item`
           if service.beta
@@ -71,7 +72,7 @@ mixin renderGridToc()
           div(class=serviceItemClasses)
             div(class='grid-toc__title-group')
               h2(class='grid-toc__title')
-                a(href=latestPath)!= service.title
+                a(href=serPath)!= service.title
               ul(class='grid-toc__labels')
                 if service.beta
                   p(class='badge badge--beta') BETA
@@ -82,10 +83,9 @@ mixin renderGridToc()
             p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
             if service.children
               ul(class='grid-toc__service-list')
-                for version in service.children.slice(0,1)
-                  for folder in version.children.slice(0,3)
-                    li(class='grid-toc__service-list-item')
-                      a(href=folder.path, class='grid-toc__link')!= folder.title
+                for folder in latestServiceVersion[0].children.slice(0,3)
+                  li(class='grid-toc__service-list-item')
+                    a(href=folder.path, class='grid-toc__link')!= folder.title
 
 doctype html
 html(lang='en')

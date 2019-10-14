@@ -160,7 +160,7 @@
         color: $color-light-grey-d5;
     }
     h1 {
-        font-size: 22px;
+        font-size: 26px;
     }
     &__service-category {
         width: 100%;
@@ -169,7 +169,7 @@
         margin-bottom: 15px;
         border-bottom: 1px solid $color-light-grey-l2;
         border-radius: 2px;
-        margin-left: 15px;
+        // margin-left: 15px; 
     }
     &__title-group {
         display: flex;
@@ -211,6 +211,7 @@
     }
     &__title {
         line-height: 1.25;
+        font-size: 22px;
         margin: 0;
         padding: 0;
         color: $color-purple-d3;
