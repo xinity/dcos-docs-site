@@ -27,7 +27,7 @@ services:
     image: 18fgsa/html-proofer
     volumes:
       - docs-build:/src/build
-    command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/1.13/\1'
+    command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/2.0/\1'
 
 volumes:
   docs-build:

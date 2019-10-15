@@ -1,0 +1,46 @@
+---
+layout: layout.pug
+navigationTitle: Release notes for 2.0.0
+title: Release notes for 2.0.0
+menuWeight: 5
+render: mustache
+model: /mesosphere/dcos/2.0/data.yml
+excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
+---
+DC/OS 2.0.0 was released on //.
+
+[button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+
+Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
+
+# Release summary
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
+
+This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages–such as Marathon and Metronome–used in DC/OS.
+
+If you have DC/OS deployed in a production environment, see [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
+
+# New features and capabilities
+
+## Highlights of what's new
+
+# Issues fixed in this release
+
+
+### Third-party updates and compatibility
+
+
+# Known issues and limitations
+This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
+
+### Deprecated or decommissioned features
+
+
+# Updated components change lists
+
+
+# Previous releases
+To review changes from a recent previous release, see the following links:
+
