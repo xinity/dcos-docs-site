@@ -11,6 +11,8 @@ enterprise: false
 
 This section guides you through the basic steps to prepare your environment and install Konvoy on AWS.
 
+Testing
+
 ## Prerequisites
 
 * The [aws][install_aws] command line utility
