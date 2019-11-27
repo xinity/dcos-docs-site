@@ -25,7 +25,7 @@ LVM2 is bundled with DC/OS Enterprise.
 1.  Get the node ID of the agent.
 
     ```bash
-    dcos node
+    dcos node list
     ```
     ```
     HOSTNAME        IP                         ID                    TYPE                 REGION          ZONE
