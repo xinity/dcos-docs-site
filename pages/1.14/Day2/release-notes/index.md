@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes
+navigationTitle:  Release Notes  
 title: Release Notes
-menuWeight: 0
+menuWeight: 200
 excerpt: Release notes, Open Source attribution, and version policy for DC/OS 1.14
 ---
 

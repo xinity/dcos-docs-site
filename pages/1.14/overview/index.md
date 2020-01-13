@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Overview
 title: Overview
-menuWeight: 20
+menuWeight: 0
 excerpt: Getting started with DC/OS fundamentals
 render: mustache
 model: /1.14/data.yml
