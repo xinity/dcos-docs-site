@@ -7,11 +7,39 @@ excerpt: View release-specific information for Konvoy
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD034 -->
+
 ## Release Notes
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+
+### Version NEXT
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.4 |
+
+#### Improvements
+
+- Archive inside of diagnostics bundles now have a prefix denoting whether the node is a worker or a master.
+- Collect etcd, kube-apiserver and keepalived logs on master hosts using crictl.
+- Allow MTU to be customized for Calico networking.
+
+#### Bug fixes
+
+N/A
+
+#### Component version changes
+
+- Calico `v3.10.1`
+
+#### Known issues and limitations
+
+N/A
 
 ### Version 1.2.6 - Release 2 December 2019
 
@@ -217,7 +245,6 @@ N/A
 #### Component version changes
 
 - Kubernetes `v1.15.5`
-- kubeadd-configs `v1.15.5-1`
 
 #### Known issues and limitations
 
@@ -249,17 +276,17 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.5 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Improvements
 
-- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubeaddons-configs](https://github.com/mesosphere/kubeaddons-configs). Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-onprem/#specifying-a-local-kubeaddons-configs-repo).
+- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-onprem/#specifying-a-local-kubernetes-base-addons-repo).
 
 #### Addons improvements
 
-- Support specifying a different git repo when fetching [kubeaddons-configs](https://github.com/mesosphere/kubeaddons-configs).
+- Support specifying a different git repo when fetching [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons).
 
 #### Bug fixes
 
@@ -299,9 +326,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.5 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Improvements
 
@@ -349,9 +376,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.0 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Disclaimer
 
@@ -362,9 +389,9 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.15.5
+    version: 1.15.4
   addons:
-    configVersion: stable-1.15.5-1
+    configVersion: stable-1.15.4-1
     addonsList:
     - name: cert-manager
       enabled: true
@@ -396,7 +423,7 @@ N/A
 #### Component version changes
 
 - Calico `v3.8.2`
-- Kubernetes `v1.15.5`
+- Kubernetes `v1.15.4`
 
 #### Known issues and limitations
 
@@ -484,14 +511,13 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Disclaimer
 
 <p class="message--warning"><strong>WARNING: </strong>This version contains a bug where it will fail when retrying an installation, upgrading or addding additional nodes, it is strongly recommended to use a newer version.</p>
 
 The marker file on the nodes was being set with incorrect permissions and a change in the Konvoy wrapper surfaced this error, meaning that the user inside the Konvoy could not read the file.
-
 
 The error you might see will be something similar to:
 
@@ -516,7 +542,7 @@ N/A
 
 #### Improvements
 
-- Validate the minmum Docker version and that it is running on the host before using it in Konvoy.
+- Validate the minimum Docker version and that it is running on the host before using it in Konvoy.
 - Use `--mount` instead of `-v` to mount volumes into the Konvoy container, required for eventual Windows support.
 - New `konvoy diagnose` flags `--logs-all-namespaces` and `--logs-namespaces=[kubeaddons,kube-system]` to provide a better control of what Kubernetes pod logs to collect.
 - New `konvoy image list|upgrade` commands to be able to automatically list and download future release of the Konvoy image. It will no longer be necessary to download the Konvoy wrapper (unless you require wrapper specific changes) to use new versions of Konvoy.
@@ -580,7 +606,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 
@@ -649,7 +675,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 

@@ -207,7 +207,7 @@ velero get snapshot-locations
 [velero-dr]: https://heptio.github.io/velero/v0.11.0/disaster-case
 [velero-cm]: https://heptio.github.io/velero/v0.11.0/migration-case
 [velero-troubleshooting]: https://heptio.github.io/velero/v0.11.0/debugging-install
-[kubeaddons]:https://github.com/mesosphere/kubeaddons-configs
+[kubeaddons]:https://github.com/mesosphere/kubernetes-base-addons
 [releases]:https://github.com/heptio/velero/releases
 [minio]:https://velero.io/docs/v1.0.0/get-started/
 [velero-get-started]: https://heptio.github.io/velero/v0.11.0/get-started
