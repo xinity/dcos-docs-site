@@ -38,14 +38,19 @@
         // max-height: 250px;
         z-index: 10;
         transition: all 250ms ease-out;
-        margin: 20px;
+        margin: 20px 10px;
+        padding: 10px;
     }
     &__hero-tile:hover {
         box-shadow: 0 8px 20px 0 rgba(45, 45, 45, .23);
         transform: translateY(-5px);
     }
+    &__tile-title-group {
+      // display: flex;
+      // flex-direction: column; //stack beta
+    }
     &__tile-logo-container {
-      // height: 66%
+      margin-top: 20px; // stack beta
     }
     &__tile-logo {
         border-radius: 2px;
@@ -61,6 +66,9 @@
         text-decoration: none;
         margin: 0;
         text-align: center;
+    }
+    &__tile-beta {
+      margin-left: 10px !important;
     }
     @include md {
         &__main-hero {
@@ -79,7 +87,7 @@
         }
         &__hero-tile {
             height: 180px;
-            width: 220px;
+            width: 240px;
             // min-width: 300px;
             // min-height: 300px;
         }
