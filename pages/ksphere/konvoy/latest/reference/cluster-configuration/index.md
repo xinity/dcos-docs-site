@@ -113,7 +113,7 @@ spec:
   - name: worker
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -132,8 +132,6 @@ spec:
       enabled: true
     - name: dex-k8s-authenticator
       enabled: true
-    - name: dispatch
-      enabled: false
     - name: elasticsearch
       enabled: true
     - name: elasticsearchexporter
@@ -153,8 +151,6 @@ spec:
     - name: istio # Istio is currently in Preview
       enabled: false
     - name: kibana
-      enabled: true
-    - name: kommander
       enabled: true
     - name: konvoyconfig
       enabled: true
@@ -189,6 +185,16 @@ spec:
     - name: traefik-forward-auth
       enabled: true
     - name: velero
+      enabled: true
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: https://github.com/mesosphere/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: kommander
       enabled: true
   version: v1.3.0
 
@@ -576,4 +582,4 @@ Properties of an `addon` object.
 [azure_loadbalancer]: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
 [availability_set]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability
 [azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
-[azure_volume_types]: https://docs.okd.io/latest/install_config/persistent_storage/persistent_storage_azure.html
+[azure_volume_types]: https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes
