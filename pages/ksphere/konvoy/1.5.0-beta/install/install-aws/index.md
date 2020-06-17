@@ -200,7 +200,7 @@ Plan: 41 to add, 0 to change, 0 to destroy.
 ## Control plane and worker nodes
 
 Control plane nodes are the nodes where the Kubernetes Control Plane components will be installed.
-The Control Plane contains <a href="https://kubernetes.io/docs/concepts/overview/components/">various components</a>, including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. Please also refer to the [Concepts section][concepts].
+The Control Plane contains <a href="https://kubernetes.io/docs/concepts/overview/components/" target="_blank">various components</a>, including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. Please also refer to the [Concepts section][concepts].
 Having three control plane nodes makes the cluster "highly available" to protect against failures.
 Worker nodes run your containers in <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod/" target="_blank">Kubernetes pods</a>.
 
