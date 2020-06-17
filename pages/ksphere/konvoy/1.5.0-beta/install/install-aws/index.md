@@ -145,7 +145,7 @@ Below is the minimal IAM policy required:
 After verifying your prerequisites, you can create an AWS Kubernetes cluster by running `konvoy up`.
 This command creates your <a href="https://aws.amazon.com/ec2/" target="_blank">Amazon EC2</a> instances, installs Kubernetes, and installs default addons to support your Kubernetes cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If you want to customize your installation, you can do so by running [`konvoy init`][konvoy_init] and then editing the `cluster.yaml` file that was created.</p>
+<p class="message--note"><strong>NOTE: </strong>If you want to customize your installation, you can do so by running the command `konvoy init` and then editing the `cluster.yaml` file that was created.</p>
 
 Specifically, the `konvoy up` command does the following:
 
